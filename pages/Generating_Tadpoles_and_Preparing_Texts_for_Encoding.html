@@ -1,0 +1,122 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Generating Tadpoles and Preparing Texts for Encoding - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Generating Tadpoles and Preparing Texts for Encoding</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Review_and_Confirm_OT"><span class="tocnumber">1</span> <span class="toctext">Review and Confirm OT</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Export_Tadpole_in_FMP"><span class="tocnumber">2</span> <span class="toctext">Export Tadpole in FMP</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Transform_Tadpole"><span class="tocnumber">3</span> <span class="toctext">Transform Tadpole</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Add_to_Version_Control"><span class="tocnumber">4</span> <span class="toctext">Add to Version Control</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Set_Properties"><span class="tocnumber">5</span> <span class="toctext">Set Properties</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Add_to_Trello"><span class="tocnumber">6</span> <span class="toctext">Add to Trello</span></a></li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Review_and_Confirm_OT">Review and Confirm OT</h2>
+<ul><li>Look at the record in FMP’s <code>WWP_Transcription</code> database in the “Main OT Info” layout
+<ul><li>Check the “Queries and Comments” fields for any red flags</li>
+<li>Make sure that all the information in the record is complete and consistent with the office text itself</li>
+<li>If this is an OT you are adding to the system, make sure that you have the correct version of the text (one we want to encode and not some later or undesirable version)</li></ul></li></ul>
+<ul><li>If this is a digital OT
+<ul><li>Make sure that the “Digital” box is checked in the “OT Information” section in FMP</li>
+<li>Fill in online source information (Google Books, EEBO, etc.) in the “OT Notes” field in FMP</li>
+<li>Make sure that the file is saved in the <code>Office_Texts/</code> folder on <code>data.dsg.neu.edu</code>, following the convention: ot.<em>authorlastname.wordfromtitle</em>.pdf
+<ul><li>for example: <code>ot.cavendish.letters.pdf</code></li>
+<li>these should match the XML files, apart from the “<code>ot.</code>” prefix and the file extension</li></ul></li>
+<li>Save a copy of any new digital OTs on the failsafe flashdrive</li></ul></li></ul>
+<h2 class="mw-headline" id="Export_Tadpole_in_FMP">Export Tadpole in FMP</h2>
+<ul><li>In the “Main OT Info” layout, fill in the “filename” and “Transcription ID” fields in the “OT Information” section, making sure that we don’t already have the same filename for a different text</li>
+<li>Hit the <code>Tadpole</code> button</li>
+<li>Make sure you’re looking at the record for the text for which you want to create a tadpole, and double-check that everything looks good</li>
+<li>Fill in the genre information</li>
+<li>Hit the <code>Export Tadpole</code> button</li>
+<li>Choose to save as XML, fill in the appropriate file name and pick the location you want the file to go, then hit <code>Save</code></li>
+<li>Choose grammar “FMPXMLRESULT” and hit <code>Continue</code></li>
+<li>Hit <code>Export</code></li></ul>
+<h2 class="mw-headline" id="Transform_Tadpole">Transform Tadpole</h2>
+<ul><li>In oXygen, open the file you just created from wherever you saved it</li>
+<li>If this is the first time you’re running this transformation:
+<ul><li>Click on the Configure Transformation Scenario(s) button <a href="/mediawik/index.php/File:Oxygen_v16_configure_transform_scenario_button.png" class="image"><img alt="Oxygen v16 configure transform scenario button.png" src="/mediawik/images/8/88/Oxygen_v16_configure_transform_scenario_button.png" decoding="async" width="30" height="27" data-file-width="30" data-file-height="27" /></a>,
+<dl><dd>or choose “Document ➤ Transformation ➤ Configure Transformation Scenario(s)…”,</dd>
+<dd>or press <code>⌘-⇧-C</code></dd></dl></li>
+<li>Hit <code>New</code> and select “XML Transformation with XSLT”</li>
+<li>Choose a name for your transformation so you can select it easily in the future, e.g. <code>FMP2tadpole</code></li>
+<li>Check "Global Options" in "Storage"</li>
+<li>The XML URL field should default to your current file, i.e. <code>${currentFileURL}</code></li>
+<li>In the XSL URL field, either
+<ol><li>hit the folder icon to navigate to the <code>generate_tadpole.xslt</code> stylesheet, currently in the Web repository; e.g., <code>/Users/urfriend/Documents/WWP-web/utils/stylesheets/generate_tadpole.xslt</code>, OR</li>
+<li>enter <code><a rel="nofollow" class="external free" href="http://www.wwp.neu.edu/utils/stylesheets/generate_tadpole.xslt">http://www.wwp.neu.edu/utils/stylesheets/generate_tadpole.xslt</a></code></li></ol></li>
+<li>In the dropdown box labeled “Transformer”, select “Saxon-HE 9.6.0.5” (or whatever the version number of Saxon-HE is)</li>
+<li>Click the <code>Parameters</code> button
+<ul><li>Double-click the row with the name “userKey”</li>
+<li>In the Value field, type in your personography key (e.g. “urfriend.tei”)</li>
+<li>Click <code>OK</code></li>
+<li>Click <code>OK</code></li></ul></li>
+<li>Still in the “New scenario” dialog box, switch from the <code>XSLT</code> tab to the <code>Output</code> tab. Select “Prompt for File” and check “Open in Editor”</li>
+<li>You probably want to ensure that <em>neither</em> the “Open in Browser/System Application” <em>nor</em> any of the “Show in results view as” boxes are checked (they’re annoying)</li>
+<li>Click <code>OK</code></li>
+<li>Click <code>Save and close</code></li></ul></li>
+<li>Click on the Apply Transformation Scenario(s) button <a href="/mediawik/index.php/File:Oxygen_v16_run_transform_scenario_button.png" class="image"><img alt="Oxygen v16 run transform scenario button.png" src="/mediawik/images/4/45/Oxygen_v16_run_transform_scenario_button.png" decoding="async" width="22" height="22" data-file-width="22" data-file-height="22" /></a>,
+<dl><dd>or choose “Document ➤ Transformation ➤ Apply Transformation Scenario(s)”,</dd>
+<dd>or press <code>⌘-⇧-T</code></dd></dl></li>
+<li>If oXygen is unsure which transformation to run, it will put up the “Transform with” dialog box; choose the transformation you made earlier, e.g. <code>FMP2tadpole</code></li>
+<li>Save the output file in the <code>under_construction/</code> directory with the appropriate name (i.e., <code><em>authorlastname.wordfromtitle</em>.xml</code>)</li>
+<li>Make sure the new file looks okay; if so, delete the untransformed version</li></ul>
+<h2 class="mw-headline" id="Add_to_Version_Control">Add to Version Control</h2>
+<ul><li>Open the SVN client from within oXygen</li>
+<li>Refresh and your new file should show up with a question mark</li>
+<li>Control-click on the file and select “Add to Version Control” (which is near the bottom)</li>
+<li>Hit <code>Add</code></li>
+<li>You don’t need to commit this yet, because the next step will also need to be committed</li></ul>
+<h2 class="mw-headline" id="Set_Properties">Set Properties</h2>
+<ul><li>Control-click on the file and choose “Show SVN Properties” (which is near the bottom)</li>
+<li>Click on the blue plus sign icon near the top left of the Properties mini-window</li>
+<li>Select “svn:keywords” from the “Name” drop-down list</li>
+<li>Put “Id” in the “Current Value” field and hit <code>Ok</code></li>
+<li>Now you can commit both changes</li></ul>
+<h2 class="mw-headline" id="Add_to_Trello">Add to Trello</h2>
+<ul><li>In the Unencoded Texts list, select “Add a Card”</li>
+<li>Use the file name for the card’s name</li>
+<li>Fill in the text title, author, OT, and topics in the description</li>
+<li>If this is a digital OT, make a note in the description</li>
+<li>Add the green (i.e,, unassigned) label</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110131319
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.030 seconds
+Real time usage: 0.032 seconds
+Preprocessor visited node count: 19/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:369-0!canonical and timestamp 20241110131319 and revision id 2193
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Generating_Tadpoles_and_Preparing_Texts_for_Encoding&amp;oldid=2193">https://liblab.neu.edu/mediawik/index.php?title=Generating_Tadpoles_and_Preparing_Texts_for_Encoding&amp;oldid=2193</a>"</div>
+		
+	</div>
+</main>

@@ -1,0 +1,183 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWP Prefixes - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWP Prefixes</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="wikitable">
+<tbody><tr>
+<th>prefix</th>
+<th>pneumonic</th>
+<th>match</th>
+<th>replace</th>
+<th>where</th>
+<th>comments
+</th></tr>
+<tr>
+<td>b</td>
+<td>bibliography</td>
+<td>(\i\c*)</td>
+<td>./bibliography.xml#<em>$1</em></td>
+<td>textbase/IN, IN, MME/IN</td>
+<td>Refers to entries in the Intertextual Networks bibliography.
+</td></tr>
+<tr>
+<td>e</td>
+<td>event</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>Probably not in use, as WWiC would be the only one to use it.
+</td></tr>
+<tr>
+<td>ea</td>
+<td>exhibit editorial</td>
+<td>(\i\c*)</td>
+<td>./editorial.xml#<em>$1</em></td>
+<td>exhibits</td>
+<td>Possibly legacy?
+</td></tr>
+<tr>
+<td>ep</td>
+<td>exhibit person</td>
+<td>(\i\c*)</td>
+<td>./persons.xml#<em>$1</em></td>
+<td>exhibits</td>
+<td>
+</td></tr>
+<tr>
+<td>el</td>
+<td>exhibit location</td>
+<td>(\i\c*)</td>
+<td>./places.xml#<em>$1</em></td>
+<td>exhibits</td>
+<td>
+</td></tr>
+<tr>
+<td>ee</td>
+<td>exhibit event</td>
+<td>(\i\c*)</td>
+<td>./events.xml#<em>$1</em></td>
+<td>exhibits</td>
+<td>
+</td></tr>
+<tr>
+<td>l</td>
+<td>location</td>
+<td>([A-Z]{1-6}(-[A-Z]{1-6}){0-6})</td>
+<td>../common/places.xml#<em>$1</em></td>
+<td>WWiR</td>
+<td>
+</td></tr>
+<tr>
+<td>mbel</td>
+<td>Mary Baker Eddy Library</td>
+<td>?</td>
+<td>?</td>
+<td>MBEL</td>
+<td>not really in use any more
+</td></tr>
+<tr>
+<td>p</td>
+<td>person</td>
+<td>([a-z]{2-9}\.[a-z]{3})</td>
+<td>../common/persons.xml#<em>$1</em></td>
+<td>WWiR</td>
+<td>
+</td></tr>
+<tr>
+<td>p</td>
+<td>person</td>
+<td>([a-z]{2-9}\.[a-z]{3})</td>
+<td>./personography.xml#<em>$1</em></td>
+<td>textbase</td>
+<td>
+</td></tr>
+<tr>
+<td>p</td>
+<td>person</td>
+<td>([a-z]{2-9}\.[a-z]{3})</td>
+<td>./personography.xml#<em>$1</em></td>
+<td>IN</td>
+<td>
+</td></tr>
+<tr>
+<td>s</td>
+<td>source</td>
+<td>([a-z]+)</td>
+<td>../common/periodicals.xml#<em>$1</em></td>
+<td>WWiR</td>
+<td>
+</td></tr>
+<tr>
+<td>t</td>
+<td>textbase</td>
+<td>([\w-]+\.[\w-]+)#([\w\.-]+)</td>
+<td>http://www.wwp.northeastern.edu/texts/<em>$1</em>.html#<em>$2</em></td>
+<td>IN</td>
+<td>Used to point to specific <code>@xml:id</code>'d elements within a WWO document.
+</td></tr>
+<tr>
+<td>w</td>
+<td>work</td>
+<td>([a-z])+</td>
+<td>../common/received-texts.xml#<em>$1</em></td>
+<td>WWiR</td>
+<td>
+</td></tr>
+<tr>
+<td><em>mb</em></td>
+<td><em>MME bibliography</em></td>
+<td><em>(\i\c*)</em></td>
+<td><em>./bibliography.xml#</em>$1</td>
+<td><em>MME</em></td>
+<td><em>future!</em>
+</td></tr></tbody></table>
+<p>Note: all <em>replacement</em> strings that are to relative URIs start with “./” even if the actual value of <code>@replacementPattern</code> does not.
+</p>
+<dl><dt>glossary of <em>where</em></dt>
+<dt>WWiR</dt>
+<dd><code>.../research/publications/reception/boilerplate/</code></dd>
+<dt>IN</dt>
+<dd><code>.../wwo/source/sandbox/intertextuality/</code></dd>
+<dt>textbase</dt>
+<dd><code>.../wwo/source/</code></dd>
+<dt>MBEL</dt>
+<dd><code>.../outreach/seminars/mbel/TEI_development</code></dd></dl>
+<!-- 
+NewPP limit report
+Cached time: 20241110131140
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 1/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 1/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:549-0!canonical and timestamp 20241110131140 and revision id 3757
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWP_Prefixes&amp;oldid=3757">https://liblab.neu.edu/mediawik/index.php?title=WWP_Prefixes&amp;oldid=3757</a>"</div>
+		
+	</div>
+</main>

@@ -1,0 +1,61 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Exercise3 - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Exercise3</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>For this exercise, create a new test document using the training_template.xml file (save another copy). Using the drama sample text, you're going to encode a more complex document structure.
+</p><p>First, outline the entire document by creating appropriate elements for each of its major pieces:
+</p>
+<dl><dd><ul><li>within &lt;front&gt;, you'll need a &lt;titleBlock&gt; (for the title page), and <div> elements for the errata list, the table of contents, the prefatory note, the prologue, and the cast list.</div></li>
+<li>within &lt;body&gt;, you'll need <div> elements for the acts and the scenes. (The sample only includes one scene from the first act.)</div></li></ul></dd></dl>
+<p>Next, transcribe the prefatory note and the Prologue. (Ignore the title page, errata, and contents for now; they are more specialized and we'll come back to them later.)
+Next, set up the cast list. You'll need several new elements:
+</p>
+<dl><dd>&lt;castList&gt;: a formal cast of characters for a dramatic text</dd></dl>
+<dl><dd>&lt;castItem&gt;: for an individual entry in a castlist, describing a single character</dd></dl>
+<dl><dd>&lt;castGroup&gt;: for a grouping of &lt;castItem&gt;s (e.g. "Female Characters")</dd></dl>
+<dl><dd>&lt;role&gt;: the name of a role. The required @xml:id gives a unique identifier for the role; you'll need this once you start encoding the drama itself.</dd></dl>
+<dl><dd>&lt;roleDesc&gt;: the description of a role</dd></dl>
+<p>Next, encode the opening scene of the play. For this, you'll need a few more elements:
+</p>
+<dl><dd>&lt;sp&gt;: for dramatic speeches; contains a &lt;speaker&gt; and either &lt;p&gt; or &lt;lg&gt; depending on whether it's a prose or verse drama. The @who attribute on &lt;sp&gt; points to the @xml:id value of the appropriate &lt;role&gt; element, telling us who the speaker is.</dd></dl>
+<dl><dd>&lt;speaker&gt;: for the speaker label that starts a speech</dd></dl>
+<dl><dd>&lt;stage&gt;: a stage direction; the @type attribute provides information about what type of stage direction it is; see the WWP documentation for specific values and their meaning</dd></dl>
+<!-- 
+NewPP limit report
+Cached time: 20241110124342
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.006 seconds
+Real time usage: 0.006 seconds
+Preprocessor visited node count: 4/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 9/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:13-0!canonical and timestamp 20241110124342 and revision id 44
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Exercise3&amp;oldid=44">https://liblab.neu.edu/mediawik/index.php?title=Exercise3&amp;oldid=44</a>"</div>
+		
+	</div>
+</main>

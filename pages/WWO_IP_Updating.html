@@ -1,0 +1,250 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWO IP Updating - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWO IP Updating</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Updating_subscriber_password_and_IPrange_files"><span class="tocnumber">1</span> <span class="toctext">Updating subscriber password and IPrange files</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#NEW_Summary_aimed_at_Sarah_Connell"><span class="tocnumber">1.1</span> <span class="toctext">NEW Summary aimed at Sarah Connell</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#OLD_Summary_aimed_at_Sarah_Connell"><span class="tocnumber">1.2</span> <span class="toctext">OLD Summary aimed at Sarah Connell</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#IP_file"><span class="tocnumber">1.2.1</span> <span class="toctext">IP file</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Password_file"><span class="tocnumber">1.2.2</span> <span class="toctext">Password file</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Both"><span class="tocnumber">1.2.3</span> <span class="toctext">Both</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Instructions_aimed_at_Syd"><span class="tocnumber">1.3</span> <span class="toctext">Instructions aimed at Syd</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#How_to_update_the_IP_and_password_authentication_files_for_the_WWO"><span class="tocnumber">1.4</span> <span class="toctext">How to update the IP and password authentication files for the WWO</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Simple_summary"><span class="tocnumber">1.4.1</span> <span class="toctext">Simple summary</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Extended_instructions"><span class="tocnumber">1.4.2</span> <span class="toctext">Extended instructions</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1>Updating subscriber password and IPrange files</h1>
+<h2 class="mw-headline" id="NEW_Summary_aimed_at_Sarah_Connell">NEW Summary aimed at Sarah Connell</h2>
+<ul><li>Export IP address file to <code>ipexport<em>[date]</em>.tab</code>, where <em>[date]</em> is whatever you want to use to keep the different files separate in your head.</li>
+<li>Export password file to <code>passexport<em>[date]</em>.tab</code>, where <em>[date]</em> is whatever you want to use to keep the different files separate in your head.</li>
+<li>Instead of, or in addition to, putting those files in <code>~/Dropbox/WWPshare/</code>, upload them to <code>wwp-test</code> by issuing <code style="background-color:#D8D8D8">scp ipexport<em>[date]</em>.tab syssa.connell@wwp-test.neu.edu:/tmp/ipexport.new</code> and <code style="background-color:#D8D8D8">scp passexport<em>[date]</em>.tab syssa.connell@wwp-test.neu.edu:/tmp/passexport.new</code> from the commandline (i.e. in <code>Terminal</code>).</li>
+<li>Log into <code>wwp-test</code> by issuing <code style="background-color:#D8D8D8">ssh syssa.connell@wwp-test.neu.edu</code>.</li>
+<li>Issue <code style="background-color:#D8D8D8">cd /etc/httpd/passwd/</code> to change your current working directory to the right place</li>
+<li>Issue the command <code style="background-color:#D8D8D8">./update_IPs_and_PWs.bash</code>, which will do most the work; note that you will probably have to re-enter your password for wwp-test in order to re-start the web server</li>
+<li>If everything works (keep your fingers crossed), check in with something like <code style="background-color:#D8D8D8">svn ci -m "Added new users from Starfleet Academy for testing on space stations"</code></li>
+<li>If everything works, push update from <code>wwp-test</code> to <code>wwp</code> by issuing <code style="background-color:#D8D8D8">/etc/httpd/passwd/sync_passwd</code></li>
+<li>Log off of <code>wwp-test</code> by typing <code style="background-color:#D8D8D8">^d</code> or by entering <code style="background-color:#D8D8D8">logout</code></li></ul>
+<h2 class="mw-headline" id="OLD_Summary_aimed_at_Sarah_Connell">OLD Summary aimed at Sarah Connell</h2>
+<h3 class="mw-headline" id="IP_file">IP file</h3>
+<ul><li>Export IP address file to <code>ipexport<em>[date]</em>.tab</code>, where <em>[date]</em> is whatever you want to use to keep the different files separate in your head.</li>
+<li>Instead of, or in addition to, putting file in <code>~/Dropbox/WWPshare/</code>, upload it to <code>wwp-test</code> by issuing <code>scp ipexport<em>[date]</em>.tab saraheconnell@wwp-test.neu.edu:</code> from the commandline (i.e. in <code>Terminal</code>).</li>
+<li>Log into <code>wwp-test</code> by issuing <code>ssh saraheconnell@wwp-test.neu.edu</code>.</li>
+<li>Fix any line-end issues by issuing <code>perl -p -i -e 's/\r/\n/g;' ipexport<em>[date]</em>.tab</code></li>
+<li>Issue <code>cp ipexport<em>[date]</em>.tab /etc/httpd/passwd/textbase_ipaddrs</code></li>
+<li>Issue <code>sudo service httpd --full-restart</code></li>
+<li>Check in with something like <code>svn ci -m "Added IP range for Hogwarts"</code></li>
+<li>Push update from <code>wwp-test</code> to <code>wwp</code> by issuing <code>/etc/httpd/passwd/sync_passwd</code></li>
+<li>Log off of <code>wwp-test</code> by typing <code>^d</code> or by entering <code>logout</code></li></ul>
+<h3 class="mw-headline" id="Password_file">Password file</h3>
+<ul><li>Export password file to <code>passexport<em>[date]</em>.tab</code>, where <em>[date]</em> is whatever you want to use to keep the different files separate in your head.</li>
+<li>Instead of, or in addition to, putting file in <code>~/Dropbox/WWPshare/</code>, upload it to <code>wwp-test</code> by issuing <code>scp passexport<em>[date]</em>.tab saraheconnell@wwp-test.neu.edu:</code> from the commandline (i.e. in <code>Terminal</code>).</li>
+<li>Log into <code>wwp-test</code> by issuing <code>ssh saraheconnell@wwp-test.neu.edu</code>.</li>
+<li>Issue <code>cd /etc/httpd/passwd/</code></li>
+<li>Issue <code>./add_passwds textbase_htpasswd textbase_htgroup &lt; ~/passexport<em>[date]</em>.tab</code></li>
+<li>Issue <code>sudo service httpd --full-restart</code></li>
+<li>Check in with something like <code>svn ci -m "Added new users from Starfleet Academy for testing on space stations"</code></li>
+<li>Push update from <code>wwp-test</code> to <code>wwp</code> by issuing <code>./sync_passwd</code></li>
+<li>Log off of <code>wwp-test</code> by typing <code>^d</code> or by entering <code>logout</code></li></ul>
+<h3 class="mw-headline" id="Both">Both</h3>
+<ul><li>Export both <code>ipexport<em>[date]</em>.tab</code> and <code>passexport<em>[date]</em>.tab</code>, as above</li>
+<li>Upload both by issueing <code>scp ipexport<em>[date]</em>.tab passexport<em>[date]</em>.tab saraheconnell@wwp-test.neu.edu:</code></li>
+<li>Log into <code>wwp-test</code> by issuing <code>ssh saraheconnell@wwp-test.neu.edu</code>.</li>
+<li>Issue <code>perl -p -i -e 's/\r/\n/g;' ipexport<em>[date]</em>.tab</code></li>
+<li>Issue <code>cd /etc/httpd/passwd/</code></li>
+<li>Issue <code>cp ~/ipexport<em>[date]</em>.tab textbase_ipaddrs</code></li>
+<li>Issue <code>./add_passwds textbase_htpasswd textbase_htgroup &lt; ~/passexport<em>[date]</em>.tab</code></li>
+<li>Issue <code>sudo service httpd --full-restart</code></li>
+<li>Check in with something like <code>svn ci -m "Changed IP range for Hudson University; added new users Moe, Larry, and Curly"</code></li>
+<li>Push update from <code>wwp-test</code> to <code>wwp</code> by issuing <code>./sync_passwd</code></li>
+<li>Log off of <code>wwp-test</code> by typing <code>^d</code> or by entering <code>logout</code></li></ul>
+<h2 class="mw-headline" id="Instructions_aimed_at_Syd">Instructions aimed at Syd</h2>
+<p>See on <code>wwp-test</code>:
+</p><p><code>/etc/httpd/passwd/README-how_to_update_ipaddrs</code>
+</p><p>For convenience, the instructions are copied below — but note that Syd has updated the instructions here on the Wiki, but not in that file (yet).
+</p>
+<h2 class="mw-headline" id="How_to_update_the_IP_and_password_authentication_files_for_the_WWO">How to update the IP and password authentication files for the WWO</h2>
+<p>Perform all these operations on <code>wwp-test</code>. Then use the sync process to push them to <code>wwp</code>.
+</p>
+<h3 class="mw-headline" id="Simple_summary">Simple summary</h3>
+<ul><li>export IP addresses and passwords</li>
+<li>fix to Unix line ends and run “Fix IP export”</li>
+<li>upload to <code>wwp-test</code></li>
+<li><code>cd /etc/httpd/passwd/</code></li>
+<li>Update the passwords: <code>./add_passwds textbase_htpasswd textbase_htgroup &lt; <em>new_passexport_file</em></code></li>
+<li>Copy ip export file to the test position: <code>cp <em>new_ipexport_file</em> textbase_ipaddrs.test</code></li>
+<li>Restart web server: <code>sudo /usr/sbin/apachectl graceful</code></li>
+<li>Load the test page (<code><a rel="nofollow" class="external free" href="http://www.wwp-test.neu.edu/manual/">http://www.wwp-test.neu.edu/manual/</a></code>) in a browser</li>
+<li>⁈ Check error log: <code>less /var/log/apache2/wwptest_error_log</code> (type <code>&gt;</code> to go to end of the file.)</li>
+<li>Copy the test file to the active position: <code>cp textbase_ipaddrs.test textbase_ipaddrs</code></li>
+<li>Restart web server again: <code>sudo /usr/sbin/apachectl graceful</code></li>
+<li>Check-in changes: <code>svn ci -m "<em>message</em>"</code></li>
+<li>Synchronize <code>wwp</code> with <code>wwp-test</code>: <code>./sync_passwd</code></li></ul>
+<h3 class="mw-headline" id="Extended_instructions">Extended instructions</h3>
+<p>The first step is to export the IP addresses and passwords from the two FileMaker databases that hold this information, the WWP_DeliveryManagement and WWP_DeliveryIndividuals databases. In the WWP_DeliveryManagement database, go to the “Export IP addresses” layout and then select the “Find for export button” at the top of the layout. This will filter the records so that only those which contain active licenses and IP information will appear on the list. Then select the “Export IP addresses” button. In the Save dialog, make sure that the “Field export order” box contains the following fields, in this order:
+</p>
+<ul><li>IP Addresses</li>
+<li>#</li>
+<li>techEmail</li>
+<li>Institution Name</li></ul>
+<p>Make sure that you have selected the export format to be tab-delimited text. Once you click “Export”, the file will be saved with whatever name you have chosen to give it (generally something like <code>ipexport_2014-04-01.tab</code>).
+</p><p>In the <code>WWP_DeliveryIndividuals</code> database, click the “Export passwords” button that appears on the Overview layout screen. This will automatically take you to the Export dialog. Choose a name for the exported file (generally something like <code>passexport_2014-04-01.tab</code>), make sure that the export format is tab-delimited text, then select “Save”. In the “Field export order” box, make sure that the following fields appear in this order:
+</p>
+<ul><li>logon</li>
+<li>password</li></ul>
+<p>Fix any errors which Filemaker introduces into the tab-delimited <code>ipexport_<em>someDate</em>.tab</code> file. As of the writing of this README file, there are now no longer any such errors, except for the <code>^K</code> problem described below, but new ones might crop up (hope not).
+</p><p>Remember, there should be no linebreaks in any given line. Each school’s information occupies exactly one line. Also make sure BBEdit saved with Unix line-ends, because Mac line-ends will mess everything up. If you do a <code>less</code> and see what looks like a <code>^M</code> then you have Mac line ends. You can either use your favorite editor (BBEdit does this nicely; use <code>C-x RET f</code> in Emacs) or use this Perl one-liner to change them to Unix ones:
+</p>
+<pre>perl -pi -e 's/\r/\n/g;' [filename(s)]
+</pre>
+<p>E.g., to fix all files with “export” in the name:
+</p>
+<pre>perl -pi -e 's/\r/\n/g;' *export*
+</pre>
+<p>Note also that it seems that FileMaker 9 exports <code>^K</code> characters (that’s the U+000B character, which is typed “control-k”) instead of spaces (U+0020 characters) to separate items within a field. The process below expects spaces; luckily <code>^K</code> does not occur anywhere else, so all you need to do is change all occurences of <code>^K</code> to space.
+</p><p>To do this in TextWrangler:
+</p>
+<ul><li>open the file</li>
+<li>make sure the insertion point is before the 1st character in the file (cmd-up, cmd-left should do the trick)</li>
+<li>open the find/replace dialog box (either cmd-F or choose “Find...” from the “Search” menu)</li>
+<li>if you have a preset pattern: select it from the “Patterns:” pop-up menu which is just above the left side of the search-for text-box</li>
+<li>if not:
+<ul><li>enter a single <code>^K</code> character into the search-for text box; you can do this either by typing “\x0B”, or, if you switch to Unicode Hex Input, by typing “opt-0 opt-0 opt-0 opt-B” (because it is character U+000B)</li>
+<li>enter a single space into the replace-with text-box</li></ul></li>
+<li>click on “Replace All”</li></ul>
+<p>Alternatively, you can change them via a Perl one-liner in a shell:
+</p>
+<pre>perl -pi -e 's/^K/ /g;' [filename(s)]
+</pre>
+<p>E.g., to do both of these changes at once on all files with “export” in the name:
+</p>
+<pre>perl -pi -e 's/\r/\n/g; s/^K/ /g;' *export*
+</pre>
+
+<ol><li>Copy the files to someplace on <code>wwp-test</code> (e.g., your home directory or the <code>/tmp/</code> directory) using <code>scp</code> (or any SFTP client of your choosing) and then <code>ssh</code> into <code>wwp-test</code>.</li>
+<li><code>cd /etc/httpd/passwd/</code></li>
+<li>check that content is up-to-date: <code>svn stat -u</code></li>
+<li>update if needed (i.e., there are “*” files, very unlikely): <code>svn up</code></li>
+<li>For the Password file, run this command:</li></ol>
+<pre>./add_passwds textbase_htpasswd textbase_htgroup &lt; [/path/to/new/password/export/file]
+</pre>
+<p>E.g., if you put <code>passexport_2014-08-25.tab</code> into your home directory:
+</p>
+<pre>./add_passwds textbase_htpasswd textbase_htgroup &lt; ~/IPs/passexport_2014-08-25.tab
+</pre>
+<p>If you get an error message like “Too many fields, stdin, line 1 at ./add_passwds line 69, &lt;STDIN&gt; line 1.”, one likely reason is that you have forgotten to convert Macintosh or DOS linends to Unix linends (see above). For more information on this command see the <code>README.goerwitz.passwords</code> your current directory (by Richard Goerwitz). Don’t worry about the warning messages concerning the format of the userids, unless one of the userids has an apostrophe in it. For example, Susan_O'Hara was problematic, so I had Julia change it to Susan_OHara.
+</p>
+<ol><li>For the IP address file:</li></ol>
+<p>Copy the IP export file into your current directory (<code>/etc/httpd/passwd/</code>), overwriting the file <code>textbase_ipaddr.test</code>, e.g.:
+</p>
+<pre>cp /tmp/ipexport_2014-08-25.tab textbase_ipaddrs.test
+</pre>
+<ol><li>Restart the web server:</li></ol>
+<pre>sudo /usr/sbin/apachectl graceful
+</pre>
+<ol><li>Find out if there are any errors by loading the test page (<a rel="nofollow" class="external free" href="http://www.wwp-test.neu.edu/manual/">http://www.wwp-test.neu.edu/manual/</a>) in a browser. (Wait about 15-20 seconds before doing this, since hitting the server before that interval sometimes produces no result.)</li>
+<li>Any errors generated will be found in the file:</li></ol>
+<pre>/var/log/httpd/error_log
+</pre>
+<p>Find the line in the log that looks “Graceful restart requested, doing restart” followed a few lines later by “Apache/2.2.3 (Red Hat) configured -- resuming normal operations” and then a series of lines that begin “proxy_util.c”. That's what I will refer to below as the server’s start/stop block of messages (a phrase I just made up).
+</p><p>After that, if there are a bunch of lines that end in “OK”, you should be all set, e.g.:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">[Wed Mar 15 17:17:04 2006] [debug] IPAccess.pm(157): Apache2::IPAccess:  Constructing IP table from /etc/httpd/passwd/textbase_ipaddrs.test.
+[Wed Mar 15 17:17:06 2006] [debug] IPAccess.pm(329): Apache2::IPAccess:  Remote address, 128.148.157.101, matches
+ 16-bit mask in the IP table.  OK!
+ [etc.]
+</pre>
+<p>If other people happen to be hitting <b>teller</b> at the same time you did your test, other people’s IP addresses (and other error or access messages) may be mixed in with yours, or near yours, so it’s important to check the log as soon as you can after loading the test manual/ page, so that your hits will be right there after the server’s start/stop block of messages. This just makes it easier to find. As you can see, you will find your own IP address in those lines (above, you can see mine is 128.148.157.101). That and the timestamp also make it easier to eyeball.
+</p><p>If there is a problem with the syntax of the ipaddrs file, this will be indicated by almost anything else (sadly I cannot enumerate all the possible problems), e.g.:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">[Mon Sep 29 20:17:24 2003] [warn] Apache::IPAccess:  Address, 128.196.252.181-199, in /www/passwd/textbase_ipaddrs, line 81 covers a subset  of 128.196.229-255.0, at line 25.
+</pre>
+<p>At the time this error occurred, I sent this email to Julia:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">--------------- email ----------------------------------------------
+	There is an overlap in the IPs of these two universities:
+		University of Arizona:
+		128.196.77-227.0/255.255.255.0
+
+		Northern Arizona University:
+		128.196.252.181-199/255.255.255.255
+
+	You will need to find out from them which one really owns that range. The
+	previous export said it belonged to Northern Arizona, so maybe UofA is
+	incorrect in saying it is theirs?
+    --------------- /email ----------------------------------------------
+</pre>
+<p>Now, that is the last major error we had, and it happened over 2 years ago, so normally I don’t think you will have any problems!
+</p>
+<ol><li>FIX the errors (this could involve emailing Julia and then having her email the institutions/librarians in question, to resolve the matter, which is why you have to use this 'test' file 'textbase_ipaddrs.test' instead of the real file!), then save the file and restart the server again, and so on, until all errors are gone.</li></ol>
+<ol><li>Copy the test file to the real file, overwriting the real file:</li></ol>
+<pre>cp textbase_ipaddrs.test textbase_ipaddrs
+</pre>
+<p>And then restart apache again.
+</p>
+<ol><li>Run the script that synchronizes <code>wwp-test</code>'s <code>/etc/httpd/passwd/</code> directory with that on <code>wwp</code>:</li></ol>
+<pre>./sync_passwd
+</pre>
+<p>It prompts for the current user’s password on <code>wwp</code>; just enter the password and the script runs very quickly. Note that it syncronizes the entire /etc/httpd/passwd/ tree via rsync. Thus there is no separate command to sync the IP addresses apart from the passwords.
+</p><p>There should be no need to restart the Apache on <code>wwp</code>, although if there's a problem with access on <code>wwp</code> following a sync, that should be the first debugging step.
+</p><p>That’s it - updating process complete.
+</p>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#FFFEDB; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Note:</b> 
+If this process runs smoothly, but the next day you get a message from the cron daemon that runs the stats collection scripts, the chances are you have an extra whitespace somewhere in the IP range(s) for the institution it mentions. Delete the extra space and run the process again. Also be sure to correct the Filemaker record that’s causing the problem.
+</p><p>OR
+</p><p>The problem could also be caused by permissions conflicts (for instance, when the owner of the cron job is not the same as the owner of the stats collection directories (generally /var/www/html/WWO/awstats/ and /var/www/html/WWO/awstatsMain). In these cases, you either need to have the cron job run by the same user who owns those directories (and the files in them) or change the ownership for everything in those directories so it’s the same as the ownership of cron job.
+</p>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20241101152521
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.050 seconds
+Real time usage: 0.087 seconds
+Preprocessor visited node count: 87/1000000
+Post‐expand include size: 1080/2097152 bytes
+Template argument size: 845/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2050/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   38.460      1 Template:Note
+100.00%   38.460      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:54-0!canonical and timestamp 20241101152521 and revision id 3180
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWO_IP_Updating&amp;oldid=3180">https://liblab.neu.edu/mediawik/index.php?title=WWO_IP_Updating&amp;oldid=3180</a>"</div>
+		
+	</div>
+</main>

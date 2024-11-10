@@ -1,0 +1,134 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWO Publishing - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWO Publishing</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#WWO_Publishing"><span class="tocnumber">1</span> <span class="toctext">WWO Publishing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Testing"><span class="tocnumber">1.1</span> <span class="toctext">Testing</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Process_Data"><span class="tocnumber">1.2</span> <span class="toctext">Process Data</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Generate_XTF_Index"><span class="tocnumber">1.3</span> <span class="toctext">Generate XTF Index</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Install_Index"><span class="tocnumber">1.4</span> <span class="toctext">Install Index</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Generate_Text_Lists"><span class="tocnumber">1.5</span> <span class="toctext">Generate Text Lists</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Update_MARC_Records"><span class="tocnumber">1.6</span> <span class="toctext">Update MARC Records</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="WWO_Publishing">WWO Publishing</h2>
+<h3 class="mw-headline" id="Testing">Testing</h3>
+<p>Before publishing it is easiest to move all files you want to publish into one directory (typically <code>distribution/</code>), but more honest to leave the newest ones in <code>on_deck</code> until you have actually published. The process is the same either way, it just means you have to perform some of the steps twice. Either way, remember to update the <code>&lt;date&gt;</code>s in the <code>&lt;publicationStmt&gt;</code>s, as they are retained in WWO (even if not easily searchable).
+</p><p>And remember to <b>remove</b> any files you don’t want published from the directories you are playing with. (Only files of the glob format “<code>*.*.xml</code>” will be processed.)
+</p>
+<ol><li><code>$ cd /path/to/source/dir/probably/distribution/</code></li>
+<li><code>$ make wf</code>     # Test well-formedness. You don’t really have to do this, as it is performed by step 1 of “Process Data”, below; but finding errors earlier is always better. <b>All must pass</b> except that in some cases duplicate IDs might be tolerable. Still, a very bad idea. Fix it. (Also a processing instruction with a target that starts with “xml” (case insensitive) is probably OK, too, even if well-formedness checker objects.)</li>
+<li>Issue either <code>make validate</code> OR <code>make both</code> — they do the same thing, just in different order. (“validate” tests every file against RELAX NG, then tests every file against Schematron; “both” tests each file first against RELAX NG and then against Schematron.)</li></ol>
+<p>There may be lots of validity errors, of course. Figuring out which ones are important and which should be ignored is left as an exercise to the reader.
+</p>
+<h3 class="mw-headline" id="Process_Data">Process Data</h3>
+<p>The data we generate (e.g., in <code>distribution/</code>) is the canonical data we want to store. (Hence the name of the schema: “wwp-store”.) It is not quite ready to be published by XTF in that state. For example, XIncludes have to be processed and the <code>&lt;charDecl&gt;</code> has to be deleted (due to a Java bug, but we don’t use it in XTF, anyway). Pretty much one call to <code>make</code> does all this, but it can be a pain to set up the directories properly for it.
+</p>
+<ol><li><code>$ cd /path/to/source/dir/probably/distribution/</code>     # you might already be there, of course</li>
+<li><code>$ make exist</code>     # This may take awhile. Currently ~15 mins on albus. N.B. that you will likely have to specify some paths to needed directories on the commandline; issue just <code>make</code> for further information. The output goes to <code>/tmp/<em>INDIR</em>_eXist_<em>TIMESTAMP</em></code> (where <em>INDIR</em> is the nume of the current directory) by default, but this is easily changed by setting OUTDIR= on the commandline; e.g. <code>make OUTDIR=/var/lib/tomcat6/webapps/WWO/data/wwp exist</code>. Note that if you are in a directory named <code>distribution/</code>, this command will also go build emerson.almanack.xml.</li></ol>
+<p><code>make WWO</code> creates XIncluded versions of the XML files in your current directory and saves them to a temporary directory. If your current directory is <code>distribution/</code>, the files representing our published version of Mary Moody Emerson’s <em>Almanacks</em> — i.e., the *.*.xml files in [WEBSITE]/research/projects/manuscripts/emerson/distribution/ — will be copied from their directory (which can be specified on the commandline) and combined into one XIncluded document for publication. WARNING: The files in [WEBSITE]/research/projects/manuscripts/emerson/under_construction/ are <b>not</b> included.
+</p><p>Each of these newly-generated files are then pre-processed and placed in XTF’s data directory.
+</p>
+<table class="wikitable">
+<caption>Useful variables
+</caption>
+<tbody><tr>
+<th>Variable name
+</th>
+<th>Default value
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>TMPDIR</td>
+<td><code>/tmp/${INDIR}_tmp_${NOW}</code></td>
+<td>The path to the directory where temporary files will be placed during processing.
+</td></tr>
+<tr>
+<td>SAXON</td>
+<td><code>/usr/local/bin/saxon9he.jar</code></td>
+<td>The path to the Saxon HE JAR file. Saxon is used to prepare WWP files for indexing into XTF.
+</td></tr>
+<tr>
+<td>XTF</td>
+<td><code>/var/lib/tomcat8/webapps/WWO</code></td>
+<td>The path to your working copy of the <a rel="nofollow" class="external text" href="https://liblab.neu.edu/svn/WWO/trunk">WWO XTF site in the Subversion repository</a>. For the (not much used anymore) <b>wwo</b> target, output will be saved to <em>XTF</em>/<code>data/wwp/</code>.
+</td></tr>
+<tr>
+<td>WEB</td>
+<td><code>/home/syd/Documents/WWPweb</code></td>
+<td>The path to your working copy of the <a rel="nofollow" class="external text" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk">WWP’s website in the Subversion repository</a>, which will be used to find and process Mary Moody Emerson’s <em>Almanacks</em>. Only necessary when preparing WWO from <code>distribution/</code>.
+</td></tr></tbody></table>
+<h3 class="mw-headline" id="Generate_XTF_Index">Generate XTF Index</h3>
+<ol><li>Take the output of <code>make WWO</code> and put it in the <code>data/wwp/</code> directory of the XTF installation where you want to build the index. (Depending on what machine you are on and what directories you specified, above, this may already be done.) Replace old data. Note that our entire XTF directory (except for the index itself) is under Subversion control, so an easy way to do this is to check the newly created files in wherever you created them and check them out where you want to index them.</li>
+<li><code>$ cd /var/lib/tomcat6/webapps/WWO/</code>        # on indexing machine</li>
+<li><code>$ tar xzf index index_PREV_<em>DATE</em>.tgz</code>         # create a backup, as not under Subversion control</li>
+<li><code>$ cd /var/lib/tomcat6/webapps/WWO/bin/</code>    # could have been just cd bin/</li>
+<li><code>$ ./textIndexer -incremental -index default</code>     # This runs reasonably quickly: ~2 minutes on albus, probably quite a bit longer on wwp-test.</li></ol>
+<p>If you’re not already on the target machine where you want the index to be, transfer it. (Probably best to make a tarball of it and then transfer that single file, but any mechanism that moves it intact should work fine. I typically move it with <code>scp</code>, first from my desktop to <code>paramedic:/tmp/</code>, and then from there to <code>wwp-test:/var/lib/tomcat6/webapps/WWO/</code>, and then untar it there. It is fine to leave the tarball lying around as a backup (as long as wwp-test has lots of disc space available), it is fine to delete it.
+</p><p><b>Addendum/note-to-self</b> I can no longer get <code>scp</code> to allow me to transfer a file from <code>wwp-test</code> to <code>wwp</code>, ostensibly because centrify now really screws us over and requires temporary checked-out passwords. I can transfer easily from <code>paramedic</code> to either machine, as it has SSL keys set up. Could probably transfer it by just copying to my centrified home directory, too.
+</p>
+<h3 class="mw-headline" id="Install_Index">Install Index</h3>
+<p>After getting the index in the right place (either because you generated it where you want it to be or moved it from the machine on which you generated it to the place where you want it to be), you need to set the permissions properly. Note that “tomcat” in the commandline below is the name of the tomcat user, which seems to be “tomcat” on our Redhat and CentOS systems, but “tomcat7” or “tomcat8” on my Ubuntu and MacOS X systems.
+</p>
+<ol><li><code>$ sudo chgrp -R tomcat ../index/  &amp;&amp;  sudo chmod -R g+w ../index/</code></li></ol>
+<h3 class="mw-headline" id="Generate_Text_Lists">Generate Text Lists</h3>
+<p>Note: This <b>can</b> be done on any machine on which you have a working copy of <a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk/wwo/texts">https://liblab.neu.edu/svn/DSG/wwp/website/trunk/wwo/texts</a>, but it is somewhat easier to just do it on wwp-test.
+</p>
+<ol><li>Log in to wwp-test</li>
+<li><code>$ cd /var/www/html/WWP/wwo/texts</code></li>
+<li><code>$ make</code>     # Gives you instructions</li>
+<li><code>$ make HOST=www.wwp-test.northeastern.edu all</code>     # Unless you want to do something other than the usual. You can expect hundreds of (inappropriate) warnings that <code>xml-model</code> is an invalid name for a PI target.</li>
+<li>Do <b>NOT</b> check-in the modified lists. This is the hardest part of this process. The lists are different on wwp and wwp-test; thus we don't want to have the wwp-test ones checked-in just to avoid the problem of someone inadvertently checking them out on wwp.</li></ol>
+<p>When you actually want to generate these for wwp you can either
+</p>
+<ul><li>Use the Perl command in the output of <code>make</code> to change what you have to be suitable for use on wwp, and check it in. (Then put it back if you still want wwp-test to work :-). OR</li>
+<li>Re-generate the lists for wwp, check those in. (Then re-generate for wwp-test if you still want wwp-test to work. :-)</li></ul>
+<h3 class="mw-headline" id="Update_MARC_Records">Update MARC Records</h3>
+<p>See documentation in textbase/metadata/README.md.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131441
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.026 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 20/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:524-0!canonical and timestamp 20241110131441 and revision id 3622
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWO_Publishing&amp;oldid=3622">https://liblab.neu.edu/mediawik/index.php?title=WWO_Publishing&amp;oldid=3622</a>"</div>
+		
+	</div>
+</main>

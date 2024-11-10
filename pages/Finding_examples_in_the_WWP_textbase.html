@@ -1,0 +1,67 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Finding examples in the WWP textbase - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Finding examples in the WWP textbase</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>When you’re not sure how to handle a particular encoding question, it can be helpful to look for previous examples in the textbase. However, when you’re looking through the collection, it’s important to keep a few things in mind: first, some of our encoding practices have shifted over time, so it’s better to look for files that have been published more recently. You can see a list of the recently-published texts <a rel="nofollow" class="external text" href="http://wwp.neu.edu/wwo/texts/new/new.html">here</a>.
+</p><p>And second, despite the herculean efforts of WWP staff, there are sometimes inconsistencies among the encoded texts—or between the encoding and the documentation. So, it’s better to look for overall patterns than individual instances, and if you do encounter any inconsistencies, please bring those up at an encoding meeting. It’s definitely better to flag and discuss any cases where you aren’t sure what to do—and if you find that the documentation isn’t answering your questions, that’s probably a place where we could be adding more content. 
+</p><p>With that long disclaimer—and because prowling around the textbase is fun and educational—here are a few tips for locating examples in the textbase.
+</p><p>Most of the time, either doing a keyword search across the textbase to find previous encodings of specific words/phrases or using XPath to find examples of how particular elements (and, often, their attributes) have been encoded will get you what you're looking for. In some cases, you might want to combine the two kinds of searches. So, if you have a glossary and don't know exactly what encoding is called for, you could start by looking for the term "glossary" in the textbase. That will get you just one result (as of January 2016), a change log entry indicating that the encoding for a text's glossary has been updated. But that's enough to start with, because you can use that one text's encoding to help you set up an XPath for <code>//list[@type="gloss"]</code> and find other examples that way. Sometimes you might have to get creative, but the more often you do this kind of searching the easier it becomes to predict what kinds of searches will be most effective.
+</p><p>If you are just getting started with encoding, keyword searching is easier to leap into than XPath, so you might want to focus on the first section of tips until you feel like you have your feet wet with navigating XML and are ready for more adventurous searches. XPath is extremely useful, and often more powerful and precise, but you can still do a great deal with keyword searches. 
+</p>
+<h2 class="mw-headline" id="Keyword_Searching">Keyword Searching</h2>
+<ul><li>Sometimes a simple keyword search will do the trick. So, for example, if you’re wondering if you should encode “New Testament” with &lt;title&gt;, you can look for previous cases where that phrase came up. A few notes on keyword searching:
+<ul><li>To search across a set of files, go to the “Find” menu in Oxygen, select “Find/Replace in Files” and then go down to “Specified Path” and navigate to the folder you want. It’s usually a better idea to start with the files in distribution, rather than under_construction, since those have been proofed.</li>
+<li>Remember to factor in potential long esses (ſ); if you turn the "Regular Expressions" checkbox on, that will find both "s" and "ſ".</li>
+<li>Remember all of the other helpful options that the Oxygen search gives you. For example, you might want to choose “Enable XML searching options” and then choose to search only in “Element contents”—just remember to check this option back off, or it can be very confusing!</li>
+<li>The same goes for case sensitivity; it can definitely narrow things down in helpful ways, but don’t forget that you have it checked the next time you search.</li>
+<li>Some really simple XPath can be helpful here. So, for example, if I did run a simple search for “New Testament,” I’d find that it’s encoded with &lt;rs&gt; and an @type of “title”. But, what if I had inconsistent results? I might want to see how many cases of New Testament are in &lt;rs&gt; and how many aren’t. So, I’d run another search to see how many of the total cases of “New Testament” are in &lt;rs&gt; by adding <code>//rs</code> to the “Restrict to XPath” box. There are a lot of other useful ways that you might use XPath to narrow down a search: see the <a href="/mediawik/index.php/XPath_for_WWP_encoders" title="XPath for WWP encoders">Xpath searches page</a> for more of these.</li>
+<li>And, if XPath doesn't feel like something you want to try just yet, you can also do a keyword search for start tags (so, for example, type &lt;said into the search box to look for all of the &lt;said&gt; start tags regardless of what attributes they may have). This will often get you more results than you might really want, but it has the advantage of being really easy to do.</li></ul></li></ul>
+<h2 class="mw-headline" id="Looking_for_Specific_Elements">Looking for Specific Elements</h2>
+<ul><li>In other cases, you might know which element you need to use and just want to see a few examples of encoding with that element. XPath is very useful here as well.
+<ul><li>For an initial search, I often just look for all cases of the element I’m interested in, just to get a sense of what the range of uses are. I usually like to cast a wide net at first, especially because there may be aspects of the encoding I haven’t anticipated yet. So, I’ll start by just typing, say <code>//docAuthorization</code> in the XPath search box in Oxygen (using the set of files I’m interested in as my working set—for more on configuring working sets and using the XPath search box see <a href="/mediawik/index.php/XPath_in_oXygen" title="XPath in oXygen">this page</a>).</li>
+<li>Then I might want to get more precise; so, for example, say I have a copyright statement on a title page, so I want to search only for &lt;docAuthorization&gt; when it shows up on a title page. I just tell the XPath search box to look for any &lt;docAuthorization&gt; elements that are anywhere in &lt;titleBlock&gt;s: <code>//titleBlock//docAuthorization</code></li>
+<li>Or, I might want to look at how another element is encoded when it’s in a &lt;docAuthorization&gt;; maybe I have the name of a printer inside of the copyright statement, and I want to see if it gets any encoding to indicate that role. So, I specify that I’m looking for &lt;docRole&gt; inside of &lt;docAuthorization&gt;: <code>//titleBlock//docAuthorization//docRole</code></li>
+<li>Of course, not getting results might just mean that a particular case hasn't come up before. So, if I didn't get results, I'd also want to search for <code>//titleBlock//docAuthorization//persName</code> to see if there actually have been any printers inside of &lt;docAuthorization&gt;s yet</li>
+<li>Sometimes, when you don't get any results, you will want to make sure you’re looking in the right element. For example, you might be working with a copyright statement that is formatted as a letter, with an &lt;opener&gt;, &lt;dateline&gt;, &lt;closer&gt;, etc. If you look for <code>//docAuthorization//closer</code> you won't get any results. But, if you try adding a &lt;closer&gt; inside of a &lt;docAuthorization&gt; you'll get a validity error warning, which is a clue that different encoding is needed here. So, you'd want to see if this has come up in the textbase before. This is where switching to a more general keyword search can help—go to the “Find/Replace in Files” box and search for "docAuthorization" to see if there are other cases of encoding document authorizations you haven’t anticipated. You can use the “Enable XML search options” box to restrict your search to element names, attribute values, and attribute names, so you’re only looking in the markup, not the contents of the texts. Scanning down the results will show you that we also use &lt;div&gt; with an @type of “docAuthorization” for cases exactly like this one.</li>
+<li>It’s worth noting that the search above wouldn’t actually be necessary, since all of this information is already in the internal documentation—and, in fact, if you have to do a search like this one because what you’re looking for isn’t in the documentation, that’s probably a case where the documentation should be improved.</li>
+<li>This kind of searching can also be useful if you know one of the elements that you’ll need to use, but want to see what else you might need to be thinking about. So, for example, you might have a play and want to look through a few cases of encoded drama. There are a lot of ways you might do this, but one of the very simplest ones is simply to look for the &lt;sp&gt; element (or any other element that is common in drama) across the textbase. This will give you a lot of results (and the search will take a while), but it’s a place to start. Or, in a more useful (and likely) case, you might look for <code>//floatingText</code> to see how those are encoded. You could even narrow your search down to look for letters by having: <code>//floatingText[@type="letter"]</code></li>
+<li>As that last example shows, it's often helpful to specify attributes and values as well as elements—so, if you're encoding an index, you can start by looking for: <code>//div[@type="index"]</code></li></ul></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110123657
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.016 seconds
+Preprocessor visited node count: 10/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 11/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:431-0!canonical and timestamp 20241110123657 and revision id 3587
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;oldid=3587">https://liblab.neu.edu/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;oldid=3587</a>"</div>
+		
+	</div>
+</main>

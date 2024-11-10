@@ -1,0 +1,53 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"SeminarsWorkshops - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">SeminarsWorkshops</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2 class="mw-headline" id="Management_of_Materials_for_Seminars_and_Workshops">Management of Materials for Seminars and Workshops</h2>
+<h3 class="mw-headline" id="Creating_a_new_venue">Creating a new venue</h3>
+<p>Move to the parent directory (currently <code>/var/www/html/WWP/outreach/seminars/</code> on <code>wwp-test</code>, although this can be done from the same directory in any working copy of the Subversion repository). Issue <code>./newEvent.bash VENUE</code>, where VENUE is the name of the new directory. It should contain only lowercase letters, digits, hyphen, underscore, and dot characters. See the existing directories for the patter we use for venue directory names.
+</p><p>The new venue directory will be established and added to Subversion, but will <b>not</b> be <b>checked in</b> to Subversion. A block message will be displayed reminding you of this and of the next steps.
+</p>
+<h3 class="mw-headline" id="Generating_HTML">Generating HTML</h3>
+<p>From the venue base directory (e.g., <code>seminars/buffalo/</code>) issue <code>./yapsOut.bash</code> <code><em>files</em></code>. E.g.,
+if you make changes to <code>presentations/duck.xml</code> and <code>presentations/quack.xml</code> issue the command <code>./yapsOut.bash presentations/duck.xml presentations/quack.xml</code>.
+</p><p>Then check to see whether any new HTML files have been created, or any old ones can be deleted. E.g., let's say that <b>before</b> you issued the <code>yapsOut.bash</code> command there were 5 "duck" slide files <code>presentations/html/duck_00.xhtml</code> through <code>presentations/html/duck_04.xhtml</code> and 10 "quack" slide files <code>presentations/html/quack_00.xhtml</code> through <code>presentations/html/quack_09.xhtml</code>, but that <b>afterwards</b> there are 6 and 8 respectively. You will need to add the one new "duck" file to the subversion repository, and you should delete the 2 old "quack" files. Using <code>svn stat -u presentations/html/</code> is an easy way to find the new files that need to be added (they will be listed with a '?'). Subversion doesn't provide a particularly easy way to find the old files to be deleted. (Listing the files and looking at the timestamp is one way.)
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131705
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.008 seconds
+Real time usage: 0.009 seconds
+Preprocessor visited node count: 8/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:62-0!canonical and timestamp 20241110131705 and revision id 3167
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=SeminarsWorkshops&amp;oldid=3167">https://liblab.neu.edu/mediawik/index.php?title=SeminarsWorkshops&amp;oldid=3167</a>"</div>
+		
+	</div>
+</main>

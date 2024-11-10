@@ -1,0 +1,144 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWPLicensing - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWPLicensing</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#WWP_Routine_Licensing_Processes"><span class="tocnumber">1</span> <span class="toctext">WWP Routine Licensing Processes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Basic_information"><span class="tocnumber">1.1</span> <span class="toctext">Basic information</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Trials"><span class="tocnumber">1.2</span> <span class="toctext">Trials</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#New_Licenses"><span class="tocnumber">1.3</span> <span class="toctext">New Licenses</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Handling_Payments"><span class="tocnumber">1.4</span> <span class="toctext">Handling Payments</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Special_cases_and_trouble-shooting"><span class="tocnumber">1.5</span> <span class="toctext">Special cases and trouble-shooting</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Changing_the_license_agreement"><span class="tocnumber">1.5.1</span> <span class="toctext">Changing the license agreement</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Access_for_a_class"><span class="tocnumber">1.5.2</span> <span class="toctext">Access for a class</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1>WWP Routine Licensing Processes</h1>
+<h2 class="mw-headline" id="Basic_information">Basic information</h2>
+<p>Basic information on pricing, licensing, and other similar information is available at <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/texts/license">http://www.wwp.brown.edu/texts/license</a>, including:
+</p>
+<ul><li>HTML and PDF versions of our institutional license</li>
+<li>Pricing information including the fee categories</li>
+<li>Information on title-level URLs and MARC records</li></ul>
+<p>Our license year runs from July 1 through June 30. We can start a license at any time during the course of the year, but we can only end licenses on June 30. Any license beginning after July 1 is charged at a prorated rate, rounded to the whole month. In general we err on the side of generosity: if an institution has a trial that ends on March 15, we would suggest starting their license on April 1.
+</p><p>Usage statistics are available at <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/texts/usage">http://www.wwp.brown.edu/texts/usage</a>. Access to the most detailed machine-level statistics is password-protected, with the password available upon request:
+</p>
+<blockquote><p>wwostats</p></blockquote>
+<blockquote><p>!stats!</p></blockquote>
+<p>Usage information for internal WWP purposes is available at <a rel="nofollow" class="external free" href="http://textbase.wwp.brown.edu/WWO/awstatsMain/">http://textbase.wwp.brown.edu/WWO/awstatsMain/</a>
+</p>
+<h2 class="mw-headline" id="Trials">Trials</h2>
+<p>When an institution requests a trial, it should ideally be set up to start at the end of the week in which the request is made, and should run for at least a month. To start a trial, we need the following information, which should be entered in the WWPDeliveryManagement database:
+</p>
+<ul><li>The IP address range(s) for the institution</li>
+<li>The contact email address of the person requesting the trial (or, if that person is not in a position of authority, then the contact email address of the person who would be our contact in pursuing a license: typically the electronic resources librarian or acquisitions librarian)</li></ul>
+<p>To start the trial:
+</p>
+<ul><li>add the IP address ranges to the database</li>
+<li>change the "license status" field to "trial"</li>
+<li>enter a 1 in the "active license" field so that the institution will be included in the next IP address export</li>
+<li>add a reminder date close to the end date for the trial</li>
+<li>enter the start and end dates for the trial in the "start date" and "end date" fields</li>
+<li>do an IP address export and update the IP address access on papa at the end of the week</li>
+<li>send email to the contact person letting them know the URL for WWO and offering help if they have questions</li></ul>
+<p>A few days before the scheduled end of the trial, contact the institution:
+</p>
+<ul><li>ask whether they've had an opportunity to use WWO or whether they need more time (offer to extend the trial if so)</li>
+<li>send them the URL for licensing information (<a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/texts/license/">http://www.wwp.brown.edu/texts/license/</a>) and offer to answer questions</li>
+<li>ask whether they'd like to subscribe, and let them know that if they would, we can keep their access open while the paperwork is taken care of; if not, we'll end the trial.</li></ul>
+<p>If they decide not to subscribe, try to ascertain why not, and if it's cost, ask whether we might be able to negotiate a lower price that would be feasible for them.
+</p>
+<h2 class="mw-headline" id="New_Licenses">New Licenses</h2>
+<p>When an institution indicates that it wants to subscribe to WWO, we take the following steps:
+</p>
+<ol><li>Get the following information and enter it in the WWPDeliveryManagement database:
+<ul><li>The date they'd like to start their license (usually the first of the next month)</li>
+<li>Their undergraduate FTE</li>
+<li>The name and address of the billing contact (and whether they're willing to receive invoices and renewals via email)</li>
+<li>Their IP address ranges, if we don't already have those from a trial</li></ul></li>
+<li>Send them a link to the printable (PDF) version of our institutional license (<a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/texts/license/WWPContract.pdf">http://www.wwp.brown.edu/texts/license/WWPContract.pdf</a>). They should print, sign, and return a copy to us at the address given on the license page.</li>
+<li>If they have had a trial, their access remains open; if they have not had a trial, their access can begin immediately; let them know that it is beginning slightly ahead of their license start date so that they can do whatever testing or notification may be needed on their end.</li>
+<li>When we receive the signed license, it is next signed by Mike Pickett (Jen can get his signature) and then by Julia. We keep a photocopy of the signed license and Jen sends the original back to the subscriber. The official contact address, FTE, and IP addresses should be confirmed from the license and entered in the database if necessary.</li>
+<li>Send an email of welcome/confirmation to the contact at the subscribing institution with the following information:
+<ul><li>The URL for the WWO collection</li>
+<li>The email address for tech support and trouble-shooting: WWP_support@brown.edu</li>
+<li>Title-level URLs for most of our texts are available at <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/texts/titleURLs.html">http://www.wwp.brown.edu/texts/titleURLs.html</a>, and MARC records may be downloaded from OCLC via WorldCat</li>
+<li>Renewal information will typically be sent out in mid-March</li></ul></li></ol>
+<h2 class="mw-headline" id="Handling_Payments">Handling Payments</h2>
+<p>Payments typically come in two forms: checks and credit card payments.
+</p><p>For check payments:
+</p>
+<ul><li>Log the payment amount and date in the DeliveryManagement database, in two places: both in the main Institutional Detail record and also in the portal that shows the history of payments and renewals (Jen typically does this)</li>
+<li>Deposit check at the Cashier's Office to 3-70109 using the WWP deposit slip (Julia typically does this and needs to sign the slip)</li>
+<li>Keep receipt and deposit record for confirmation purposes</li></ul>
+<p>In order to process credit card payments we need the following information:
+</p>
+<ul><li>The type of card</li>
+<li>The name as it appears on the card</li>
+<li>The 16-digit card number (but not the three-digit confirmation code from the back of the card)</li>
+<li>The expiration date</li>
+<li>The amount to be charged</li>
+<li>The signature of the card holder</li></ul>
+<p>This information should be written on the invoice and mailed or faxed to us. The information must not be transmitted by email (and since we need a signature it's not useful to us via email in any case).
+</p><p>Once we have this information:
+</p>
+<ul><li>Create a credit card memo using the template on the Mac server (Julia typically does this)</li>
+<li>Attach the annotated invoice and do not retain a copy of the credit card information (photocopy the invoice for our records and blank out the credit card details)</li>
+<li>Walk over to the Cashier's Office and give it to them for deposit (no deposit slip is needed)</li></ul>
+<h2 class="mw-headline" id="Special_cases_and_trouble-shooting">Special cases and trouble-shooting</h2>
+<h3 class="mw-headline" id="Changing_the_license_agreement">Changing the license agreement</h3>
+<p>If an institution wants to change any of the terms of the license agreement, we typically need to confirm the changes with the Office of the General Counsel. Our direct contact there is Thomas Harrison, who works with Yolanda Lamboy.
+</p><p>If an institution wants an end-date other than June 30, strictly speaking this is not possible. However, if absolutely necessary, for a one-year license we could charge them a pro-rated amount for the year and use a June 30 end date internally. It is not possible for us to renew licenses at any time other than June 30.
+</p>
+<h3 class="mw-headline" id="Access_for_a_class">Access for a class</h3>
+<p>If an individual faculty member needs access for a class (at a non-subscribing institution), there are several ways we can set this up.
+</p>
+<ul><li>If we don't have much advance notice, the easiest thing is to set up a login and password for the class to use. This information is managed through the WWPDeliveryIndividuals database (but a note should be added to the record for the institution as well). We should follow up with the institution to see whether they would like a trial, but this shouldn't slow down the setup for the faculty member. If the faculty member has funding and would like to pay for access, the rate is flexible but in the range of $100-$250.</li></ul>
+<ul><li>If we have some warning, ideally we should contact the institution and see whether they would like a semester-long trial. This would typically be arranged through the library, who can give us IP address ranges and publicize the trial.</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110131954
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:85-0!canonical and timestamp 20241110131954 and revision id 395
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWPLicensing&amp;oldid=395">https://liblab.neu.edu/mediawik/index.php?title=WWPLicensing&amp;oldid=395</a>"</div>
+		
+	</div>
+</main>

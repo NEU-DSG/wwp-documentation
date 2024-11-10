@@ -1,0 +1,135 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWP Server Configuration - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWP Server Configuration</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#How_to_log_in"><span class="tocnumber">1</span> <span class="toctext">How to log in</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#From_a_GNU.2FLinux_System"><span class="tocnumber">1.1</span> <span class="toctext">From a GNU/Linux System</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#First_time_only"><span class="tocnumber">1.1.1</span> <span class="toctext">First time only</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Subsequent_times"><span class="tocnumber">1.1.2</span> <span class="toctext">Subsequent times</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Apache_Web_Server_configuration"><span class="tocnumber">2</span> <span class="toctext">Apache Web Server configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#wwptest.conf_.28Teller.29_and_wwp.conf_.28Penn.29"><span class="tocnumber">2.1</span> <span class="toctext">wwptest.conf (Teller) and wwp.conf (Penn)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#wwprewrite.conf"><span class="tocnumber">2.2</span> <span class="toctext">wwprewrite.conf</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#wwp-ipaccess.conf"><span class="tocnumber">2.3</span> <span class="toctext">wwp-ipaccess.conf</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#redirects.conf"><span class="tocnumber">2.4</span> <span class="toctext">redirects.conf</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#A_note_about_mod_jk"><span class="tocnumber">2.5</span> <span class="toctext">A note about mod_jk</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#CouchDB"><span class="tocnumber">3</span> <span class="toctext">CouchDB</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Administrative_access"><span class="tocnumber">3.1</span> <span class="toctext">Administrative access</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#eXist"><span class="tocnumber">4</span> <span class="toctext">eXist</span></a></li>
+</ul>
+</div>
+
+<h1>How to log in</h1>
+<p>Instructions for getting a temporary password for your centrified user account (i.e., <code>sysUSER</code>) on <code>wwp.neu.edu</code> or <code>wwp-test.neu.edu</code>.
+</p>
+<h2 class="mw-headline" id="From_a_GNU.2FLinux_System"><span id="From_a_GNU/Linux_System"></span>From a GNU/Linux System</h2>
+<p>Following instructions tested on Ubuntu 16.04 w/ globalprotect 4.1.
+</p>
+<ol><li>Sign into VPN
+<ol><li>$ globalprotect connect -portal vpn.northeastern.edu</li>
+<li>You will be prompted for username &amp; password twice (username does not include @northeastern.edu, i.e. Syd’s is “sbauman”)</li>
+<li>The DUO app on your phone should alert you; tap “Accept”</li></ol></li>
+<li>Using a browser other than Chrome, surf over to <a rel="nofollow" class="external free" href="https://erpm.nunet.neu.edu/PWCweb">https://erpm.nunet.neu.edu/PWCweb</a></li>
+<li>If browser prompts for it, enter username and password again, this time with username prefixed by “nunet\”.</li>
+<li>Enter standard username and password into Lieberman RED form fields, leaving authenticator set to “NUNET”.</li>
+<li>Lieberman RED gives you three options for 2-factor identification, use one</li>
+<li>Now on Lieberman RED identity management homepage</li></ol>
+<h3 class="mw-headline" id="First_time_only">First time only</h3>
+<ol><li>Choose Passwords &gt; Manage Passwords</li>
+<li>Click “recover password” button (tiny blue icon with mouse-over text)</li>
+<li>Click on heart icon to save previous 2 steps for fast future use</li>
+<li>Click on eye icon to view password</li>
+<li>Click on the cipboard icon on R to copy directly to clipboard</li></ol>
+<h3 class="mw-headline" id="Subsequent_times">Subsequent times</h3>
+<ol><li>On R side of home page is a “Favorites” panel; click on blue “Recover Windows Password” icon</li>
+<li>Click on eye icon to view password</li>
+<li>Click on the cipboard icon on R to copy directly to clipboard</li></ol>
+<h1>Apache Web Server configuration</h1>
+<p>The configuration of Apache Web Server on Penn and Teller is controlled by the various configuration files located in /etc/httpd/conf/ and /etc/httpd/conf.d/.
+</p><p>The httpd.conf file in /etc/httpd/conf/ handles general configuration (what modules to load, default server behavior, etc.) and rarely needs to be edited or updated. Most changes to our web configuration will take place in conf files located in /etc/httpd/conf.d/ instead. Apache is configured to automatically process any .conf files in /etc/httpd/conf.d/.
+</p><p>The files that need to be modified most frequently are:
+</p>
+<h3 class="mw-headline" id="wwptest.conf_.28Teller.29_and_wwp.conf_.28Penn.29"><span id="wwptest.conf_(Teller)_and_wwp.conf_(Penn)"></span>wwptest.conf (Teller) and wwp.conf (Penn)</h3>
+<p>This file defines the virtual hosts we use for www.wwptest.brown.edu, teller.services.brown.edu, and textbase.wwptest.brown.edu.
+</p><p>For some virtual hosts, this file defines Proxy/Reverse Proxy settings for proxying CouchDB and eXist behind Apache (to prevent us from exposing the ports for these applications to the outside world). It also defines file handlers, gzip compression for select MIME types, and the location for error and access logs.
+</p><p>On Penn, the wwp.conf file also defines a location directive that prevents non-Brown IP addresses from accessing the administrative pages for eXist and CouchDB.
+</p>
+<h3 class="mw-headline" id="wwprewrite.conf">wwprewrite.conf</h3>
+<p>Defines a standard set of URL rewriting rules that are applied by Apache to all incoming requests. This is used to rewrite permanent URLs for the WWO collection so that incoming requests are sent to the right place in our XTF-based WWO. It is also used to rewrite requests for MME materials in the MME data directory, so that visitors are taken to the MME overview page.
+</p>
+<h3 class="mw-headline" id="wwp-ipaccess.conf">wwp-ipaccess.conf</h3>
+<p>Defines the specific directories to which WWO access control should be applied.
+</p>
+<h3 class="mw-headline" id="redirects.conf">redirects.conf</h3>
+<p>Defines redirects that should be applied by Apache to all incoming requests. Most of the redirects defined here have to do with mapping URLs for our old (pre-2010) web site onto the correct URLs for our new site.
+</p>
+<h2 class="mw-headline" id="A_note_about_mod_jk">A note about mod_jk</h2>
+<p>After our migration of WWO to XTF (which uses Tomcat) in early 2012, we began using mod_jk to manage the IP-based authentication process (or, rather, to make it possible to continue using our existing IP authentication system). Peter DiCamillo has installed and configured mod_jk on Teller such that IP authentication works properly.
+</p><p>As of Feb. 5, 2013, our efforts to get the same mod_jk setup functioning properly on Penn have been unsuccessful. This means that IP authentication is not actually working on Penn (because Apache hands off incoming requests to Tomcat <em>before</em> applying any authentication, due to the proxy/reverse proxy behavior we have set up).
+</p>
+<h1>CouchDB</h1>
+<p>I have installed <a rel="nofollow" class="external text" href="http://couchdb.org">CouchDB</a> on both Teller and Penn, using the yum package manager (which makes it easier to make sure the various CouchDB dependencies -- Erlang, for instance -- are in place and up to date).
+</p><p>The current CouchDB installed version on both servers appears to be 1.0.2. This is not the most recent CouchDB version available (which is 1.2.1). Once a package becomes available for Red Hat, it can be installed via yum.
+</p><p>CouchDB has been configured to run automatically, so you shouldn't ever have to start/stop it manually. To test if CouchDB is running properly, just access <a rel="nofollow" class="external free" href="http://teller.services.brown.edu/couch/">http://teller.services.brown.edu/couch/</a> (on Teller) or <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/couch/">http://www.wwp.brown.edu/couch/</a> (on Penn). You should see the following message:
+</p>
+<pre> {"couchdb":"Welcome","version":"1.0.2"}
+</pre>
+<p>(If you have installed a more recent version, you'll see that listed instead.) If you do not see this message, or if you receive an Apache Web Server error, you'll need to investigate.
+</p><p>For security, our Apache Web Server configuration has been set up to proxy CouchDB traffic behind <b>/couch/</b> (which does not actually exist as a location in the web hierarchy on our servers).
+</p>
+<h2 class="mw-headline" id="Administrative_access">Administrative access</h2>
+<p>The graphical administrative interface (called Futon) can be accessed at <a rel="nofollow" class="external free" href="http://teller.services.brown.edu/couch/_utils/">http://teller.services.brown.edu/couch/_utils/</a> (on Teller) or <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/couch/_utils/">http://www.wwp.brown.edu/couch/_utils/</a> (on Penn). This interface can be used to view currently running jobs, to manage users, to view and edit collections or individual records, to perform routine database management (e.g. compaction), etc.
+</p>
+<h1>eXist</h1>
+<!-- 
+NewPP limit report
+Cached time: 20241110131554
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.024 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 43/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 53/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:61-0!canonical and timestamp 20241110131554 and revision id 3549
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWP_Server_Configuration&amp;oldid=3549">https://liblab.neu.edu/mediawik/index.php?title=WWP_Server_Configuration&amp;oldid=3549</a>"</div>
+		
+	</div>
+</main>

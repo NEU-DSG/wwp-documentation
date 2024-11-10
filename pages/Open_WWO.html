@@ -1,0 +1,66 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Open WWO - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Open WWO</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1>Making WWO open to the public</h1>
+<p>To make WWO generally available, rather than restricted only to licensed institutions, etc., the following has to be done on <code>wwp-test</code> for testing and then reflected on <code>wwp</code>. 
+</p>
+<ul><li>at start of free period
+<ol><li>$ <code>cd /etc/httpd/Apache2/</code></li>
+<li>check to see that <code>IPAccessLog1.pm.standard</code> exists (should be same as current <code>IPAccessLog1.pm</code>)</li>
+<li>$ <code>cp IPAccessLog1.pm.allauth IPAccessLog1.pm</code></li>
+<li>check to see that <code>IPAccess.pm.standard</code> exists (should be same as current <code>IPAccess.pm</code>)</li>
+<li>$ <code>cp IPAccess.pm.allauth IPAccess.pm</code></li>
+<li>restart apache2:</li></ol>
+<ul><li><ul><li>$ <code>sudo /etc/init.d/httpd stop  &amp;&amp;  sudo /etc/init.d/httpd start</code></li>
+<li>(Note that <code>sudo apachectl --graceful</code> did not seem to work 2015-03-15.)</li></ul></li></ul></li>
+<li>at end of free period
+<ol><li>$ <code>cd /etc/httpd/Apache2/</code></li>
+<li>check to see that <code>IPAccessLog1.pm.allauth</code> exists (should be same as current <code>IPAccessLog1.pm</code>)</li>
+<li>$ <code>cp IPAccessLog1.pm.standard IPAccessLog1.pm</code></li>
+<li>check to see that <code>IPAccess.pm.allauth</code> exists (should be same as current <code>IPAccess.pm</code>)</li>
+<li>$ <code>cp IPAccess.pm.standard IPAccess.pm</code></li>
+<li>restart apache2:</li></ol>
+<ul><li><ul><li>$ <code>sudo /etc/init.d/httpd stop  &amp;&amp;  sudo /etc/init.d/httpd start</code></li>
+<li>(Note that <code>sudo apachectl --graceful</code> did not seem to work 2015-03-15.)</li></ul></li></ul></li></ul>
+<p>Remember to do this on <code>wwp-test</code>, then test it, and then reflect changes on <code>wwp</code>. Currently the directory on <code>wwp-test</code> is under Subversion control, the one on <code>wwp</code> is not. (Ostensibly to make it more difficult to update the production machine, so it doesn't happen by accident.)
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131537
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.008 seconds
+Real time usage: 0.009 seconds
+Preprocessor visited node count: 2/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:48-0!canonical and timestamp 20241110131537 and revision id 3243
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Open_WWO&amp;oldid=3243">https://liblab.neu.edu/mediawik/index.php?title=Open_WWO&amp;oldid=3243</a>"</div>
+		
+	</div>
+</main>

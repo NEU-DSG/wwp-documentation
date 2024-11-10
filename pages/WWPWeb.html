@@ -1,0 +1,223 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWPWeb - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWPWeb</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Updating"><span class="tocnumber">1</span> <span class="toctext">Updating</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_WWP_web_site"><span class="tocnumber">2</span> <span class="toctext">The WWP web site</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Structure"><span class="tocnumber">2.1</span> <span class="toctext">Structure</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Interface"><span class="tocnumber">2.2</span> <span class="toctext">Interface</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#DOCTYPEs.2C_File_types.2C_and_XML_declarations"><span class="tocnumber">2.3</span> <span class="toctext">DOCTYPEs, File types, and XML declarations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#DOCTYPE"><span class="tocnumber">2.3.1</span> <span class="toctext">DOCTYPE</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#File_types"><span class="tocnumber">2.3.2</span> <span class="toctext">File types</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Problems_with_XML_declarations"><span class="tocnumber">2.3.3</span> <span class="toctext">Problems with XML declarations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Includes"><span class="tocnumber">2.4</span> <span class="toctext">Includes</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#JavaScript"><span class="tocnumber">2.5</span> <span class="toctext">JavaScript</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#PHP"><span class="tocnumber">2.6</span> <span class="toctext">PHP</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#XML"><span class="tocnumber">2.7</span> <span class="toctext">XML</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#CSS"><span class="tocnumber">2.8</span> <span class="toctext">CSS</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Special_pages"><span class="tocnumber">2.9</span> <span class="toctext">Special pages</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#Galleries"><span class="tocnumber">2.9.1</span> <span class="toctext">Galleries</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Known_problems"><span class="tocnumber">2.9.2</span> <span class="toctext">Known problems</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="#Mobile"><span class="tocnumber">2.10</span> <span class="toctext">Mobile</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#The_old_WWP_web_site_.28prior_to_Fall_2010.29"><span class="tocnumber">3</span> <span class="toctext">The old WWP web site (prior to Fall 2010)</span></a></li>
+</ul>
+</div>
+
+<h1>Updating</h1>
+<p>To update the website from the Subversion server:
+</p>
+<ol><li>Log in to the test or production machine via the commandline.</li>
+<li>Change the current directory to the target directory (<code>/var/www/html/WWP/</code> for the whole website) using the <code>cd</code> command. E.g., <code style="background-color:#D8D8D8">cd /var/www/html/WWP/outreach/seminars/</code>.</li>
+<li>Issue <code style="background-color:#D8D8D8">sudo chgrp -R wwp .</code>.</li>
+<li>Issue <code style="background-color:#D8D8D8">sudo chmod -R g+w .</code>.</li>
+<li>Issue <code style="background-color:#D8D8D8">svn up</code> to update the entire directory <b>OR</b> issue <code style="background-color:#D8D8D8">svn up filename1 filename2</code> to update only those two files</li></ol>
+<h1>The WWP web site</h1>
+<p>The WWP web site was thoroughly redesigned during 2010, with the new version of the site going live in early 2011. This redesign included a major overhaul of the directory structure underneath the site as well as a completely new interface. It also involves a significant increase in our reliance on dynamic content and scripting (PHP and JavaScript) to deliver information, visualizations, and interaction.
+</p>
+<h2 class="mw-headline" id="Structure">Structure</h2>
+<p>The WWP site is divided into four major structural sections, in terms of the presentation of content:
+</p>
+<ul><li><b>About:</b> contains information about the people (staff and students) who work at the WWP, the ongoing programs and projects we're involved in, upcoming events, and the project's history</li>
+<li><b>Outreach &amp; Education:'</b> information about our workshops and seminars, Women in the Archives, consulting activities, internship program, and resources and further information about text encoding/digital humanities</li>
+<li><b>Research &amp; Publications:</b> information about specific projects we're involved in, publications we've jointly or individually authored (including encoding documentation and guides), and major collaborative work that has resulted in published output</li>
+<li><b>Women Writers Online:</b> information about subscribing to WWO, list of texts we've published and are planning to publish (including tracking of forthcoming texts), teaching and learning section (including syllabi and how-tos for class projects), and "WWO Labs" (what we're now calling our sandbox for experimental interfaces and tools)</li></ul>
+
+<h2 class="mw-headline" id="Interface">Interface</h2>
+<p>The new WWP site has been designed to provide a consistent interface across the WWP's entire Web universe. That means a persistent top-level menu available from every page, and a predictable layout and set of options that signal where on the site a user finds herself. There are three "levels" to the site (independent of actual position in the directory structure):
+</p>
+<ul><li><b>top-level<em> or </em></b><em>index pages:'</em> entry pages for the WWP, WWO, and Exhibits portions of the site, these are essentially custom pages with specialized layouts but that nonetheless use the same header, footer, and navigation as the rest of the site</li>
+<li><b>overview pages:</b> these are entry pages for a specific section of the site, such as About or Outreach &amp; Education; they provide a grid layout containing short "chunks" of descriptive content that lead to pages with more detailed information</li>
+<li><b>reading pages:</b> these are lower-level pages that contain the meat of the site --- documentation, project descriptions, information about subscribing, detailed information about our workshops, etc.</li></ul>
+<p>Each of these three types of page have a single layout they share with all other pages of the same type. All of these types of page have the same site navigation, header, and footer.
+</p><p>Note: There are a handful of custom page styles (for instance, the "gallery view" pages in the Teaching &amp; Learning section of the site), but even these share their overall look and feel with other pages at the same level in the site hierarchy. In these cases, the page follows one of the three types above, and its custom layout/features are added by calling additional scripts or stylesheets.
+</p>
+<h2 class="mw-headline" id="DOCTYPEs.2C_File_types.2C_and_XML_declarations"><span id="DOCTYPEs,_File_types,_and_XML_declarations"></span>DOCTYPEs, File types, and XML declarations</h2>
+<h3 class="mw-headline" id="DOCTYPE">DOCTYPE</h3>
+<p>The default DOCTYPE for all WWP pages should be XHTML 1.0 strict:
+</p>
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+</pre>
+<p>The only exception should be pages that incorporate aspects of the W3C's "XHTML with RDFa" recommendation (i.e. pages that have embedded RDFa, like any page that uses the "gallery" function to display thumbnails in the right-hand margin). In those cases, the DOCTYPE should be declared as follows:
+</p>
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+</pre>
+<p>This DOCTYPE should be used ONLY on pages that need to use embedded RDFa; for all other pages, use the standard XHTML 1.0 DOCTYPE.
+</p>
+<h3 class="mw-headline" id="File_types">File types</h3>
+<p>Most pages on our site are valid XHTML 1.0, and therefore could be identified with a ".xhtml" file extension. As a matter of course, however, we use ".html" for all pages that were created manually (or at least edited by a human) and reserve ".xhtml" for automatically generated pages (e.g. workshop slides produced with yaps).
+</p>
+<h3 class="mw-headline" id="Problems_with_XML_declarations">Problems with XML declarations</h3>
+<p>Most modern browsers have no issue with the standard XML declaration in an XHTML document:
+</p>
+<pre>&lt;?xml version="1.0"?&gt;</pre>
+<p>However, some versions of Internet Explorer choke or behave inconsistently when presented with an XML declaration, so it is probably a good idea to *omit the XML declaration from all pages intended for public viewing* on our site. (Yes, I know, XHTML documents are XML, and so we should be able to declare them as such... But since &gt; 35% of our visitors still use IE, we don't really have much choice about it. Fortunately, the newly-released IE9 should make matters much, much better.)
+</p>
+<h2 class="mw-headline" id="Includes">Includes</h2>
+<p>To ensure consistency of major site features across all pages, we're using Server-Side Includes (SSI) to inject fixed pieces of content into a given page before it is delivered to the user's Web browser. All of our SSI files are stored in the <code>utils/includes/</code> directory. Specific includes are listed below, with a brief description of their function:
+</p>
+<ul><li><b>banner.ssi:</b> includes the WWP header (logo and title) and the top-level site navigation</li>
+<li><b>header.ssi:</b> like banner.ssi, but only includes the header (logo and title) -- not the top-level navigation; this is used currently for schedules and other materials related to WWP workshops and seminars</li>
+<li><b>footer.ssi:</b> includes the WWP footer, which includes our contact information as well as links to important pages, the CDS site, and the Brown University site</li>
+<li><b>scripts.ssi:</b> this includes references to JavaScript files that need to be available from every page on the site --- for instance, the main <code>wwp.js</code> script that controls behaviors such as the drop-down menus for the top-level navigation and the JQuery library file that it relies on; this file should <b>NOT</b> be used to include specialized scripts that are used on just a few pages, since this will load extra scripts unnecessarily, resulting in slower load times and degraded performance</li>
+<li><b>styles.ssi:</b> includes the main WWP stylesheet plus a handful of conditional statements that pull in other stylesheets for specific versions of Internet Explorer</li>
+<li><b>area_navigation.ssi:</b> inserts a new HTML <code>&lt;div&gt;</code> element into selected reading pages; this is empty, but gets filled in via an AJAX call to a separate PHP script that delivers a navigation pane with links to other pages in the same section of the site</li></ul>
+<p>Any page-specific stylesheets or JavaScript files should be called AFTER the scripts.ssi and styles.ssi are included.
+</p>
+<h2 class="mw-headline" id="JavaScript">JavaScript</h2>
+<p>The new site makes use of JavaScript for navigation and interaction; it also uses JavaScript extensively for selected visualizations that appear on some pages (such as the "featured" element on the main WWP entry page, the "gallery" feature used to assign thumbnail images to specific passages of text on some pages, etc.).
+</p><p>The JavaScript files that are needed to make global navigation and interactions work are inserted into each page using the <code>banner.ssi</code> server-side include (see above). At the moment, these include the following JavaScript files (located in <code>utils/bin/javascript/)</code>:
+</p>
+<ul><li><b>jquery.1_4_2.min.js</b>: minified version of the JQuery framework, used to simplify interaction, interface features, etc. This file is required for most other WWP scripts to work, so it's probably best to make sure it's always the first script listed in the include file</li>
+<li><b>wwp.js</b>: contains functions that all (or almost all) pages are likely to use</li></ul>
+<p>If new functions are developed that need to be available on ALL pages, they should probably be added to <code>wwp.js</code>; functions that are needed for specialized purposes on specific pages should be added to a separate <code>.js</code> file and added only to the pages to which they apply.
+</p><p>Specialized JavaScript files are also used for certain functions. At present, that includes:
+</p>
+<ul><li><b>upcoming.js</b>: contains functions that grab upcoming events from the events.xml file</li>
+<li><b>gallery.js</b>: called from any page that makes use of the "gallery" function for displaying thumbnail images in the right-hand margin of a page; at present, this is used only the WWO "Orientations" page but may also be used in future in WWO Exhibits or other locations.</li>
+<li><b>assorted jQuery plugins*: these are all located in the <code>plugins/</code> directory  (<code>utils/bin/javascript/jquery/plugins/</code>) and at present include</b>
+<ul><li><b>fancybox</b>: a plugin for displaying modal popup windows, used primarily for displaying images (see <a rel="nofollow" class="external free" href="http://fancybox.net/">http://fancybox.net/</a> for details; we're using version 1.3.1)</li>
+<li><b>jQuery File Tree</b>: used to generate the area navigation menu that appears in the left margin of reading pages (see <a rel="nofollow" class="external free" href="http://abeautifulsite.net/blog/2008/03/jquery-file-tree/">http://abeautifulsite.net/blog/2008/03/jquery-file-tree/</a> for details)</li>
+<li><b>TableSorter</b>: used to create sortable tables for displaying things like lists of texts, syllabi browsing lists, etc. (see <a rel="nofollow" class="external free" href="http://tablesorter.com/docs/">http://tablesorter.com/docs/</a>; we're using version 2.0.3). TableSorter also includes some add-ons for extra functionality, specifically <code>jquery.tablesorter.metadata.js</code> and <code>jquery.tablesorter.pager.js</code></li>
+<li><b>jQuery UI</b>: a set of user interface add-ons and enhancements for jQuery (see <a rel="nofollow" class="external free" href="http://jqueryui.com/">http://jqueryui.com/</a>); used only for selected WWO Lab items at present</li>
+<li><b>jQuery Tools</b>: another user interface library for jQuery (see <a rel="nofollow" class="external free" href="http://flowplayer.org/tools/index.html">http://flowplayer.org/tools/index.html</a>); not presently used but may be for some WWO Lab items</li></ul></li></ul>
+<p>Within the <code>utils/bin/javascript/</code> directory, there are also several folders containing JavaScript frameworks that we use for visualizations, interaction, etc. They include:
+</p>
+<ul><li><b>flot</b>: contains the scripts for the JQuery Flot plugin, used for drawing graphs</li>
+<li><b>jit</b>: contains the scripts for the JavaScript InfoViz Toolkit; see <a rel="nofollow" class="external text" href="http://thejit.org/">here</a> for details</li>
+<li><b>jquery</b>: contains the JQuery framework</li>
+<li><b>protovis</b>: contains the Protovis visualization framework; see <a rel="nofollow" class="external text" href="http://vis.stanford.edu/protovis/">here</a> for details</li></ul>
+<h2 class="mw-headline" id="PHP">PHP</h2>
+<p>We also use PHP for several small things, -primarily parsing simple XML files with the SimpleXML module and quickly generating JSON structures for use in some visualizations-. Because SimpleXML is not included in our installed PHP on papa (DOH!), we're foregoing its use for the time being. Syd has rewritten all of the PHP scripts that called SimpleXML and is instead using system calls to a XSLT processor to generate the necessary page content. The overhead for repeated system calls is quite high in some cases, but for the time being the system works. However, once we're fully migrated to teller/penn, we should probably re-write these scripts to use SimpleXML. We also use PHP to generate the area navigation displayed on reading pages. All PHP files are stored in <code>utils/bin/php</code>.
+</p>
+<ul><li><b>wwo_forthcoming.php</b>: reads a simple xml file <code>utils/xml/wwo.xml</code> containing basic information about our progress on texts that are currently being encoded, as well as information on when new texts were published, and displays a sortable list of titles</li>
+<li><b>wwo_recent.php</b>: reads the same <code>wwo.xml</code> file and generates a list of texts added to WWO within the past year</li>
+<li><b>jQueryFileTree.php</b>: a connector script for the jQuery FileTree add-on (see JavaScript section above), used to translate the directory structure of a particular part of the site into a usable navigation menu; the script has been customized somewhat to exclude things like <code>.svn</code> directories, and to take the WWP's specialized <code>&lt;meta&gt;</code> tags into account</li>
+<li><b>area-navigation.php</b>: generates a simple list for navigation on reading pages; currently, it recursively reads the directory structure from the point of the page currently being viewed and excludes certain types of files; directories that should be excluded from the contents list output need to be added to the exclusion list manually [deprecated --- not currently in use, replaced by jQueryFileTree (see above)]</li></ul>
+<h2 class="mw-headline" id="XML">XML</h2>
+<p>Parts of the new WWP site --- for instance, the lists of new and forthcoming texts, as well as all of the WWP syllabi --- are constructed directly from XML files, -generally parsed with the PHP SimpleXML module- currently via PHP system calls to a XSLT processor that generates the appropriate page content/fragment. The following XML files live in <code>utils/xml/</code>:
+</p>
+<ul><li><b>quotography.xml</b>: a list of short quotations from the WWO textbase, suitable for display as featured quotations on the main WWP page</li>
+<li><b>syllabi.xml</b>: a single file containing all the current WWP syllabi</li>
+<li><b>wwo_forthcoming.xml</b>: a single file containing a list of published and in-progress texts, used for generating lists of new and forthcoming texts</li>
+<li><b>events.xml</b>: a list of WWP events, in chronological order (this is important: newer events should appear at the end of the file)</li></ul>
+<h2 class="mw-headline" id="CSS">CSS</h2>
+<p>All aspects of the layout and design are controlled via CSS. (One exception to this rule: some older versions of Internet Explorer require a few JavaScript tweaks to fix layout problems.) There is a single master CSS file, <code>utils/stylesheets/wwp.css</code> that contains most of the styles for the site. Where necessary, specific styles can be overridden for individual pages, and it is likely there will be separate stylesheets that introduce additional styles for Exhibits and WWO pages. For the time being, however, any styles that affect more than a single page should be added to the primary <code>wwp.css</code> file.
+</p><p>There is also a separate CSS file used in conjunction with the jquery Fancybox plugin (see above); it should only be linked to from pages that also include the Fancybox script --- in other words, pages that require modal popup functionality.
+</p>
+<h2 class="mw-headline" id="Special_pages">Special pages</h2>
+<h3 class="mw-headline" id="Galleries">Galleries</h3>
+<p>We currently use what we call a "gallery" to create pages that synchronize text with specific images (see <a rel="nofollow" class="external text" href="http://www.wwp.brown.edu/wwo/teaching/orientations/explore.html">this page</a> for an example). When set up properly, the images will appear to the right of the passage of text that refers to them, or that they help illustrate or explain. When the user hovers over the image thumbnail with the cursor, the relevant passage in the text is highlighted. Clicking on an image will display a modal overlay with an enlarged version of the image and an optional caption.
+</p><p>To create a gallery page, use the "HTML with RDFa" DOCTYPE (see the section on DOCTYPEs above). You should also make sure to define the Dublin Core namespace and include a version, like so:﻿
+</p>
+<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/terms/" version="XHTML+RDFa 1.0"&gt;
+</pre>
+<p>Include the following code just before the end of the HTML &lt;head&gt; element:
+</p>
+<pre>&lt;script type="text/javascript" src="../../../utils/bin/javascript/gallery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../../../utils/bin/javascript/jquery/plugins/fancybox/jquery.fancybox-1.3.1.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../../utils/stylesheets/jquery.fancybox-1.3.1.css" /&gt;
+</pre>
+<p>To link a span of text to a particular image, enclose it in a &lt;span&gt; element that includes @property and @content attributes:
+</p>
+<pre>&lt;span property="dc:references" content="#image1"&gt;
+</pre>
+<p>The value of @property should be "dc:references" (the Dublin Core "references" term, used here because the span of text references the image, albeit indirectly). The value of @content is the identifier for the image thumbnal.
+</p><p>To add the gallery images, insert the following into the &lt;div class="related"&gt; element near the end of the main page content:
+</p>
+<pre>&lt;div class="gallery"&gt;
+  &lt;div id="image1" class="gallery-item"&gt;
+    &lt;a href="LOCATION OF FULL-SIZED IMAGE" title="THE CAPTION YOU WANT TO APPEAR WHEN THE IMAGE IS VIEWED"&gt;
+	&lt;img src="LOCATION OF THUMBNAIL IMAGE" alt="ALTERNATIVE TEXT IN CASE IMAGE FILE IS MISSING" /&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;
+</pre>
+<p>Add as any &lt;div class="gallery-item"&gt; elements as you want---one for each image referenced from the main text. An id is <em>required</em> or the gallery will not function properly. Fill in capitalized text with the information relevant to your gallery page.
+</p>
+<h3 class="mw-headline" id="Known_problems">Known problems</h3>
+<ul><li>Absence of SimpleXML on papa makes it harder to do very basic XML-related tasks (like generating lists of upcoming events); Syd has created workarounds for this, but we should revise/revisit them once we have our new penn/teller server environment</li>
+<li>The Windows Phone 7 version of Internet Explorer doesn't handle content inserted via AJAX requests (usually it will just display a blank page). There may be workarounds to this problem, but I haven't spent much time looking at them yet. </li>
+<li>Visualizations in the WWO Lab section do not work in Internet Explorer (either mobile or desktop versions); at present, we work around this by displaying a warning message to users telling them their browser isn't supported. All of the visualizations should work properly in IE9, but because some of the visualization frameworks haven't been updated to let IE9 pass browser detection tests, they fail unnecessarily. Once the visualization frameworks are updated, we should revise the Lab section to allow IE9 users to view everything.</li></ul>
+<h2 class="mw-headline" id="Mobile">Mobile</h2>
+<p>In general, recent smartphone browsers handle the site quite well (setting aside some very minor layout/rendering issues that don't really hinder usability). So-called "gallery" pages are one exception to this: the main page content is fine, but the gallery images either don't appear in the right margin, or they appear but are not selectable by the user (so you can't view them at a larger size); neither is really a huge problem.
+</p><p>I haven't done extensive testing of smartphone browser quirks. I do know that the mobile Safari included in iOS 3 appears to work reasonably well. IE for Windows Phone 7 (pre-"NoDo" update) works fine, with the exception of a gallery image display bug and the inability to display AJAX-included content at all). However, further testing is in order before we advertise mobile browser compatability.
+</p>
+<h1><span id="The_old_WWP_web_site_(prior_to_Fall_2010)"></span>The old WWP web site (prior to Fall 2010)</h1>
+<p>The WWP web site is the HTML portion of the WWP online presence, including all of the information about the project, the textbase, licensing, activities, and so forth, but not including the textbase itself.
+</p><p>The WWP web site is published from papa.services.brown.edu, and a development version of the site is maintained on golf.services.brown.edu. Both are under subversion control. Under normal circumstances the two are kept synchronized.
+</p><p>The WWP site is divided into three areas, represented by three main directories:
+</p><p>1. Texts: This area contains information about the texts themselves, including text lists, information about the textbase and how to license it, information about textbase development, etc.
+</p><p>2. About: This area contains information about the WWP, including its staff, current projects, history, etc.
+</p><p>3. Encoding: This area contains information about the WWP's encoding activities, including documentation, workshops and seminars, the WWP Guide, and related materials.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131701
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.046 seconds
+Real time usage: 0.048 seconds
+Preprocessor visited node count: 118/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1287/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:78-0!canonical and timestamp 20241110131701 and revision id 2652
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWPWeb&amp;oldid=2652">https://liblab.neu.edu/mediawik/index.php?title=WWPWeb&amp;oldid=2652</a>"</div>
+		
+	</div>
+</main>

@@ -1,0 +1,215 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWP Internal Markup Documentation (new) - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWP Internal Markup Documentation (new)</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#FFFEDB; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Note:</b> This page is about the new P5-based internal markup documentation that has been gradually updated from the old version (see <a href="/mediawik/index.php/WWPmarkupdoc_(old)" title="WWPmarkupdoc (old)">WWPmarkupdoc (old)</a> for details of that system and the planning process for updating it). See also the Internal Documentation Update (old) page for details about that conversion/update process, as well as information about what remains to be done in the new system.
+</p><p>This page is primarily intended to provide details about the components and functions of the new single-page internal documentation web app, and to provide instructions on how to modify or update those components when needed.
+</p><p>The page describing the old internal markup system is now a child of this page. Here's a convenient link to it: <a href="/mediawik/index.php/WWPmarkupdoc_(old)" title="WWPmarkupdoc (old)">WWP Internal Markup Documentation (old)</a>
+</p>
+</div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Client-Side_Code"><span class="tocnumber">2</span> <span class="toctext">Client-Side Code</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Code_structure"><span class="tocnumber">2.1</span> <span class="toctext">Code structure</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#HTML"><span class="tocnumber">2.2</span> <span class="toctext">HTML</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#CSS"><span class="tocnumber">2.3</span> <span class="toctext">CSS</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#JavaScript"><span class="tocnumber">2.4</span> <span class="toctext">JavaScript</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#wwpdoc.js"><span class="tocnumber">2.4.1</span> <span class="toctext">wwpdoc.js</span></a>
+<ul>
+<li class="toclevel-4 tocsection-8"><a href="#Collection"><span class="tocnumber">2.4.1.1</span> <span class="toctext">Collection</span></a></li>
+<li class="toclevel-4 tocsection-9"><a href="#Sidebar"><span class="tocnumber">2.4.1.2</span> <span class="toctext">Sidebar</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#List"><span class="tocnumber">2.4.1.3</span> <span class="toctext">List</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="#Entry"><span class="tocnumber">2.4.1.4</span> <span class="toctext">Entry</span></a></li>
+<li class="toclevel-4 tocsection-12"><a href="#Router"><span class="tocnumber">2.4.1.5</span> <span class="toctext">Router</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#Templates"><span class="tocnumber">2.4.1.6</span> <span class="toctext">Templates</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-14"><a href="#JS_Frameworks_and_Libraries"><span class="tocnumber">2.4.2</span> <span class="toctext">JS Frameworks and Libraries</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Server-Side_Code"><span class="tocnumber">3</span> <span class="toctext">Server-Side Code</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Structure"><span class="tocnumber">3.1</span> <span class="toctext">Structure</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#doc2entrylist.xquery"><span class="tocnumber">3.1.1</span> <span class="toctext">doc2entrylist.xquery</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#doc2html.xquery"><span class="tocnumber">3.1.2</span> <span class="toctext">doc2html.xquery</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#entry2html.xsl"><span class="tocnumber">3.1.3</span> <span class="toctext">entry2html.xsl</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#Loading.2FUpdating_documentation_XML"><span class="tocnumber">3.2</span> <span class="toctext">Loading/Updating documentation XML</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Overview">Overview</h2>
+<p>The new (summer/fall 2012) internal documentation interface is built as a single-page web application consisting of two primary parts:
+</p>
+<ol><li><b>client-side code</b>: HTML, CSS, and JavaScript and served by Apache just like any other files in the WWP web hierarchy</li>
+<li><b>server-side code/data</b>: XML, XQuery, and XSLT stored and served by eXist</li></ol>
+<p>While the server-side files are stored by, and served from, our eXist database instance, all of them also live on disk in the normal WWP web hierarchy and are under Subversion control. As a general rule, these should be considered the canonical version of the files, and any time they are modified they should be re-loaded into eXist. In the long term, we can automate this process via a cron job, but for the time being updated files will need to be added to eXist manually.
+</p>
+<h2 class="mw-headline" id="Client-Side_Code">Client-Side Code</h2>
+<h3 class="mw-headline" id="Code_structure">Code structure</h3>
+<p>A very simple directory structure is in place for the client-side code. Inside of the main application directory (currently <b>../internal/</b>, eventually <b>../encoding/</b> or whatever else we choose) it looks like this:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">internal/
+  index.html
+  src/
+    css/
+      wwpdoc.css
+    js/
+      wwpdoc.js
+      lib/
+        backbone-0.9.1.min.js
+        jquery-1.7.1.min.js
+        underscore.min.js
+</pre>
+<h3 class="mw-headline" id="HTML">HTML</h3>
+<p>The HTML component of the documentation interface consists of a single HTML template file, <b>index.html</b>. Its sole purpose is to provide a minimal HTML page structure and load the CSS/JavaScript for the page.
+</p><p>Following standard practice for optimizing script loading, all of the &lt;script&gt; tags appear at the end of the &lt;body&gt; element, after all other content on the page.
+</p>
+<h3 class="mw-headline" id="CSS">CSS</h3>
+<p>A single CSS file defines styles for the page: <b>wwpdoc.css</b> (in src/css/). This is nothing too fancy \-\- it's all pretty standard CSS stuff \-\- so there's not much more to say about it.
+</p>
+<h3 class="mw-headline" id="JavaScript">JavaScript</h3>
+<p>Most of the interface work is done in JavaScript, using the Backbone.js framework to provide some code structure, some data binding behaviors, and to handle URL hash changes, and the JQuery library to simplify a lot of common JS tasks. The main JS file is <b>wwpdoc.js</b>; the framework/library files are located in <b>../src/js/</b>. Complete documentation for the Backbone framework can be found at <a rel="nofollow" class="external free" href="http://backbonejs.org/">http://backbonejs.org/</a> if it's needed. JQuery is documented at <a rel="nofollow" class="external free" href="http://www.jquery.com">http://www.jquery.com</a>. Note that Backbone requires the <a rel="nofollow" class="external text" href="http://documentcloud.github.com/underscore">Underscore library</a> be present, so make sure it is loaded first if you're doing any major reworking of the system.
+</p>
+<h4 class="mw-headline" id="wwpdoc.js">wwpdoc.js</h4>
+<p>In general, if you find that you want to modify some aspect of the page display or behavior you'll want to do that only in the <b>wwpdoc.js</b> file. This is where all of the real interface work gets done. It's not particularly complicated, but as with most typical Backbone JS apps/pages it is divided into several MVC-like sections that bear some explaining:
+</p>
+<ul><li>a single Router (aka Controller)</li>
+<li>several Views</li>
+<li>a single Collection (consisting of individual Models)</li></ul>
+<p>Everything is "namespaced" (in the JavaScript sense of using a single global object) under the WWP object.
+</p><p>While there might be better ways to design parts of this JS, and I have no doubt done some slightly idiosyncratic things in putting it together, by and large it's a very simple/standard Backbone app that should be fairly easy to understand for anyone with minimal JS knowledge.
+</p>
+<h5 class="mw-headline" id="Collection">Collection</h5>
+<p>The application functions with a single collection, <b>WWP.models.Entries</b>. This is simply a collection of individual JS objects returned by a GET request sent to <b>doc2entrylist.xquery</b> on the server. This collection contains all of the data needed to display lists of documentation entries and to enable selection, filtering, etc. The data returned for a single entry will generally look something like this:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">{
+  id: "advertisement_narrative",
+  keywords: ["concept:advertisement", "concept:back matter", "concept:divisions of the text"],
+  head: "Advertisements",
+  abstract: "Encoding advertisements for printed works..."
+}
+</pre>
+<p>That's the only information needed to generate the basic application components.
+</p>
+<h5 class="mw-headline" id="Sidebar">Sidebar</h5>
+<p>The <b>Sidebar</b> view (<b>WWP.views.Sidebar</b>) handles the display of the left-hand sidebar, which contains lists of documentation Narratives, Elements, and Keywords. When the view is rendered, it iterates through all models in the Collection and outputs the appropriate form select fields. There are a couple of methods defined for selecting an individual entry from one of the three panels (either by mouse or by keyboard), as well as a method to reset the selection and view entire collection.
+</p>
+<h5 class="mw-headline" id="List">List</h5>
+<p>The <b>List</b> view (<b>WWP.views.List</b>) handles the display of a list of entries based upon the user's selection. When the page first loads, this is the view that presents a listing of all documentation entries. When a particular type of entry has been selected from the sidebar (e.g. all Narratives), the <b>showType()</b> method is used to filter the list. Similarly, the <b>showKeyword()</b> method displays all entries that are associated with a given keyword. As with the Sidebar view, the List view's *render()* method does most of the work of generating and inserting the appropriate HTML for every item in the Collection.
+</p>
+<h5 class="mw-headline" id="Entry">Entry</h5>
+<p>The <b>Entry</b> view (<b>WWP.views.Entry</b>) displays the full text of a single documentation entry. It is displayed only after the user has chosen to view a particular entry (either by clicking on an internal link within another entry, or by selecting an entry from the Sidebar view). The Entry view departs a little from the typical Backbone MVC approach in that, for convenience, it requests the full text of an entry directly from eXist.
+</p><p>The Entry view also handles navigation between individual entries by listening for "click" events on a variety of elements that can appear in an entry: keywords, attribute names or values, element names, etc. A "click" event registered on any of these will trigger the view's <b>select()</b> method, which communicates with the Router (see below) to update the URL hash and load new content as needed.
+</p><p>The HTML that contains the full text of the entry itself is transformed via XSLT in eXist; the Entry view simply receives the generated HTML when it requests it from the server, and then injects it into view's wrapper element.
+</p>
+<h5 class="mw-headline" id="Router">Router</h5>
+<p>The <b>Router</b> (<b>WWP.control.Workspace</b>) defines several routes that are fired when the browser's URL hash changes to match a particular pattern; these invoke different application views that respond accordingly. In this case, the application defines separate routes for the default page, an individual entry view, a list of one or more entries, and a keyword view. When any one of these routes it matched, the Router may perform some basic cleanup (e.g. hiding a view that is no longer needed, or clearing out stale information) and then hand things off to the appropriate view.
+</p><p>The Router also handles basic application initialization when the page first loads, setting up the Collection and all of the views. It also defines an application-wide Event Dispatcher (just a clone of the <b>Backbone.Events</b> object) that is used to coordinate a single event across multiple views (e.g. a "click" event in the Sidebar will trigger a corresponding action in the List view).
+</p>
+<h5 class="mw-headline" id="Templates">Templates</h5>
+<p>With the exception of the Entry view, all of the HTML content that appears on the page is generated by templates defined at the top of wwpdoc.js. These use the <a rel="nofollow" class="external text" href="http://documentcloud.github.com/underscore/#template">Underscore template method</a> to generate snippets of HTML that can be inserted into the DOM dynamically. In general, if you want to change some small aspect of the HTML that appears on the page \-\- for instance, add a class attribute to a specific element so that it can be styled with CSS, or perhaps change the way that the entry list gets displayed \-\- this is the place to do it.
+</p><p>Note, however, that if you want to modify the output of a full entry you'll have to modify the XSLT in eXist.
+</p>
+<h4 class="mw-headline" id="JS_Frameworks_and_Libraries">JS Frameworks and Libraries</h4>
+<p>Backbone.js, Underscore.js, and JQuery are the three required framework/library components. All three of these live in the ../src/js/lib/ directory. They are loaded via the main *index.html* page, so if you end up needing to swap in a new version you'll want to update the appropriate &lt;script&gt; tag there.
+</p>
+<h2 class="mw-headline" id="Server-Side_Code">Server-Side Code</h2>
+<p>Everything on the server side is stored in the eXist database. We're currently running version 1.4, which is installed in /opt/local/eXist/. Our eXist setup is proxied, via Apache Web Server, behind <b>/exist/</b> (e.g. <a rel="nofollow" class="external free" href="http://www.wwp.brown.edu/exist/">http://www.wwp.brown.edu/exist/</a>). It _should_ be configured to start/stop automatically on both Teller and Penn; so far, it seems to be working properly. If the doc page stops working at some point, the first thing to check should be whether eXist is running on the server in question.
+</p><p>If you need to start/stop the eXist service manually (which you shouldn't need to do in most cases), use:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">sudo -u exist /etc/init.d/exist [start|stop]
+</pre>
+<p>There is a special <b>exist</b> user set up on both Teller and Penn, and this should always be used to run eXist. For security reasons, do not run eXist as the root user.
+</p>
+<h3 class="mw-headline" id="Structure">Structure</h3>
+<p>The basic eXist structure for the internal documentation looks like this:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">wwpdoc/
+  app/
+    doc2entrylist.xquery
+    doc2html.xquery
+    entry2html.xsl
+  schema/
+    [assorted schema files]
+  xml/
+    [the documentation XML files]
+</pre>
+<p>In general, if you want to make permanent changes to the generated HTML for an entry or to the kind of information about all entries that gets included in the initial JSON response (for instance, if at some point we want to include additional metadata used for filtering the results), you would modify one of the three files listed below.
+</p><p>All of these files are under Subversion control within the normal WWP web hierarchy, so as a general practice any changes that you make should occur and be checked in there, THEN loaded into eXist. Changes made directly in eXist will NOT be reflected in the Subversion repository.
+</p>
+<h4 class="mw-headline" id="doc2entrylist.xquery">doc2entrylist.xquery</h4>
+<p>Reads the full <b>wwpdoc/xml/</b> collection and returns a JSON structure with basic information about the documentation files (see above, under "Collection" for an example of the information contained in that structure).
+</p><p>When the page first loads, the results of this XQuery populate the application's collection and are then used to generate the entire visible page, including the sidebar region and the full entry list.
+</p>
+<h4 class="mw-headline" id="doc2html.xquery">doc2html.xquery</h4>
+<p>A very simple XQuery that takes a single request parameter (the name of a file in the xml/ collection) and then transforms it with the <b>entry2html.xsl</b> stylesheet. The resulting HTML is what will be displayed when a single entry is being viewed.
+</p>
+<h4 class="mw-headline" id="entry2html.xsl">entry2html.xsl</h4>
+<p>The XSLT that transforms a single XML file into an HTML chunk that can be inserted into the page when requested. This is nothing special, and Syd could no doubt do a better job, but it gets the job done for the time being.
+</p>
+<h3 class="mw-headline" id="Loading.2FUpdating_documentation_XML"><span id="Loading/Updating_documentation_XML"></span>Loading/Updating documentation XML</h3>
+<p>The XML files for the documentation are under Subversion control, and live in the WWP's normal web hierarchy. Because the documentation interface pulls data from eXist, modifying these files on disk will not result in any changes to the documentation visible to the reader. In order to update that, you'll need to add or update the XML files that are stored in eXist. This will need to be done on both Teller and Penn if you want to changes to be visible to the world.
+</p><p>The easiest (?) way to load files into eXist is to use the Java Admin Client:
+</p>
+<ol><li>Log in to an X11 session on <em>wwp-test</em> or <em>wwp</em>.</li>
+<li>Make sure <code>eXist</code> is running (if not, use <code>sudo /opt/local/eXist/bin/startup.sh</code>).</li>
+<li>Make sure you are in the <code>/opt/local/eXist/</code> directory (this may not be necessary, depending on your path is set up — but that seems to vary)</li>
+<li>Issue the following command:</li></ol>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">java -jar ./start.jar
+</pre>
+<ol><li>The Java Admin Client should launch in a separate window. When it does, log in as the <b>admin</b> user. You shouldn't need to change any of the other settings in the login dialog.</li>
+<li>Once you have logged in, go to the <b>wwpdoc/xml/*</b> collection. This is where the XML files are stored.</li>
+<li>To load new (or updated) XML files, select <b>File &gt; Store files/directories</b> from the top menu (or use the <code>Ctrl-S</code> keyboard shortcut). This will launch a file chooser. Navigate to the directory on <em>wwp-test</em> (or <em>wwp</em>) where the XML files are stored, select the file(s) you want to upload, and then click <b>Select files or directories to store</b>.</li></ol>
+<p>7) That's it! Once the upload is complete, the new XML files will be used to generate the documentation visible in the documentation interface.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110124830
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.044 seconds
+Real time usage: 0.062 seconds
+Preprocessor visited node count: 91/1000000
+Post‐expand include size: 1053/2097152 bytes
+Template argument size: 818/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1337/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   19.406      1 Template:Note
+100.00%   19.406      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:38-0!canonical and timestamp 20241110124830 and revision id 1326
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWP_Internal_Markup_Documentation_(new)&amp;oldid=1326">https://liblab.neu.edu/mediawik/index.php?title=WWP_Internal_Markup_Documentation_(new)&amp;oldid=1326</a>"</div>
+		
+	</div>
+</main>

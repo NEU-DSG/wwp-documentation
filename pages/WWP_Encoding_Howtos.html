@@ -1,0 +1,116 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWP Encoding Howtos - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWP Encoding Howtos</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This is a potpourri of information which may be useful to encoders and staff. Generally it has instructions on how to do specific tasks in a particular environment (e.g., how to count the number of <code>&lt;lb&gt;</code> elements in a textbase file from the shell). No claim is made that the instructions herein are the <b>best</b> way to do something, only that they work, or at least did at the time of writing.:-) Someday this may be organized and fleshed out into useful documentation.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#How_to_edit_a_textbase_file_in_oXygen_instead_of_Emacs"><span class="tocnumber">1</span> <span class="toctext">How to edit a textbase file in oXygen instead of Emacs</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#How_to_use_your_own_GNU.2FLinux_laptop_to_edit_textbase_files"><span class="tocnumber">2</span> <span class="toctext">How to use your own GNU/Linux laptop to edit textbase files</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_to_use_your_own_Mac_OS_X_laptop_to_edit_textbase_files"><span class="tocnumber">3</span> <span class="toctext">How to use your own Mac OS X laptop to edit textbase files</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#How_to_use_your_own_MS_Windows_laptop_to_edit_textbase_files"><span class="tocnumber">4</span> <span class="toctext">How to use your own MS Windows laptop to edit textbase files</span></a></li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="How_to_edit_a_textbase_file_in_oXygen_instead_of_Emacs">How to edit a textbase file in oXygen instead of Emacs</h2>
+<p>First, plan on going to confession --- this is considered a sin by the more fundamental adherents to the religion of Emacs. Furthermore, you need to have a valid oXygen license installed on our account on golf to do this.
+</p><p>So, log into golf using a windowing system (e.g. from a Macintosh use <code style="color:blue">X11</code>, not <a href="/mediawik/index.php?title=Template:Terminal&amp;action=edit&amp;redlink=1" class="new" title="Template:Terminal (page does not exist)">Template:Terminal</a>). For the instructions below, we're assuming that the document you want to work on is <em>All Men Are Scum</em> written by "A. Lady", and is currently under construction.
+</p><p>1. Change to the directory where the file lives: <code style="color:blue">cd ~/tb/under_construction/</code>
+</p><p>2. If it is not already checked out to you, check the file out from RCS: <code style="color:blue">co -l -zLT alady.menRscum.xml</code>. You should get a message like 
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">RCS/alady.menRscum.xml,v --&gt; alady.menRscum.xml
+revision 1.17 (locked)
+done</pre>
+<p>The <code>-l</code> switch tells RCS to lock the checked-out file; the <code>-zLT</code> tells RCS to use the local time zone when updating the <code>$Header:$</code>field in the file.
+</p><p>3. Issue <code style="color:blue">oxygen alady.menRscum.xml &amp;</code>. Note that this is exactly analogous to issuing <code>emacs alady.menRscum.xml &amp;</code> the way you usually do. The ampersand is not required; it is what allows you to continue to use the shell window, rather than having that window frozen until you quit oXygen.
+</p><p>4. Edit the file.
+</p>
+<ul><li><ul><li>Make no errors.</li>
+<li>Don't rely solely on continuous validation; validate "for real" occasionally by clicking on icon w/ red check mark.</li>
+<li>Save early and often.</li></ul></li></ul>
+<p>5. When you're done editing the file either close its window (if you have more work in oXygen to do) or quit oXygen.
+</p><p>6. Either way, go back to the shell (which should still be available to you because of the "&amp;" you typed at the end of the editor command) and check the file back in:<code style="color:blue">ci \-zLT alady.menRscum.xml</code>. You will be prompted to enter an RCS log message, e.g.:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">RCS/alady.menRscum.xml,v  &lt;--  alady.menRscum.xml
+new revision: 1.18; previous revision: 1.17
+enter log message, terminated with single '.' or end of file:
+&gt;&gt; Changed all occurences of the letter 'x' to "[censored]"
+&gt;&gt; .
+done
+</pre>
+<p>Instead of a dot, you could enter a <code>^D</code> character, which is entered by holding down the CTL key and typing the <code>d</code> key.
+</p><p>7. Rejoice.
+</p>
+<h2 class="mw-headline" id="How_to_use_your_own_GNU.2FLinux_laptop_to_edit_textbase_files"><span id="How_to_use_your_own_GNU/Linux_laptop_to_edit_textbase_files"></span>How to use your own GNU/Linux laptop to edit textbase files</h2>
+<ol><li>Make sure you are behind the Brown firewall (i.e., either on campus or using VPN --- regular wireless works, you don't need Brown Secure)</li>
+<li>from an XTerm issue <code style="color:blue">ssh <em>shortid</em>@golf.services.brown.edu &amp;</code></li>
+<li>from the new XTerm window (at which you are logged into golf) issue <code style="color:blue">emacs &amp;</code></li></ol>
+<h2 class="mw-headline" id="How_to_use_your_own_Mac_OS_X_laptop_to_edit_textbase_files">How to use your own Mac OS X laptop to edit textbase files</h2>
+<ol><li>Ensure that X11 is installed. (!) If using 10.5.3 see <a rel="nofollow" class="external free" href="https://wiki.brown.edu/confluence/x/oAETAQ">https://wiki.brown.edu/confluence/x/oAETAQ</a>, first list, #26</li>
+<li>Using your favorite text editor (<code>Emacs</code>), create or edit the file <code>~/.bashrc</code> (!) It is often hard to open files that start with a dot in "normal" Mac editors</li>
+<li>If creating a new file, start with the line "<code>#! /bin/bash</code>"</li>
+<li>Add the line "<code>alias dev='ssh -Yf -l <em>shortid</em> -c 3des -2 golf.services.brown.edu -p 22'</code></li>
+<li>Add the line "<code>alias edev='ssh -Yf -l <em>shortid</em> -c 3des -2 golf.services.brown.edu -p 22 /usr/bin/emacs'</code></li>
+<li>Save the file, which should look as follows</li></ol>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">#! /bin/bash
+
+alias dev='ssh -Yf -l shortid -c 3des -2 golf.services.brown.edu -p 22
+alias edev='ssh -Yf -l shortid -c 3des -2 golf.services.brown.edu -p 22 /usr/bin/emacs
+</pre>
+<p>where "shortid" is your Brown shortid, of course.
+</p><p>7. Run X11, create a new XTerm window
+</p><p>8. From behind the Brown firewall (i.e., either on campus or using VPN --- regular wireless works, you don't need Brown Secure) issue <code style="color:blue">edev</code>in that new XTerm window.
+</p>
+<h2 class="mw-headline" id="How_to_use_your_own_MS_Windows_laptop_to_edit_textbase_files">How to use your own MS Windows laptop to edit textbase files</h2>
+<p>The free Xming client for Windows XP/Vista seems to work well (and it's highly configurable if you're the power user type). It comes with PuTTY/SSH built in.
+</p>
+<ol><li>Download the Xming-portable-PuTTY installer package from <a rel="nofollow" class="external text" href="http://sourceforge.net/projects/xming">here</a>. Run the installer.</li>
+<li>Download the Xming-fonts installer package <a rel="nofollow" class="external text" href="http://sourceforge.net/project/downloading.php?group_id=156984&amp;filename=Xming-fonts-7-3-0-22-setup.exe">here</a>. (You'll need this since emacs doesn't support client-side fonts.) Run the installer. When asked where you want to install the fonts, be sure to select the same folder where Xming is installed (probably called "Xming"). If you don't install the fonts in the same folder, you won't be able to view text in emacs properly.</li>
+<li>Once Xming and its fonts have been installed, go to Start Menu &gt; All Application &gt; Xming and select XLaunch . This is a wizard that allows you to save a configuration file that will launch your X windows session with the right WWP settings.
+<ul><li>On the first configuration screen, select the "Multiple Windows" option. Then click "Next".</li>
+<li>On the next screen, select "Start a program". Then click "Next".</li>
+<li>At the next screen, select "Using PuTTY (Plink.exe)". In the "Connect to computer" field, enter "golf.services.brown.edu". In the "Login as user" field, type your WWP user name. Leave the password field blank. Then click "Next".</li>
+<li>Don't enter anything in the next configuration screen. Click "Next".</li>
+<li>On the final configuration screen, click the button that says "Save configuration." When prompted, save the configuration with whatever name you choose (something like "wwp.xlaunch"). Be sure to add the ".xlaunch" file extension, as Windows seems to have difficulty recognizing the file without it. Click "Finish" at the bottom of the window. That's it\!</li></ul></li>
+<li>Once you've installed Xming and created a configuration file, you can launch a session on the WWP server simply by double-clicking the wwp.xlaunch file (or whatever you named it in the final configuration step). When you launch Xming in this way, you'll find yourself presented a standard terminal window. At the command prompt, simply type <code style="color:blue">emacs &amp;</code> to run emacs in a separate window. Note: you'll need to be behind the Brown firewall to connect to WWP resources. This means that if you're off campus you'll need to connect via the Brown VPN.</li></ol>
+<!-- 
+NewPP limit report
+Cached time: 20241110131248
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 22/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 923/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.659      1 Template:Terminal
+100.00%    0.659      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:41-0!canonical and timestamp 20241110131248 and revision id 161
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWP_Encoding_Howtos&amp;oldid=161">https://liblab.neu.edu/mediawik/index.php?title=WWP_Encoding_Howtos&amp;oldid=161</a>"</div>
+		
+	</div>
+</main>

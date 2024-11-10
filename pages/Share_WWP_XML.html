@@ -1,0 +1,87 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Share WWP XML - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Share WWP XML</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#How_to_bundle_up_the_WWP.E2.80.99s_WWO_XML_for_export_or_sharing"><span class="tocnumber">1</span> <span class="toctext">How to bundle up the WWP’s WWO XML for export or sharing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#At_the_moment_.282018-10-08.29_this_does_not_work_entirely_on_wwp-test"><span class="tocnumber">1.1</span> <span class="toctext">At the moment (2018-10-08) this does not work entirely on wwp-test</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Anyway.E2.80.A6"><span class="tocnumber">1.2</span> <span class="toctext">Anyway…</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Getting_a_different_set_of_files"><span class="tocnumber">1.3</span> <span class="toctext">Getting a different set of files</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="How_to_bundle_up_the_WWP.E2.80.99s_WWO_XML_for_export_or_sharing"><span id="How_to_bundle_up_the_WWP’s_WWO_XML_for_export_or_sharing"></span>How to bundle up the WWP’s WWO XML for export or sharing</h2>
+<h3 class="mw-headline" id="At_the_moment_.282018-10-08.29_this_does_not_work_entirely_on_wwp-test"><span id="At_the_moment_(2018-10-08)_this_does_not_work_entirely_on_wwp-test"></span>At the moment (2018-10-08) this does not work entirely on <code>wwp-test</code></h3>
+<p>Saxon 9.4 on wwp-test will not load an .xq from GitHub. Thus the word lists are not generated. (Rest is OK, but that means the README lies.) Maybe just upgrading to 9.8+ will fix this.
+</p>
+<h3 class="mw-headline" id="Anyway.E2.80.A6"><span id="Anyway…"></span>Anyway…</h3>
+<p>These instructions are for creating an archive of <code>distribution/</code> that works — i.e., the paths to the schemas are correct, etc. This is useful if you want a “local” copy of the textbase (i.e., all files in <code>distribution/</code> and their supporting files) either to play with on your system or to send to someone interested in our texts.
+</p>
+<ol><li>Log in to <code>wwp-test</code>.</li>
+<li>Issue <code>/var/www/html/WWP/utils/bin/createWWPcorpus.bash</code>.</li>
+<li>Read the lovely progress messages as you wait perhaps 3 full minutes.</li>
+<li>Done. Your output is in <code>/tmp/WWO.tar.gz</code>.</li></ol>
+<p>Note: it is likely you will get the error messages: 
+</p>
+<pre>mkdir: cannot create directory `/tmp/WWO': File exists
+ERROR: could not create temporary directory /tmp/WWO.
+</pre>
+<p>because I rarely erase that directory once I've created it. To delete it, issue <code>rm -fr /tmp/WWO/</code>; then re-run <code>createWWPcorpus.bash</code>. Be <b>very</b> careful with the <code>rm -fr</code> command, by the way. It doesn't ask, it just deletes.
+</p><p>When <code>createWWPcorpus.bash</code> is done, the directory <code>/tmp/WWO/</code> has the textbase-to-go in it, and the file <code>/tmp/WWO.tgz</code> is a compressed archive thereof. Send the latter to your friends &amp; family. Actually, it's pretty big (~18 MiB), so much better would be to put it somewhere on the web and send your friends &amp; family a pointer to it.
+</p><p>P.S. In order to decompress the archive and extract the files from it, <code>cd</code> to the directory where you put the archive file, and issue <code>tar xzvf WWO.tar.gz</code>.
+</p>
+<h3 class="mw-headline" id="Getting_a_different_set_of_files">Getting a different set of files</h3>
+<p>You can specify either the directories to use or supply a list of the actual files to use. So, if you wanted <em>all</em> the textbase files, including <code>under_construction/</code> and <code>on_deck</code> in addition to <code>distribution</code>, specify DIRS on the commandline with
+</p>
+<pre>$ DIRS="/path/to/TB/distribution/ /path/to/TB/under_construction/ /path/to/TB/on_deck/" /var/www/html/WWP/utils/bin/createWWPcorpus.bash
+</pre>
+<p>(It does not matter a whit whether you include the trailing slash or not.)
+To specify a corpus of only Eleanor Davies specify files on the commandline with
+</p>
+<pre>$ files="/path/to/TB/distribution/davies.*.xml" /var/www/html/WWP/utils/bin/createWWPcorpus.bash
+</pre>
+<p>Note that you cannot mix-and-match. If both files= and DIRS= are specified, files= wins and DIRS= is ignored. If you specify a directory in the value of files= it is ignored. (Actually slightly worse than ignored — an empty file with the name of the directory is created and included.) I do not know what happens if you specify a file or glob in the value of DIRS=, but it is probably not good.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131413
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.013 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 22/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 379/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:44-0!canonical and timestamp 20241110131413 and revision id 3790
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Share_WWP_XML&amp;oldid=3790">https://liblab.neu.edu/mediawik/index.php?title=Share_WWP_XML&amp;oldid=3790</a>"</div>
+		
+	</div>
+</main>

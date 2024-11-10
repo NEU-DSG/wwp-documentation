@@ -1,0 +1,95 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"XPath for WWP encoders - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">XPath for WWP encoders</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>XPath is incredibly useful for searching the textbase—the first thing you'll want to do is get set up with the working set you want (and you can find information on configuring working sets at <a href="/mediawik/index.php/XPath_in_oXygen" title="XPath in oXygen">this page</a>. You can also find the searching strategies outlined <a href="/mediawik/index.php/Finding_examples_in_the_WWP_textbase" title="Finding examples in the WWP textbase">here</a>), particularly if you want to combine XPath with oXygen's "Find" options.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Resources"><span class="tocnumber">1</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Recipes"><span class="tocnumber">2</span> <span class="toctext">Recipes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Example-finders"><span class="tocnumber">2.1</span> <span class="toctext">Example-finders</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Exploratory_queries"><span class="tocnumber">2.2</span> <span class="toctext">Exploratory queries</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Resources">Resources</h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.w3schools.com/xsl/xpath_syntax.asp">W3Schools' XPath tutorial</a></li></ul>
+
+<h2 class="mw-headline" id="Recipes">Recipes</h2>
+<h3 class="mw-headline" id="Example-finders">Example-finders</h3>
+<p><b>Find me...</b>
+</p>
+<ul><li><dl><dt>... any element X that has an attribute named Y</dt>
+<dd><b><code>//X[@Y]</code></b>
+<dl><dd><code>//distinct[@type]</code></dd></dl></dd></dl>
+<dl><dt>... any element X that does <em>not</em> have an attribute named Y</dt>
+<dd><code>//distinct[not(@type)]</code></dd></dl></li></ul>
+
+<ul><li><dl><dt>... any element X that has a child element W</dt>
+<dd><code>//orgName[placeName]</code></dd>
+<dd><code>//placeName/parent::orgName</code></dd>
+<dt>... any element X that does <em>not</em> have a child element W</dt>
+<dd><code>//orgName[not(placeName)]</code></dd></dl></li></ul>
+
+<ul><li><dl><dt>... any element X where its attribute named Y has a value of Z</dt>
+<dd><code>//distinct[@type eq 'dialect']</code></dd>
+<dd><code>//distinct[@type='dialect']</code></dd>
+<dt>... any element X where its attribute named Y does <em>not</em> have a value of Z</dt>
+<dd><code>//distinct[@type ne 'dialect']</code></dd>
+<dd><code>//distinct[not(@type='dialect')]</code></dd></dl></li></ul>
+<h3 class="mw-headline" id="Exploratory_queries">Exploratory queries</h3>
+<p><b>List...</b>
+</p>
+<ul><li><dl><dt>... all values used in attribute Y</dt>
+<dd><code>distinct-values(//sourceDesc//resp/@type)</code></dd></dl></li></ul>
+
+<ul><li>
+<dl><dt>... the names of all elements which are parents of element X</dt>
+<dd><code>//imprimatur/parent::*/name()</code></dd>
+<dd><code>//*[imprimatur]/name()</code></dd>
+<dt>... the <em>unique</em> names of all elements which are parents of element X</dt>
+<dd><code>distinct-values(//imprimatur/parent::*/name())</code></dd>
+<dd><code>distinct-values(//*[imprimatur]/name())</code></dd></dl></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110123703
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.015 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 17/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:432-0!canonical and timestamp 20241110123703 and revision id 2760
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=XPath_for_WWP_encoders&amp;oldid=2760">https://liblab.neu.edu/mediawik/index.php?title=XPath_for_WWP_encoders&amp;oldid=2760</a>"</div>
+		
+	</div>
+</main>

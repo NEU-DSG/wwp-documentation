@@ -1,0 +1,62 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Exercise0 - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Exercise0</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This first exercise is just to get comfortable with inserting TEI elements. Use the printed letter handout.
+</p><p>1. In the Oxygen XML editor, navigate to the textbase/training directory and open the training_template.xml file.
+</p><p>2. Save a copy (using "Save as...") under a different name, using your surname (e.g. smith.training.xml) so that we know whose file it is.
+</p><p>3. Validate the file (using the red check-mark icon, or type Command-shift-v). You should get two error messages, both referring to information that is missing from the &lt;change&gt; element. Fill in the date and your name key if you have one; now your file should be valid. (If you don't have a name key yet, don't worry about it.)
+</p><p>4. Inside the &lt;body&gt; element, you're going to encode the letter from the sample text. The TEI elements you're going to need are:
+</p>
+<dl><dd>&lt;div&gt;: a division of the text, used to represent whatever kinds of major structural pieces (poems, letters, essays, chapters, etc.) the text is divided into. The @type attribute is required and it indicates what type of division is being represented, using a controlled vocabulary. You can look up the permitted values in the <a rel="nofollow" class="external text" href="http://www.wwp.brown.edu/research/publications/documentation/internal/">WWP documentation</a>.</dd></dl>
+<dl><dd>&lt;p&gt;: a prose paragraph</dd></dl>
+<dl><dd>&lt;lb&gt;: a line break; this is an empty element, so you'll encode it as &lt;lb/&gt; (a start-tag and end-tag all in one). A line break marks the beginning of any new line that isn't at the beginning of a new element.</dd></dl>
+<dl><dd>&lt;head&gt;: any kind of heading</dd></dl>
+<dl><dd>&lt;persName&gt;: for names of persons</dd></dl>
+<dl><dd>&lt;name&gt;: for names of non-persons, groups of people (e.g. the Greeks), and things.</dd></dl>
+<dl><dd>&lt;emph&gt;: for words that are emphasized to give them rhetorical weight</dd></dl>
+<dl><dd>&lt;hi&gt;: for words that are highlighted for purely decorative reasons (e.g. because they are the first word of the text)</dd></dl>
+<dl><dd>&lt;pb&gt;: for page breaks. The @n attribute indicates what page begins at this break.</dd></dl>
+<dl><dd>&lt;said&gt;: for direct speech and dialogue</dd></dl>
+<dl><dd>&lt;closer&gt;: for groupings of information that come at the end of a division (especially in the case of letters): the "sincerely yours" and associated information</dd></dl>
+<dl><dd>&lt;salute&gt;: for the salutation ("sincerely yours", "dear sir") in a letter</dd></dl>
+<dl><dd>&lt;signed&gt;: for the name signed at the bottom of a letter or other signed textual structure</dd></dl>
+<!-- 
+NewPP limit report
+Cached time: 20241110124314
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.007 seconds
+Real time usage: 0.007 seconds
+Preprocessor visited node count: 7/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 20/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:10-0!canonical and timestamp 20241110124314 and revision id 40
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Exercise0&amp;oldid=40">https://liblab.neu.edu/mediawik/index.php?title=Exercise0&amp;oldid=40</a>"</div>
+		
+	</div>
+</main>

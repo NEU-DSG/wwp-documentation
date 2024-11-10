@@ -1,0 +1,164 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Subversion Hotsheet - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Subversion Hotsheet</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Using_Subversion_for_WWP_website"><span class="tocnumber">1</span> <span class="toctext">Using Subversion for WWP website</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Setup"><span class="tocnumber">1.1</span> <span class="toctext">Setup</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#What_has_changed.3F"><span class="tocnumber">1.2</span> <span class="toctext">What has changed?</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.22Downloading.22"><span class="tocnumber">1.3</span> <span class="toctext">"Downloading"</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#.22Uploading.22"><span class="tocnumber">1.4</span> <span class="toctext">"Uploading"</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Quick-edit_sequence"><span class="tocnumber">1.5</span> <span class="toctext">Quick-edit sequence</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Development_sequence"><span class="tocnumber">1.6</span> <span class="toctext">Development sequence</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1>Using Subversion for WWP website</h1>
+<h2 class="mw-headline" id="Setup">Setup</h2>
+<p>We have multiple working copies of a single repository. The repository itself is at <code><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/stg/wwp/website/trunk/">https://svn.brown.edu/svn/stg/wwp/website/trunk/</a></code>. You can actually access it using that URL in a browser, albeit read-only via a very limited web interface.
+</p><p>The more important working copies are at:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.wwp.brown.edu/">live website</a> <code>papa:/var/www/htdocs/WWP/</code></li>
+<li><a rel="nofollow" class="external text" href="http://golf.services.brown.edu/WWP/">development website</a> <code>golf:/var/www/htdocs/WWP/</code></li>
+<li>Syd's work desktop: <code>Pradoel:/Users/syd/Documents/WWPweb/</code></li>
+<li>Jacque &amp; Julia's work desktops.</li></ul>
+<h2 class="mw-headline" id="What_has_changed.3F"><span id="What_has_changed?"></span>What has changed?</h2>
+<p>To find the difference between a working directory and the repository, use the "svn status" command with the "-u" switch. One way to do so:
+</p>
+<ol><li>Log in via a commandline interface</li>
+<li><code>cd</code> to the working copy</li>
+<li>issue <code>svn stat -u</code></li></ol>
+<p>The output will be a list of all files (including those in subdirectories) for which the file in the repository and the file in the working copy don't match. In front of each file's name will be its revision number and up to 5 flag fields indicating a variety of attributes about the file's current condition. By far the most common and most important are:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th><code>svn st -u</code> code
+</th>
+<th>meaning
+</th></tr>
+<tr>
+<td><code>M</code>
+</td>
+<td>local version has been modified (needs to be committed)
+</td></tr>
+<tr>
+<td><code>*</code>
+</td>
+<td>repository version is newer than local (need to update local)
+</td></tr>
+<tr>
+<td><code>?</code>
+</td>
+<td>file exists in local working copy, is not in repository (needs to be added)
+</td></tr></tbody></table>
+<p>Note that a file can have both the <code>M</code> and <code>*</code> markers, which may be OK, but may also be a Bad Thing?. (See description of "<code>G</code>" and "<code>C</code>" in next section.) For a list of what other flags mean (if &amp; when you see any others), issue <code>svn help stat</code>.
+</p>
+<h2 class="mw-headline" id=".22Downloading.22"><span id="&#34;Downloading&#34;"></span>"Downloading"</h2>
+<p>To copy files that are newer in the repository (i.e., those marked with "<code>*</code>") into the working directory:
+</p>
+<ol><li>Log in via a commandline interface</li>
+<li><code>cd</code> to the working copy</li>
+<li>issue <code>svn up</code></li></ol>
+<p>The output will be a list of all files that get modified in the working copy. Each will be preceded by a code letter:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th><code>svn up</code> code
+</th>
+<th>meaning
+</th></tr>
+<tr>
+<td><code>A}</code>
+</td>
+<td><em>Added:</em> file did not exist in working copy before, and was downloaded from repository
+</td></tr>
+<tr>
+<td><code>D</code>
+</td>
+<td><em>Deleted:</em> file was in working copy, but was deleted to match repository
+</td></tr>
+<tr>
+<td><code>U</code>
+</td>
+<td><em>Updated:</em> file's content was changed to match that which is in the repository
+</td></tr>
+<tr>
+<td><code>G</code>
+</td>
+<td><em>Merged:</em> same as above, except that the local working copy of this file already had (and still has) modifications as compared to the repository
+</td></tr>
+<tr>
+<td><code>C</code>
+</td>
+<td><em>Conflict:</em> Subversion was unable to update file due to conflicting local modifcations, human must resolve
+</td></tr></tbody></table>
+<p>The first three are benign, just indicating that what you wanted to have happen happened.
+The "<code>G</code>" code indicates that subversion has successfully updated a file that had local modifications: none of the changes in the repository directly conflicted with any changes you made locally. The local working copy has both sets of changes in it. (The repository copy has <em>not</em> received your modifications, though; see next section.)
+The dreaded "<code>C</code>" code indicates that there was a conflict: since the file was last copied from the repository to the working copy it has changed <em>in the same part of the file</em> in both places (repository &amp; local). A human <b>must</b> resolve the conflicts. Ask Syd or read the [<a rel="nofollow" class="external text" href="http://svnbook.red-bean.com/en/1.2/svn.tour.cycle.html#svn.tour.cycle.resolve%7CSubversion">book</a>].
+</p>
+<h2 class="mw-headline" id=".22Uploading.22"><span id="&#34;Uploading&#34;"></span>"Uploading"</h2>
+<p>To send the changes you've made to the local working copy to the repository issue <code>svn commit -m "<em>useful message</em>"</code>. Note that while the message is associated with the entire directory, it is not generally necessary to name the file(s) you changed, as the subversion commands that list the commit messages can tell you which files were changed. If you forget the <code>-m</code> switch, subversion will launch an editor for you to enter a message.
+</p>
+<h2 class="mw-headline" id="Quick-edit_sequence">Quick-edit sequence</h2>
+<p>To fix a quick typo directly on the live website:
+</p>
+<ol><li>Log in to papa via a commandline interface</li>
+<li><code>cd /var/www/htdocs/WWP/</code></li>
+<li><code>svn stat \-u</code></li>
+<li><code>svn up}}, unless there is nothing to be updated or something looks amiss</code></li><code>
+<li>correct typo (may well use a remote editor, e.g. BBEdit on your Mac using sftp to edit the file)</li>
+<li><code>svn commit \-m "<em>clever message</em>"</code></li></code></ol><code><h2 class="mw-headline" id="Development_sequence">Development sequence</h2></code><code><p>At the moment, we are treating the production website as just another working copy. Thus changes should not be committed unless they are ready to go on the website, as someone else could issue <code>svn up</code> from the production website at any time.
+</p></code><code><ol><li>Log in via a commandline interface</li>
+<li><code>cd</code> to the working copy</li>
+<li><code>svn stat -u</code></li>
+<li><code>svn up</code>, unless there is nothing to be updated or something looks amiss</li>
+<li>(Note that you can work on as many files as you want or need to.)
+<ul><li>edit files (may well use a remote editor, e.g. BBEdit on your Mac using sftp to edit the file)</li>
+<li>to delete a file issue <code>svn delete <em>file</em></code></li>
+<li>to add a file, create it as you normally would with your editor, then issue <code>svn add <em>file</em></code></li>
+<li>to rename a file, issue <code>svn ren <em>old</em> <em>new</em></code>; IIRC the file still has the old name until you commit</li></ul></li>
+<li><code>svn commit -m "<em>clever message</em>"</code></li></ol></code><code><p>Note that none of the changes (edits, additions, deletions, renamings) will occur in the repository until you issue <code>svn commit</code>; some of them may not even happen locally until you commit. Furthermore, either all changes are successfully transmitted to the repository or no changes are committed.
+</p></code>
+<!-- 
+NewPP limit report
+Cached time: 20241110131742
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.025 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:80-0!canonical and timestamp 20241110131742 and revision id 386
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Subversion_Hotsheet&amp;oldid=386">https://liblab.neu.edu/mediawik/index.php?title=Subversion_Hotsheet&amp;oldid=386</a>"</div>
+		
+	</div>
+</main>

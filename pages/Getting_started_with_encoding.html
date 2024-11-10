@@ -1,0 +1,156 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Getting started with encoding - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Getting started with encoding</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Helpful_Links"><span class="tocnumber">1</span> <span class="toctext">Helpful Links</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_Encoding_Process"><span class="tocnumber">2</span> <span class="toctext">The Encoding Process</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Encoding_Tips"><span class="tocnumber">3</span> <span class="toctext">Encoding Tips</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#What_to_do_if_you_don.27t_know_what_to_do"><span class="tocnumber">4</span> <span class="toctext">What to do if you don't know what to do</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Let_Oxygen_help_you_work"><span class="tocnumber">5</span> <span class="toctext">Let Oxygen help you work</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Workflow_and_Tracking_Processes"><span class="tocnumber">6</span> <span class="toctext">Workflow and Tracking Processes</span></a></li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Helpful_Links">Helpful Links</h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/research/publications/documentation/internal/">WWP Internal Documentation</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/research/publications/documentation/training/">WWP Training Materials</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/research/publications/documentation/training/document_analysis.html">Document Analysis</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/outreach/seminars/_current/handouts/oxygenCribSheet.xhtml">Oxygen Crib Sheet</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/research/publications/documentation/training/validation.html">Validation and Error Messages Quick Guide</a></li>
+<li><a rel="nofollow" class="external text" href="https://wwp.northeastern.edu/wwo/texts/new/new.html">New Texts</a></li>
+<li><a rel="nofollow" class="external text" href="http://listserv.neu.edu/cgi-bin/wa?INDEX">Listserv</a></li>
+<li><a rel="nofollow" class="external text" href="http://dsg.neu.edu/wiki/Encoding_Meetings">Wiki on Encoding Meetings</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/research/publications/documentation/training/encoding_sample.txt">Sample Text</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/research/publications/documentation/training/subversion.html">Subversion Crib Sheet</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/outreach/seminars/_current/handouts/elementList.xhtml">List of Commonly Used Elements</a></li>
+<li><a href="/mediawik/index.php/Unicode_Quick_Guide" title="Unicode Quick Guide">Unicode Quick Guide</a></li></ul>
+<h2 class="mw-headline" id="The_Encoding_Process">The Encoding Process</h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/research/publications/documentation/training/document_analysis.html">Document Analysis</a> should be the first thing you do</li>
+<li>Encoding Steps
+<ul><li>Update your working directory in Subversion:
+<ul><li>launch Oxygen</li>
+<li>in the Tools menu, choose “SVN Client”</li>
+<li>Control-click on the WWPtextbase/ directory and choose “Update” from the menu that pops up</li>
+<li>It should either say “no incoming changes” or “Operation successful”.</li></ul></li>
+<li>Find your tadpole
+<ul><li>navigate to your ~/Documents/WWPtextbase/ folder</li>
+<li>in the under_construction/ directory, locate your tadpole</li>
+<li>open it in Oxygen (control-click on the file and choose to open with Oxygen right from Subversion, or navigate to the file in the "documents" folder and open it from there)</li></ul></li>
+<li>Encode the basic document structure:
+<ul><li>if your text doesn’t have any front or back matter, delete &lt;front&gt; and &lt;back&gt;</li>
+<li>enter the divisions and other major structural elements inside the &lt;front&gt;, &lt;body&gt;, and &lt;back&gt; elements as appropriate</li></ul></li>
+<li>Start transcribing
+<ul><li>omit the title page and table of contents for now</li>
+<li>enter paragraphs and container elements like &lt;quote&gt; or &lt;lg&gt; before typing in their contents</li>
+<li>fix any validation errors as soon as you see them</li>
+<li>save often</li></ul></li>
+<li>Commit your changes
+<ul><li>at the end of your session, check to make sure your document is well-formed</li>
+<li>if you're at a milestone, fill in a change log</li>
+<li>then, go back into the SVN client</li>
+<li>update the WWPtextbase directory again</li>
+<li>navigate to your tadpole file</li>
+<li>control-click on it and choose “Refresh” (⌘-R); you should see a little star appear next to your file</li>
+<li>control-click on your file again and choose “Commit” (⌘-M); enter a message that has at least your personal key if not a useful message, and then approve the dialog box.</li></ul></li></ul></li></ul>
+<h2 class="mw-headline" id="Encoding_Tips">Encoding Tips</h2>
+<ul><li>Thinking about Encoding
+<ul><li>Know that encoding can get very detailed: you’re marking up not just the basic organization of your text, but also a lot of other phenomena; you can expect that there will be some things you didn’t know you needed to encode that you will have to add in once you learn about them</li>
+<li>Think about what you’re doing as building a set of layers, rather than writing a stream; XML is really a set of enclosures, not a linear flow of details—and know that getting your brain wrapped around this way of thinking can be challenging!</li>
+<li>Don’t be afraid to say “I have no idea what I’m doing”</li>
+<li>Map out the book you’re working on before you get started; revisit document analysis as needed</li>
+<li>Keep an eye out for the tendency to miss spaces around elements</li>
+<li>Pay attention to the ways that punctuation should be used around elements; know that it might feel weird/different from non-encoded texts you’re used to working with</li>
+<li>Try to get some genre variety as you’re starting to encode; don’t be stuck in prose forever</li></ul></li>
+<li>Best Practices
+<ul><li>Do a review/read through of the documentation once you feel like you have your feet under you; it helps if, rather than thinking of the internal documentation as a thing you go to when you have a problem, you treat it as something you can learn from and read through just to see what’s there and build on your knowledge</li>
+<li>Look at other people’s texts as well, think about why people made the decisions that they made</li>
+<li>Continually validate (⌘-shift-V); it is OK to check in an invalid file, but problematic to check in an ill-formed file, thus check well-formedness (⌘-shift-W) before you commit  [That said, if you really have to leave before you can fix an ill-formedness error, go ahead and check it in—we try to avoid checking-in ill-formed files, but leaving a file not checked in at all is usually worse.]</li>
+<li>Don’t forget to fill out your change logs for major milestones in encoding or proofing</li>
+<li>Left margin tidiness makes things much easier to read; the convention is that documents go in/right as you get further into the hierarchy</li></ul></li>
+<li>Process Suggestions
+<ul><li>Skip the title pages if it’s your first text. You can do those later, when you’re more comfortable with encoding.</li>
+<li>It’s helpful to paste in a bunch of &lt;lb&gt;s at once and then arrow down for each new line</li>
+<li>In the same way, you can fill in groups of &lt;l&gt;s with poetry</li>
+<li>Make yourself a template for page breaks and then copy-paste that in as you need it; it’s often easiest to set yourself up with a bunch of page breaks at once, rather than interrupting your encoding. Your template might look something like this:</li></ul></li></ul>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">&lt;mw type="sig"&gt;&lt;/mw&gt;
+&lt;mw type="catch"&gt;&lt;/mw&gt;
+&lt;pb/&gt;
+ &lt;milestone unit="sig" n=""/&gt;
+ &lt;mw type="pageNum"&gt;&lt;/mw&gt; 
+</pre>
+<h2 class="mw-headline" id="What_to_do_if_you_don.27t_know_what_to_do"><span id="What_to_do_if_you_don't_know_what_to_do"></span>What to do if you don't know what to do</h2>
+<ul><li>Look for error messages. For tips on how to read error messages, see: <a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/research/publications/documentation/training/validation.html">this guide</a></li>
+<li>Check the <a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/research/publications/documentation/internal/">internal documentation</a></li>
+<li>Search in files to find example documents that have similar situations (knowing that it’s best to look at recently-encoded files, since some practices have changed). Start with the <a rel="nofollow" class="external text" href="http://www.wwp.neu.edu/wwo/new/new.html">list of texts</a> that were added since the WWP came to Northeastern</li>
+<li>Put your problem in a comment so you’re not stuck if you can’t figure out what to do. To surround with a comment, select the text you want and hit: ⌘-shift-, (command-shift-comma)</li>
+<li>Bring your question to a meeting</li>
+<li>Ask your mentor</li>
+<li>Check the <a rel="nofollow" class="external text" href="http://listserv.neu.edu/cgi-bin/wa?INDEX">listserv</a> to see if your question has been discussed in the past (DSGTAG-L)</li>
+<li>Know that you can email people with questions; you don’t have to wait to grab someone in person</li></ul>
+<h2 class="mw-headline" id="Let_Oxygen_help_you_work">Let Oxygen help you work</h2>
+<ul><li>Pay attention to color in Oxygen. Element start and end tags are blue; attributes are orange, values are brown, comments are bright green, regular text is black, errors are red.</li>
+<li>To add a new element, type a left pointy bracket (&lt;) and wait a second. Oxygen will give you a list of elements to choose from (only ones that would be valid in your current location in the document). You can start typing the name of the element you want to narrow down the list and then hit enter or double-click to pick the right element.</li>
+<li>To add an attribute to an element, put your cursor in the start tag, but not inside the element name or within another attribute, and hit the spacebar. You’ll get a list that will work the same as with elements and will be able to choose from that.</li>
+<li>To surround text you already have with start and end tags, highlight the text you want and then hit ⌘-E. Again, Oxygen is smart enough to only give you options that are valid.</li>
+<li>A lot of the time, you can get what you want from Oxygen by typing the beginning of what you need and then giving the program a second to think. So, if you want to add a comment, type &lt;! and wait a second, then choose the “XML Comment” option from the drop down.</li>
+<li>Check out the <a rel="nofollow" class="external text" href="http://www.wwp.northeastern.edu/outreach/seminars/_current/handouts/oxygenCribSheet.xhtml">Oxygen tips</a> for more information.</li></ul>
+<h2 class="mw-headline" id="Workflow_and_Tracking_Processes">Workflow and Tracking Processes</h2>
+<ul><li>Trello
+<ul><li>The Text Tracking board in Trello shows you all of the texts we are currently working on, who has been working on them, and their status in the encoding &amp; publication processes.</li>
+<li>When you start working on a text:
+<ul><li>make sure to add yourself as a member to its card (click on the card, click “Members” from the right-hand list of options, then click on your initials/icon)</li>
+<li>change the label to “Text is in the Hands of an Encoder” (click on “Labels” right below “Members” and click on the label you want; to turn a label off, just click it a second time)</li>
+<li>if necessary, move the text to the appropriate list (so, if you are the first person to claim a text, move it from “Unencoded Texts” to “Capture” when you begin encoding)</li>
+<li>You can use the comments and checklist options to record questions that you have about your text or anything that you think will be useful to people who work on it later.</li></ul></li>
+<li>When you’re done with a text, take yourself off as a member of the card and move it over to the next list. You should also change the label (to green/“unassigned” for texts moving into corrections or checking; or to red/“needs admin attention” if a text is moving into proofing or final review). It’s helpful, though not necessary, to add a comment requesting that the text be printed, if printing is needed.</li>
+<li>There are also projects available for people to claim on the left-hand side of the Text Tracking Board.</li>
+<li>We also have an “Ideas” board on Trello, which you can use to add cards for ideas that you have or to see (and vote) on the ideas that other people have suggested. These are things like workshops people would like to have or requested changes to the internal documentation.</li></ul></li>
+<li>Change Logs
+<ul><li>Record major milestones directly in the TEI file; these are &lt;change&gt;s and they go in the &lt;revisionDesc&gt; in the &lt;teiHeader&gt;. Each change log should include the date of the change on the @when attribute (YYYY-MM-DD), the person making the change on the @who attribute (use your key), and a quick description of the change.</li>
+<li>You don’t need to do one every time you do any encoding; but they’re an important part of our record-keeping, so please remember to complete them when they’re needed (for example, when you begin encoding, when you finish encoding, when you finish entering corrections, etc.).</li>
+<li>Here is an example entry:   &lt;change when="2014-02-10" who="personography.xml#jflanders.lfw"&gt;Began encoding.&lt;/change&gt;</li></ul></li>
+<li>Sign-out Sheets
+<ul><li>If you take any office texts or proofing printouts out of the DSC, please fill out the appropriate sign-out sheet (the sheets live in a folder on the top of the left-hand short filing cabinet, where the proofing printouts are). The office texts are not precisely irreplaceable, but they can be expensive to get, so please be careful with them, if you do take them out of the DSC.</li></ul></li>
+<li>Cover Sheets
+<ul><li>Once you get to the point where you’re working on proofing, you should use the cover sheets on the proofing printout to track your progress and record any global issues you discover.</li></ul></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110123605
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 299/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:363-0!canonical and timestamp 20241110123605 and revision id 3602
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Getting_started_with_encoding&amp;oldid=3602">https://liblab.neu.edu/mediawik/index.php?title=Getting_started_with_encoding&amp;oldid=3602</a>"</div>
+		
+	</div>
+</main>

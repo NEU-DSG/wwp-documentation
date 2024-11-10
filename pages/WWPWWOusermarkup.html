@@ -1,0 +1,63 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWPWWOusermarkup - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWPWWOusermarkup</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1>User-created markup</h1>
+<p>System so far:
+</p><p>1. user sees a text with a set of element identifiers overtly displayed. These IDs come from the basic OHCO encoding of the text.
+2. user specifies a start tag for an element. Required information is:
+</p>
+<ul><li>element GI</li>
+<li>element ID</li>
+<li>the preceding OHCO ID value</li>
+<li>enough words that follow the chosen start point to enable (with reasonable certainty) disambiguation if the OHCO element contains a lot of text</li></ul>
+<p>3. user then supplies the required info for the end tag, viz.:
+</p>
+<ul><li>the preceding OHCO ID value</li>
+<li>enough words that precede the chosen end point to enable (with reasonable certainty) disambiguation if the OHCO element contains a lot of text</li></ul>
+<p>4. user clicks "submit"
+5. all the start and end tag info is stored in the MySQL database ("wwothdb")
+</p><p>The next part of the process is displaying the text+user-created-markup. This is tricky because it involves repeatedly finding the correct place in the text content of an element node, then splitting the text content and inserting a child element node. <b>I HAVE GOT THIS PARTIALLY WORKING, BUT CAN ONLY INSERT ONE CHILD PER ELEMENT SO FAR - AFTER THAT IT GOES WRONG AND ALWAYS PUTS ADDITIONAL CHILDREN IN THE SAME PLACE. IT MUST BE SOMETHING TO DO WITH MY USING FIXED ITEM() NUMBERS FROM THE CHILD NODELIST IN MY INSERTION ALGORITHM</b>
+</p><p>Alternative method:
+</p>
+<ul><li>get the DOMElement object that will be the parent of the TH element</li>
+<li>assign it to a variable as a serialized string</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110131516
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.005 seconds
+Real time usage: 0.006 seconds
+Preprocessor visited node count: 2/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:47-0!canonical and timestamp 20241110131516 and revision id 173
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWPWWOusermarkup&amp;oldid=173">https://liblab.neu.edu/mediawik/index.php?title=WWPWWOusermarkup&amp;oldid=173</a>"</div>
+		
+	</div>
+</main>

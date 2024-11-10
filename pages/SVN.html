@@ -1,0 +1,74 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"SVN - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">SVN</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2 class="mw-headline" id="Version_Control_with_Subversion">Version Control with Subversion</h2>
+<h3 class="mw-headline" id="Basic_commands_and_operations_with_subversion">Basic commands and operations with subversion</h3>
+<p><b>Starting work, updating your working copy</b>: before you start work on any file, select the file you're going to work on (or the parent directory) and choose "Update" from the Working Copy directory (or type Command-U). You can also control-click on the file or directory, and select "Update" from the menu that appears. This will apply any changes made in the repository to your working copy.
+</p><p><b>Committing your changes</b>: when you finish your work for the day, control-click the file you've been working on and choose "Commit" from the menu that appears. 
+</p><p><b>Creating a new file</b>: when you create a new file (for instance, when you start encoding a new exhibit), you need to "add" the file to version control so that Subversion knows about it. To do this:
+</p>
+<dl><dd><ul><li>create the file in the appropriate directory</li>
+<li>in the SVN client, control-click on the file and choose "Add" from the menu (or select the file and choose "Add to version control" from the Working Copy menu). You'll see a green plus-sign next to the file, which means it's been added but not committed. Essentially it has been put on a wait list to be sent to the repository if and when you commit.</li>
+<li>control-click on the file again and choose "Commit" (or type Command-shift-C), send the file to the repository</li></ul></dd></dl>
+<p>'<em>Deleting a file</em>: if you create a new file and have not yet added it to version control, you can safely delete it from your local system without SVN ever knowing about it. However, if you add a new file to version control and then decide you want to delete it, you have to delete it using the SVN client:
+</p>
+<dl><dd><ul><li>in the SVN client, control-click the file and choose "Delete" from the menu. The file will disappear, but you're not done\! It still exists in the repository, but has been put on the wait list to be deleted when you commit.</li>
+<li>control-click on the parent directory (the one that contains the file you deleted) and choose "Commit" from the menu. The reason for this is that since you can't see the deleted file, you can't select it; instead, you have to "commit" the deletion by committing the directory containing the deleted file.</li></ul></dd></dl>
+<p><b>Renaming a file</b>: if you want to rename a file that is under version control, you MUST rename it using the SVN client, or potentially irreconcilable confusion will reign:
+</p>
+<dl><dd><ul><li>in the SVN client, control-click the file and choose "Rename" from the menu. </li>
+<li>control-click on the parent directory (the one that contains the file you renamed) and choose "Commit" from the menu. The reason for this is that "renaming" a file in subversion involves adding a file with the new name, and deleting the old one. You can't see the old version (because it's been deleted already on the local system) so you can't select it; instead, you have to "commit" the deletion by committing the directory containing the deleted file.</li></ul></dd></dl>
+<h3 class="mw-headline" id="About_Subversion">About Subversion</h3>
+<p>Version control is essential to any project that manages large quantities of data over a long period of time. Version control systems do things like:
+</p>
+<dl><dd><ul><li>preserve previous versions of files, so that they can be recovered</li>
+<li>enable multiple users to work on the same file without creating conflicting changes OR at least make it easier to manage conflicting changes</li>
+<li>prevent users from erasing or damaging each other's work by accident</li>
+<li>preserve the history of changes that have been made to a file</li></ul></dd></dl>
+<p>The WWP uses a tool called "Subversion" (also referred to as "SVN") for this purpose.
+</p><p>All of the encoding computers in the WWP office have working copies of the WWP textbase. When you're encoding a file, always follow this basic procedure:
+</p>
+<dl><dd><ol><li>When you start work for the day, using the SVN client, find your file and "update" it (control-click on the file and choose "Update" from the menu, or type Command-U). This will ensure that if any changes have been made to that file (e.g. by Syd or another encoder), you are working on the most current version.</li>
+<li>In oXygen, make your changes to the file (transcription, correction, etc.).</li>
+<li>When you are done working on the file, using the SVN client, "commit" your changes (control-click on the file and choose "Commit" from the menu). </li></ol></dd></dl>
+
+<!-- 
+NewPP limit report
+Cached time: 20241110123634
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.031 seconds
+Real time usage: 0.127 seconds
+Preprocessor visited node count: 8/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:9-0!canonical and timestamp 20241110123633 and revision id 39
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=SVN&amp;oldid=39">https://liblab.neu.edu/mediawik/index.php?title=SVN&amp;oldid=39</a>"</div>
+		
+	</div>
+</main>

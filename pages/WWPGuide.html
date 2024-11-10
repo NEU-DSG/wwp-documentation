@@ -1,0 +1,192 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWPGuide - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWPGuide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Build_Processes"><span class="tocnumber">1</span> <span class="toctext">Build Processes</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Remaining_gremlins_to_tackle"><span class="tocnumber">2</span> <span class="toctext">Remaining gremlins to tackle</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Locations_of_Formatting_issues"><span class="tocnumber">2.1</span> <span class="toctext">Locations of Formatting issues</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Pages_that_don.27t_.22exist.22"><span class="tocnumber">2.2</span> <span class="toctext">Pages that don't "exist"</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Need_P5_attention"><span class="tocnumber">2.3</span> <span class="toctext">Need P5 attention</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Need_examples"><span class="tocnumber">2.4</span> <span class="toctext">Need examples</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Syd"><span class="tocnumber">2.5</span> <span class="toctext">Syd</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Other"><span class="tocnumber">2.6</span> <span class="toctext">Other</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Build_Processes">Build Processes</h2>
+<p>There are (currently) two very different build processes and two validation processes used for the Guide. In all cases, the process is performed using the <code>make</code> command from some directory with some parameter. In order to make this easier, in all cases now if you go to the right directory (and you have to know or guess which is the right directory :-) ) and enter <code>make</code> alone, it spits out documentation about what the build or validation processes for that directory are and how to execute them.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>process
+</th>
+<th>directory
+</th>
+<th>sample cmd
+</th></tr>
+<tr>
+<td>generate new schemas from ODD file, EMPB schema, and lists of keywords
+</td>
+<td>.../encoding/guide/schema/
+</td>
+<td><code>make all</code>
+</td></tr>
+<tr>
+<td>validate existing XML
+</td>
+<td>.../encoding/guide/xml/
+</td>
+<td>e.g., <code>make relax-fast-good</code>
+</td></tr>
+<tr>
+<td>create a combined file in <code>/tmp/</code>
+</td>
+<td>.../encoding/guide/xml/
+</td>
+<td><code>make combined</code>
+</td></tr>
+<tr>
+<td>generate new HTML (from XML)
+</td>
+<td>.../encoding/guide/html/
+</td>
+<td><code>make all</code>
+</td></tr>
+<tr>
+<td>validate existing HTML
+</td>
+<td>.../encoding/guide/html/
+</td>
+<td><code>make valid</code>
+</td></tr></tbody></table>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#FFFEDB; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Note:</b> Schema generation will not work on machines other than golf, Syd's Mac, and maybe papa. If you want that capability on your system, we'd have to install roma the commandline tool and the TEI stylesheets, first.
+</p>
+</div>
+<h2 class="mw-headline" id="Remaining_gremlins_to_tackle">Remaining gremlins to tackle</h2>
+<h3 class="mw-headline" id="Locations_of_Formatting_issues">Locations of Formatting issues</h3>
+<ul><li><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/transcription_specialCharacters.html">http://golf.services.brown.edu/WWP/encoding/guide/html/transcription_specialCharacters.html</a> <br />I (Syd) looked at this page, and found the navigation left-hand column missing, and fixed that. (The <code>&lt;?HTTP-ssi #include file="navigation.xml" ?&gt;</code> was missing from the source XML.) However, I noticed some problems that I have tried to address:
+<ol><li>a lot of what it says was not exactly true</li>
+<li>some phrase-level encoding was missing</li>
+<li>I tried encoding the characters being discussed as &lt;quote&gt;&lt;code&gt;X&lt;/code&gt;&lt;/quote&gt; (instead of just &lt;quote&gt;X&lt;/quote&gt;) for readability; a bit of a hack, I admit.<br />You should take a look, as some of my wording may be clumsy. I think examples are in order, too.</li></ol></li>
+<li><a rel="nofollow" class="external autonumber" href="http://golf.services.brown.edu/WWP/encoding/guide/html/verse_stanzas.html">[1]</a>
+<ul><li>What's wrong with the formatting? --- Syd</li>
+<li>I note, however, that it says "see note below" when it means "see #3, below". Not fixed yet.</li></ul></li>
+<li>check back in on bullet points throughout</li></ul>
+<h3 class="mw-headline" id="Pages_that_don.27t_.22exist.22"><span id="Pages_that_don't_&#34;exist&#34;"></span>Pages that don't "exist"</h3>
+<p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/strategy.html">http://golf.services.brown.edu/WWP/encoding/guide/html/strategy.html</a>
+</p><p>footer.xml is empty
+</p><p>letters.collection.xml only has an example
+</p><p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/text_headLabel.html">http://golf.services.brown.edu/WWP/encoding/guide/html/text_headLabel.html</a>
+</p><p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/text_paragraph.html">http://golf.services.brown.edu/WWP/encoding/guide/html/text_paragraph.html</a>
+</p><p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/text_scheherazade.html">http://golf.services.brown.edu/WWP/encoding/guide/html/text_scheherazade.html</a>
+</p><p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/text_structure.html">http://golf.services.brown.edu/WWP/encoding/guide/html/text_structure.html</a>
+</p><p><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/transcription_handwriting.html">http://golf.services.brown.edu/WWP/encoding/guide/html/transcription_handwriting.html</a>
+</p>
+<h3 class="mw-headline" id="Need_P5_attention">Need P5 attention</h3>
+<p>transcription_wordLetter.xml
+</p>
+<h3 class="mw-headline" id="Need_examples">Need examples</h3>
+<p>text_closerTrailer.xml
+</p><p>text_postscript.xml
+</p><p>text_entries.xml
+</p><p> &lt;head&gt;Examples&lt;/head&gt;
+</p><p>      &lt;div type="example"&gt;
+</p><p>        &lt;head&gt;Example 1. Entries in a diary&lt;/head&gt;
+</p><p>      &lt;/div&gt;
+</p><p>      &lt;div type="example"&gt;
+</p><p>        &lt;head&gt;Example 2. Entries as subdivisions of a long letter&lt;/head&gt;
+</p><p>phrase_author.xml
+</p><p>phrase_namesAbbreviations.xml
+</p><p>phrase_unknown.xml
+</p><p>phrase_time.xml
+</p><p>text_dedication.html
+</p><p>text_essay.html
+</p><p>text_frontispeice.
+</p><p>text_index
+</p><p>text_list.
+</p><p>text_listerrors
+</p><p>names of non-humans and things            phrase_namesNonhuman
+</p><p>names: problems of nested reference        phase_namesNesting
+</p><p>Names: problems of multiple reference     phrase_namesMultiple.xml
+</p><p>Dates: simple encoding                           phrase_date...
+</p><p>Dates: dealing with calendars
+</p><p>Dates: format for the value attribute
+</p><p>Dates: date ranges
+</p><p>Dates: errors in
+</p><p>Dates: complex encoding
+</p><p>Time
+</p><p>Authors in Main text
+</p><p>Titles of other texts
+</p><p>Referencing Strings
+</p><p>Interaction of various emendation types
+</p>
+<h3 class="mw-headline" id="Syd">Syd</h3>
+<p>change xslt <span style="color:green">and CSS</span> so that html does not show keywords in type="narrative"
+</p>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#D1FFC9; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>done:</b>  
+</p>
+</div>
+<h3 class="mw-headline" id="Other">Other</h3>
+<ul><li>Need to check for duplicate <code>xml:id=</code> values. I just noticed that two entries have <code>rn156</code>. And two have <code>rn230</code> also.</li>
+<li>Need to check for use of unexplained jargon. E.g., "each speaker needs a</li></ul>
+<p>separate role ID" occurs in drama_castListdetails.xml ... has the word "ID" been explained satisfactorily?
+</p>
+<ul><li><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/phrase_overview.html">http://golf.services.brown.edu/WWP/encoding/guide/html/phrase_overview.html</a> does not process correctly and it does not have a corresponding xml file to correct (?) <span style="color:red">The HTML file is obsolete and should be deleted.</span></li></ul>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#D1FFC9; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>done, 2007-11-17:</b>  
+</p>
+</div>
+<ul><li><a rel="nofollow" class="external free" href="http://golf.services.brown.edu/WWP/encoding/guide/html/prose.html">http://golf.services.brown.edu/WWP/encoding/guide/html/prose.html</a> does not process correctly and it does not have a corresponding xml file to correct <span style="color:red">The HTML file is obsolete and should be deleted.</span></li></ul>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#D1FFC9; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>done, 2007-11-17:</b>  
+</p>
+</div>
+<ul><li>pointers and linking: need to include section about footnotes and endnotes</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110131549
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.032 seconds
+Real time usage: 0.035 seconds
+Preprocessor visited node count: 78/1000000
+Post‐expand include size: 1193/2097152 bytes
+Template argument size: 253/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 117/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.700      1 -total
+ 54.72%    2.572      3 Template:Green
+ 32.64%    1.534      1 Template:Note
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:65-0!canonical and timestamp 20241110131549 and revision id 290
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWPGuide&amp;oldid=290">https://liblab.neu.edu/mediawik/index.php?title=WWPGuide&amp;oldid=290</a>"</div>
+		
+	</div>
+</main>

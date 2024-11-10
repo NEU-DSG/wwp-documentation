@@ -1,0 +1,249 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Schema generation - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Schema generation</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Generating_Schemas_.28and_Documentation.29_from_ODD"><span class="tocnumber">1</span> <span class="toctext">Generating Schemas (and Documentation) from ODD</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#The_ODD_Itself"><span class="tocnumber">1.1</span> <span class="toctext">The ODD Itself</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Generating_Closed_Schema"><span class="tocnumber">1.2</span> <span class="toctext">Generating Closed Schema</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Generating_Open_Schema"><span class="tocnumber">1.3</span> <span class="toctext">Generating Open Schema</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#post-processing"><span class="tocnumber">1.3.1</span> <span class="toctext">post-processing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Generating_HTML_Documentation"><span class="tocnumber">1.4</span> <span class="toctext">Generating HTML Documentation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#post-processing_2"><span class="tocnumber">1.4.1</span> <span class="toctext">post-processing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Combined"><span class="tocnumber">1.5</span> <span class="toctext">Combined</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Generating_Schemas_.28and_Documentation.29_from_ODD"><span id="Generating_Schemas_(and_Documentation)_from_ODD"></span>Generating Schemas (and Documentation) from ODD</h2>
+<h3 class="mw-headline" id="The_ODD_Itself">The ODD Itself</h3>
+<p>The source customization ODD file for the <code>wwp-store</code> encoding language is in our <em>textbase</em> Subversion repository in <a rel="nofollow" class="external text" href="http://liblab.neu.edu/svn/DSG/wwp/textbase/trunk/schema/wwp-store.odd">textbase/schema/wwp-store.odd</a>. It should be valid against <a rel="nofollow" class="external text" href="https://tei-c.org/Vault/P5/current/xml/tei/custom/schema/relaxng/tei_odds.rnc">the current</a> or <a rel="nofollow" class="external text" href="https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_odds.rnc">the development</a> version of <code>tei_odds</code>. It should <em>almost</em> be valid against either <a rel="nofollow" class="external text" href="https://tei-c.org/Vault/P5/current/xml/tei/custom/schema/relaxng/tei_customization.rnc">the current</a> or <a rel="nofollow" class="external text" href="https://jenkins.tei-c.org/job/TEIP5/lastSuccessfulBuild/artifact/P5/release/xml/tei/custom/schema/relaxng/tei_customization.rnc">the development</a> version of <code>tei_customization</code>. (There are a few “errors”, as that schema is designed to help write the ODD, not validate it.) In all 4 of those cases it should also be valid against the associated Schematron rules.
+</p><p>The edition number is stored on <code>/TEI/teiHeader/fileDesc/editionStmt/edition/@n</code> in <b>major.minor.fix</b> format. Any change to the ODD that represents a deliberate change to the set of documents validated by the schema ups the <b>minor</b> version number. Changes to only prose or class names or such may be reflected in only the <b>fix</b> number. The <b>major</b> number is reserved for overhauls or other very significant changes. (The last one, e.g., was the change from the TEI ODD language to the TEI PureODD language — i.e., purging (most of) the RELAX NG from the ODD.) The edition number is usually also reflected on the <code>@n</code> of the <code>&lt;change&gt;</code> element describing the change that brings the ODD up to the specified version.
+</p><p>The Subversion <code>$Id:$</code> is also stored as the content of that <code>&lt;edition</code>. In general it should not be updated by hand, but rather by Subversion on check-in. (This requires that the <code>svn:keywords</code> property be set, which it is.)
+</p><p>Currently the <code>&lt;schemaSpec&gt;</code> element is stored in <code>&lt;body&gt;</code>; someday soon I would like to move it to <code>&lt;back&gt;</code>, reserving the body for prose discussion.
+</p><p>The ODD file is loosely divided into “sections” delimited by nothing other than box comments. A list of those sections follows, in the order they currently occur in the ODD file. (But since the order of the specification children of <code>&lt;schemaSpec&gt;</code> is not constrained by TEI and is insignificant to an ODD processor, it may have changed in the ODD with no effect.)
+</p><p>Note — the ODD has long since outgrown this format (being a linear sequence of statements divided loosely into sections by comments). It should be properly divided into <code>&lt;specGrp&gt;</code> elements, a re-factoring (which would up the major version number) that I hope to do soon.
+</p>
+<dl><dt>element &amp; module inclusion, and element deletion section</dt>
+<dd><code>&lt;moduleRef&gt;</code>s with <code>@include</code> or <code>@except</code>. If we had any <code>schemaSpec/elementRef</code> elements they would probably be here, too.</dd>
+<dt>ODD/Schematron hack section</dt>
+<dd>section for top-level <code>&lt;constraintSpec&gt;</code>s. In looking at this now, it should either be re-named or divided into two sections (and renamed).</dd>
+<dt>element renaming section</dt>
+<dd>set of <code>&lt;elementSpec&gt;</code> elements for cases in which the primary change being made is to change the name of the element. Often other changes are made, as well, but they are usually “minor” changes. E.g., the <code>&lt;titlePage&gt;</code> element is changed to the <code>&lt;titleBlock&gt;</code> element here, but also has a controlled vocabulary for its <code>@type</code> established here. (Fnote: this is because you cannot have two <code>&lt;elementSpec&gt;</code> elements with the same <code>@ident</code> and <code>@ns</code> attributes in a single ODD, yet.)</dd>
+<dt>element addition section</dt>
+<dd>new elements we have added. Note that this should be a subsection of the EXTENSIONS section, below.</dd>
+<dt>class deletion section</dt>
+<dd>for deletion of entire classes (“scorched earth” approach for attribute deletion; we do not delete any model classes)</dd>
+<dt>attribute deletion section</dt>
+<dd>for removing attributes from elements or classes (the “selective thinning” and “repossession” approaches to attribute removal)</dd>
+<dt>class addition section</dt>
+<dd>for addition of <b>attribute</b> classes. The <b>model</b> classes are added in the “new class subsection” of the “EXPANSIONS” section, not sure why.</dd>
+<dt>other class and macro manipulation section</dt>
+<dd>changes to datatypes, macros, and classes</dd>
+<dt>section for changes to content models of "normal" TEI elements</dt>
+<dd>in some cases the change is only to attributes, not content model</dd>
+<dt>required element section</dt>
+<dd>a complex Schematron check to require certain elements that are optional in TEI</dd>
+<dt>attribute constraint section</dt>
+<dd>constraining some attributes further than vanilla TEI, e.g. constrained value list or required instead of optional</dd>
+<dt>EXPANSIONS</dt>
+<dd>Changes in this section need to be in a non-TEI namespace. Since our entire markup language is in our own non-TEI namespace, this doesn't really mean much to us. But most such changes are segregated to here in order to make changing this to a TEI-conformant customization a bit easier.
+<dl><dt>class manipulation subsection</dt>
+<dd>non-conformant changes to classes</dd>
+<dt>new class subsection</dt>
+<dd>added model classes</dd></dl></dd></dl>
+<dl><dt>macro addition section</dt>
+<dd>macros we added (to make writing the ODD easier)</dd>
+<dt>stuff leftover from EMPB that I still need to look at</dt>
+<dd>I guess</dd>
+<dt>miscellaneous section</dt>
+<dd>as it says</dd>
+<dt>XInclude section</dt>
+<dd>the XInclude attributes defined in ODD</dd></dl>
+<h3 class="mw-headline" id="Generating_Closed_Schema">Generating Closed Schema</h3>
+<p>Any of the following methods <em>should</em> work. The only one I have thoroughly tested is the first, using the command <code>fiumicino.bash</code> on my system. It is my local front-end to <code>roma</code>, so I don’t have to type a really long command every time.
+</p>
+<dl><dt>commandline <code>roma</code></dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/roma2 --patternprefix=ws_--xsl=/path/to/TEI_Stylesheets_repo --noxsd --nodtd --localsource=/path/to/local/p5.xml ./wwp-store.odd <b>.</b></code></dd>
+<dd>Note that this creates both RELAX NG XML syntax and compact syntax output, <code>wwp-store.rng</code> and <code>wwp-store.rnc</code> (unless you forget the ultimate dot, in which case they get stuck in a <code>RomaResults/</code> directory).</dd>
+<dd>Note that the <code>patternprefix</code> can be whatever you want, but it makes life easier if it matches the value of <code>schemaSpec/@prefix</code>.</dd>
+<dd>Note that <code>localsource</code> is optional. I <em>think</em> the Stylesheets will default to using the file <code>/path/to/TEI_Stylesheets_repo/source/p5subset.xml</code>, but I’m not 100% on that.</dd>
+<dt>Stylesheets “bin” commands</dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/TEI_Stylesheets_repo/bin/teitornc --odd --localsource=/path/to/TEI_Stylesheets_repo/source/p5subset.xml wwp-store.odd</code></dd>
+<dd>Note: I don’t know why you have to specify <code>localsource</code>, you shouldn’t have to.</dd>
+<dd>If you want XML syntax instead of compact, you can use <code>teitorelax</code> instead of <code>teitornc</code>.</dd>
+<dt>oXygen</dt>
+<dd>Open schema in oXygen.
+<dl><dt>configure scenario</dt>
+<dd>Only has to be done the first time</dd>
+<dd>Select <code>Document &gt; Transformation &gt; Configure Transformation Scenario(s)…</code></dd>
+<dd>Select <code>TEI ODD to RELAX NG</code></dd>
+<dd>Click <code>Save and close</code> (or <code>Apply associated</code>, which does next step, too)</dd></dl></dd>
+<dd>Select <code>Document &gt; Transformation &gt; Apply Transformation Scenario(s)</code></dd>
+<dd>Output is placed in <code>/path/to/textbase/schema/out/wwp-store.rnc</code></dd>
+<dt>OxGarage</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://oxgarage.tei-c.org/">OxGarage</a></dd>
+<dd>Click on <code>Documents</code> (as “Convert from ?”)</dd>
+<dd>Click on <code>ODD Document</code></dd>
+<dd>Click on <code>RELAX NG compact syntax</code></dd>
+<dd>Back towards top of page, click <code>Browse…</code> and then find and select the <code>wwp-store.odd</code> file</dd>
+<dd>Click <code>Convert</code></dd>
+<dd>Save ZIP file (goes wherever your browser puts it, probably into ~/Downloads/)</dd>
+<dd>Extract the <code>document.rnc</code> file from the ZIP file and rename it</dd>
+<dt>Roma β</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://romabeta.tei-c.org/">Roma beta</a></dd>
+<dd>Should be self-explanatory</dd>
+<dt>Roma</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://roma.tei-c.org/">Roma</a></dd>
+<dd>Select <code>Upload a customization</code>, and click <code>Browse…</code> and select the <code>wwp-store.odd</code> file</dd>
+<dd>Click the red <code>Start</code> button</dd>
+<dd>Click the <code>Schema</code> tab</dd>
+<dd>Select <code>RELAX NG schema (compact syntax)</code> from the “Which format do you prefer?” drop-down (it is typically the default)</dd>
+<dd>Click the red <code>Generate</code> button</dd>
+<dd>Save output file (goes wherever your browser puts it, probably into ~/Downloads/)</dd></dl>
+<p>There are no changes required to the output RELAX NG except (sometimes) moving &amp; renaming  the file. However, the compact syntax output is more human-readable if you run it through my “fixer”: <code>/home/syd/bin/fix_rnc_whitespace.perl --patternprefix="ws_" &lt; wwp-store.rnc &gt; FIXED.rnc &amp;&amp; mv FIXED.rnc wwp-store.rnc</code>.
+</p>
+<h3 class="mw-headline" id="Generating_Open_Schema">Generating Open Schema</h3>
+<p>There are fewer choices for generating the open schema (i.e., the ISO Schematron). No matter how you initially generate the file, though, it needs to be post-processed. Currently that post-processing is done by hand. Note that oXygen has no built-in process for doing this. (At least, not yet.) Also our ODD just makes Romaβ hang. (I have not told Raff yet. I probably should, but I know he is very busy teaching a new undergraduate course this semester; I believe this is the first time in his career he has taught a course.)
+</p>
+<dl><dt>commandline <code>roma</code></dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/roma2 --patternprefix=ws_--xsl=/path/to/TEI_Stylesheets_repo --noxsd --nodtd --localsource=/path/to/local/p5.xml --isoschematron ./wwp-store.odd <b>.</b></code></dd>
+<dd>Note that this creates <code>wwp-store.isosch</code> (unless you forget the ultimate dot, in which case I think it will get put in a <code>RomaResults/</code> directory).</dd>
+<dd>Note that <code>localsource</code> is optional. I <em>think</em> the Stylesheets will default to using the file <code>/path/to/TEI_Stylesheets_repo/source/p5subset.xml</code>, but I’m not 100% on that.</dd>
+<dt>Stylesheets “bin” commands</dt>
+<dd><code>$ cd /path/to/Stylesheets_repo/bin/</code></dd>
+<dd><code>$ ./teitoschematron --odd /path/to/textbase/schema/wwp-store.odd /path/to/textbase/schema/wwp-store.isosch </code></dd>
+<dt>OxGarage</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://oxgarage.tei-c.org/">OxGarage</a></dd>
+<dd>Click on <code>Documents</code> (as “Convert from ?”)</dd>
+<dd>Click on <code>ODD Document</code></dd>
+<dd>Click on <code>ISO Schematron constraints</code></dd>
+<dd>Back towards top of page, click <code>Browse…</code> and then find and select the <code>wwp-store.odd</code> file</dd>
+<dd>Click <code>Convert</code></dd>
+<dd>Save ZIP file (goes wherever your browser puts it, probably into ~/Downloads/)</dd>
+<dd>Extract the <code>document.rnc</code> file from the ZIP file and rename it</dd>
+<dt>Roma</dt>
+<dd>Exactly the same process as for the closed schema, except select <code>ISO Schematron</code> from the “Which format do you prefer?” drop-down</dd></dl>
+<h4 class="mw-headline" id="post-processing">post-processing</h4>
+<p>The generated wwp-store.isosch file <b>is NOT usable</b> as is. This is because the Schematron extraction routine does not realize we use an entirely different namespace, and because one of our Schematron processors chokes on multiple declarations of the same namespace. So open up the file in a text editor and perform the following steps.
+</p>
+<ul><li>One easy way to get both the <code>&lt;ns&gt;</code> elements and a comment describing what you did right is to copy them from the previous version of the wwp-store.isosch file. (Referred to as “copy-and-replace” below.) You would want to copy from the line immediately following the “This file generated <em>DATETIME</em> by 'extract-isosch.xsl'” to the “constraints” comment, and replace the equivalent portion in the new file. However, if you generate the changes this way a) you still have to perform the s/tei:/wwp:/g; change, and you should definitely test the schema, at least with oXygen if not probatron. This is because once in a while things do change, and a simple copy is insufficient.</li>
+<li>If you have not used the copy-and-replace method above, look through the <code>&lt;ns&gt;</code> elements near the top of file. (There are generally 6–10 of them divided into up to two sections, “namesapces, declared” and “namespaces, implicit”.)
+<ul><li>All but one of any set that have the same <code>@prefix</code> but different <code>@uri</code>s <b>must</b> be deleted (these are actual Schematron errors). This usually does not occur or occurs only with the one pair, the prefix <code>"tei"</code>, which is bound to both the TEI namespace and the WWP namespace. Delete the TEI namespace one. (Keep in mind that <code>"TEI"</code> should remain bound to the TEI namespace.)</li>
+<li>All but one of any set that have the same <code>@uri</code> but different <code>@prefix</code>s <b>should</b> be deleted (these are not Schematron errors, but <code>probatron</code> treats them as an error when it shouldn’t). This usually does not occur or occurs only with the one pair that bind the WWP namespace to both <code>"tei"</code> and <code>"wwp"</code>. Delete the <code>"tei"</code> one.</li>
+<li>All but one of any set that have the same <code>@prefix</code> and the same <code>@uri</code> <b>should</b> be deleted (these are not Schematron errors, but <code>probatron</code> treats them as an error when it shouldn’t). This usually does not occur.</li></ul></li>
+<li>The Schematron was extracted from both the TEI Guidelines and from the customization ODD using paths that address elements in the same WWP namespace. The former use the hard-coded prefix <code>tei:</code>, the latter use <code>wwp:</code>. But (because <code>probatron</code> is lame) we just deleted the declaration for the <code>tei:</code> prefix. So now do a global change, changing all occurences of <code>tei:</code> with <code>wwp:</code>. Be sure <b>not</b> to change <code>TEI:</code> (to either <code>wwp:</code> or <code>WWP:</code>, the latter of which is what many editors would do by default).</li>
+<li>You may wish to format-and-indent or the equivalent just to make file more human-readable.</li>
+<li>If you did not use the copy-and-replace method above, make sure to add a comment near top-of-file declaring the changes you made.</li></ul>
+<h3 class="mw-headline" id="Generating_HTML_Documentation">Generating HTML Documentation</h3>
+<p>As with the closed schema, the only generation method below that I
+have thoroughly tested is the first. As witht he open schema, the
+output should be tweaked a bit after generation before use.
+</p>
+<dl><dt>commandline <code>roma</code></dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/roma2 --patternprefix=ws_--xsl=/path/to/TEI_Stylesheets_repo --noxsd --nodtd --norelax --dochtml localsource=/path/to/local/p5.xml ./wwp-store.odd <b>.</b></code></dd>
+<dd>Note that this creates the desired output in wwp-store.doc.html, and an unused intermediate file wwp-store.doc.xml, both in the current directory (unless you forget the ultimate dot, in which case they get stuck in a <code>RomaResults/</code> directory).</dd>
+<dd>Note that the <code>patternprefix</code> can be whatever you want, but it makes life easier if it matches the value of <code>schemaSpec/@prefix</code>.</dd>
+<dd>Note that <code>localsource</code> is optional. I <em>think</em> the Stylesheets will default to using the file <code>/path/to/TEI_Stylesheets_repo/source/p5subset.xml</code>, but I’m not 100% on that.</dd>
+<dt>Stylesheets “bin” commands</dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/TEI_Stylesheets_repo/bin/teitohtml --odd --localsource=/path/to/TEI_Stylesheets_repo/source/p5subset.xml wwp-store.odd</code></dd>
+<dd>Note: I don’t know why you have to specify <code>localsource</code>, you shouldn’t have to.</dd>
+<dt>oXygen</dt>
+<dd>Open schema in oXygen.
+<dl><dt>configure scenario</dt>
+<dd>Only has to be done the first time</dd>
+<dd>Select <code>Document &gt; Transformation &gt; Configure Transformation Scenario(s)…</code></dd>
+<dd>Select <code>TEI ODD XHTML</code></dd>
+<dd>Click <code>Save and close</code> (or <code>Apply associated</code>, which does next step, too)</dd></dl></dd>
+<dd>Select <code>Document &gt; Transformation &gt; Apply Transformation Scenario(s)</code></dd>
+<dd>Output is (appropriately) placed in <code>/path/to/textbase/schema/wwp-store.html</code></dd>
+<dt>OxGarage</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://oxgarage.tei-c.org/">OxGarage</a></dd>
+<dd>Click on <code>Documents</code> (as “Convert from ?”)</dd>
+<dd>Click on <code>ODD Document</code></dd>
+<dd>Click on <code>xHTML</code></dd>
+<dd>Back towards top of page, click <code>Browse…</code> and then find and select the <code>wwp-store.odd</code> file</dd>
+<dd>Click <code>Convert</code></dd>
+<dd>Save output file (goes wherever your browser puts it, probably into ~/Downloads/)</dd>
+<dt>Roma β</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://romabeta.tei-c.org/">Roma beta</a></dd>
+<dd>Should be self-explanatory</dd>
+<dt>Roma</dt>
+<dd>Surf over to <a rel="nofollow" class="external text" href="https://roma.tei-c.org/">Roma</a></dd>
+<dd>Select <code>Upload a customization</code>, and click <code>Browse…</code> and select the <code>wwp-store.odd</code> file</dd>
+<dd>Click the red <code>Start</code> button</dd>
+<dd>Click the <code>Documentation</code> tab</dd>
+<dd>Select <code>HTML web page</code> from the “Which format do you prefer?” drop-down (it is typically the default)</dd>
+<dd>Click the red <code>Generate</code> button</dd>
+<dd>Save output file (goes wherever your browser puts it, probably into ~/Downloads/wwp-store_doc.html)</dd></dl>
+<h4 class="mw-headline" id="post-processing_2">post-processing</h4>
+<ul><li>Rename the output file (which might be <code>wwp-store.doc.html</code>, <code>wwp-store.odd.html</code>, <code>wwp-store_doc.html</code>) to <code>wwp-store.html</code>.</li>
+<li>If the first line is blank delete it or replace it with “&lt;?xml version="1.0" encoding="UTF-8"?&gt;”. (Web browsers don’t care, but some XML processors consider it an error.)</li>
+<li>In several places extraneous metadata is output abutted directly onto useful metadata with no intervening space. Conveniently, this almost always occurs in the vicinity of my name.
+<ul><li>Search for “Bauman” (you can search for the shorter “Syd” instead, but there will be a few more false positives, e.g. due to some examples containing “Sydney Smith”).</li>
+<li>When my name occurs immediately after the title, delete the name (i.e., change “LanguageSyd Bauman. ” to just “Language”).</li>
+<li>When my name occurs right before the <code>$Id:</code> Subversion keyword (whether there is intervening whitespace or not) delete everything in between the preceding ‘&gt;’ to the ‘$’ of the “$Id:” (leaving those characters themselves).</li></ul></li>
+<li>Be cautious about using format-and-indent (or the equivalent) on the HTML file, as you may introduce undesired whitespace. (Then again, you may not.)</li></ul>
+<h3 class="mw-headline" id="Combined">Combined</h3>
+<p>With some methods, it is possible to generate more than one output at once.
+</p>
+<dl><dt>commandline <code>roma</code></dt>
+<dd><code>$ cd /path/to/textbase/schema/</code></dd>
+<dd><code>$ /path/to/roma2 --patternprefix=ws_--xsl=/path/to/TEI_Stylesheets_repo --noxsd --nodtd --dochtml --isoschematron --localsource=/path/to/local/p5.xml ./wwp-store.odd <b>.</b></code></dd>
+<dt>oXygen</dt>
+<dd>When configuring the transformation scenario, select multiple outputs (e.g., <code>TEI ODD XHTML</code> and <code>TEI ODD to RELAX NG (compact syntax)</code>)</dd>
+<dt>Roma, Roma β, and OxGarage</dt>
+<dd>You cannot actually generate multiple outputs with one click, but there is no need to re-lead the input ODD file each time you want to generate output.</dd></dl>
+<!-- 
+NewPP limit report
+Cached time: 20241110131336
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.053 seconds
+Real time usage: 0.054 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:548-0!canonical and timestamp 20241110131336 and revision id 3680
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Schema_generation&amp;oldid=3680">https://liblab.neu.edu/mediawik/index.php?title=Schema_generation&amp;oldid=3680</a>"</div>
+		
+	</div>
+</main>

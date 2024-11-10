@@ -1,0 +1,97 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWO Statistics - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWO Statistics</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Overall usage statistics for WWO (from a WWP manager's perspective) are accessible at
+</p><p><a rel="nofollow" class="external free" href="http://wwo.wwp.neu.edu/usage/awstatsMain/">http://wwo.wwp.neu.edu/usage/awstatsMain/</a>
+</p><p>Subscribers should be directed to <a rel="nofollow" class="external free" href="http://wwo.wwp.northeastern.edu/usage/awstats/">http://wwo.wwp.northeastern.edu/usage/awstats/</a>, and to get in, they should enter:
+</p><p>wwostats
+!stats!
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Interpreting_AWStats_data"><span class="tocnumber">1</span> <span class="toctext">Interpreting AWStats data</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Some_very_basic_things_about_awstats_configuration"><span class="tocnumber">2</span> <span class="toctext">Some very basic things about awstats configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Awstats_directory_structure"><span class="tocnumber">2.1</span> <span class="toctext">Awstats directory structure</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Configuration_files"><span class="tocnumber">2.2</span> <span class="toctext">Configuration files</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Changing_who_can_access_institutional_statistics"><span class="tocnumber">2.3</span> <span class="toctext">Changing who can access institutional statistics</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Permitting_full-year_view_of_graphical_statistics"><span class="tocnumber">2.4</span> <span class="toctext">Permitting full-year view of graphical statistics</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Where_does_awstats_actually_store_its_data.3F"><span class="tocnumber">3</span> <span class="toctext">Where does awstats actually store its data?</span></a></li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Interpreting_AWStats_data">Interpreting AWStats data</h2>
+<ul><li><b>pages</b> are requests for new pages (e.g. a user clicking on something to go somewhere or make a change to the page they're reading</li>
+<li><b>visits</b> are a continuous sequence of interactions by a user</li>
+<li><b>hits</b> are any request that you haven't told AWS to ignore: any HTTP request for a resource; not as relevant; we've filtered out some basic things that are extraneous (e.g. stylesheets, image files, javascript, etc.) but not sure exactly what it's recording: a single page is constructed out of multiple components</li></ul>
+<p>Note that this stats package uses outmoded ideas about how web sites and browsers work
+Statistics about "unique visitors" will always dramatically undercount usage, since they look at unique IP addresses; most universities have dynamic IP addressing, and a limited range of IP addresses get reassigned to multiple users. A proxy server will look like a single visitor.
+</p><p><br />
+For IREL, if they request data on "searches" and "sessions":
+</p>
+<ul><li>"searches" = any access or page request; their notion of a 'search' is based on database access</li>
+<li>searches = AW stats "pages"</li>
+<li>sessions = AW stats "visits"</li></ul>
+
+<h2 class="mw-headline" id="Some_very_basic_things_about_awstats_configuration">Some very basic things about awstats configuration</h2>
+<h3 class="mw-headline" id="Awstats_directory_structure">Awstats directory structure</h3>
+<p>There are two directories that awstats uses for storing configuration information governing who gets to see what statistics, and how those stats are reported and displayed, <code>../awstats/</code> and <code>../awstats_priv</code>. I believe the former governs overall stats, while the latter governs the behavior of workstation-level stats.
+</p>
+<h3 class="mw-headline" id="Configuration_files">Configuration files</h3>
+<p>Every subscribing institution has a unique configuration file that exists in both directories and has the general form awstats.[institution_name].conf}} (e.g. <code>awstats.Brown_University.conf</code>). These files are generated from a single template file -- <code>awstats.model.conf</code>, which lives in <code>../awstats/</code> -- every time the IP export process is run. (I believe it happens as part of the cron job that runs following IP updates, though I'm not sure and need to find out more about that process.) This means that changes made to an individual conf file will be overwritten every time IP addresses are updated on papa.
+</p>
+<h3 class="mw-headline" id="Changing_who_can_access_institutional_statistics">Changing who can access institutional statistics</h3>
+<p>The <code>makeConfFiles.pl</code> script is responsible for actually generating configuration files from this template and setting the appropriate IP access for each individual institution. It pulls IP information from the <code>textbase_ipaddrs</code> file that is produced during the IP export process (see <a href="/mediawik/index.php?title=WWOIPupdating&amp;action=edit&amp;redlink=1" class="new" title="WWOIPupdating (page does not exist)">this page</a> for details) and also creates the bash script and the perl script that process all the stats stuff and run nightly as part of a cron job. [<span style="color:blue">Actually, upon further inspection, it isn't clear that this process runs nightly.  It is possible that <code>makeConfFiles.pl</code> needs to be invoked manually to generate a new set of configuration files, or that it only runs once each month when awstats collects monthly statistics.</span>] Most of the script is devoted to parsing IP addresses and ranges properly and adding them to individual conf files, but it also contains a section that governs global IP addresses that you want to add to every configuration file -- the subnet that WWP/STG computers are one, for instance.
+</p><p>To update this global access information, go to the line where the <code>$stgSubnet</code> variable is assigned a value and change/add whatever IP you want to permit access. Multiple IP addresses can be added to the line, with a single space separating each IP or IP range. When you're done, just leave a comment in the file indicating the change.
+</p>
+<h3 class="mw-headline" id="Permitting_full-year_view_of_graphical_statistics">Permitting full-year view of graphical statistics</h3>
+<p>By default, awstats disables viewing of yearly statistics for individual institutions (it's permitted via the command-line awstats interface, but since  our subscribers don't have access to that, the default awstats installation doesn't provide any easy way to view information for a complete calendar year.
+</p><p>To permit full-year viewing, simply change the <code>AllowFullYearView</code> setting so that it's value is "3" (rather than the default "2") in the appropriate configuration file. Remember, only changes made to the <code>awstats.model.conf</code> template will be reflected in all configuration files, and since configuration files are re-generated periodically, any changes made to individual conf files will be overwritten every time the <code>makeConfFiles.pl</code> script runs.
+</p><p>As of August 14, 2008, the default setting for newly generated conf files will be to permit all institutions to view full-year statistics from the main graphical awstats page. Should this prove to be too taxing on our servers, <code>AllowFullYearView=3</code> should simply be changed back to <code>AllowFullYearView=2</code> in <code>awstats.model.conf</code>.
+</p>
+<h2 class="mw-headline" id="Where_does_awstats_actually_store_its_data.3F"><span id="Where_does_awstats_actually_store_its_data?"></span>Where does awstats actually store its data?</h2>
+<p>When you view an awstats page in a web browser, the information that awstats is using to generate its graphical display, its lists of referring sites, pages viewed, etc., is pulled from a separate location on papa: <code>/var/www/html/usage/awstats/[name_of_institution]</code>. Each institution has its own directory, within which live a set of text files, one for each month for which awstats has collected statistics. These files are named <code>awstats[mm][yyyy].[name_of_institution].txt</code>.
+</p>
+<blockquote><p>For instance, Brown's statistics are stored in <code>/var/www/html/usage/awstats/Brown_University/</code>. Within this directory the individual stats file for, say, October of 2007 would be <code>awstats102007.Brown_University.txt</code>. This text file contains all of the information that awstats displays when you view the Brown University statistics for October 2007 via the awstats web interface.</p></blockquote>
+<!-- 
+NewPP limit report
+Cached time: 20241110131532
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.019 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:59-0!canonical and timestamp 20241110131532 and revision id 992
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWO_Statistics&amp;oldid=992">https://liblab.neu.edu/mediawik/index.php?title=WWO_Statistics&amp;oldid=992</a>"</div>
+		
+	</div>
+</main>

@@ -1,0 +1,593 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Recreating Playground - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Recreating Playground</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installing_CentOS_and_WWO_onto_playground"><span class="tocnumber">1</span> <span class="toctext">Installing CentOS and WWO onto playground</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#CentOS"><span class="tocnumber">1.1</span> <span class="toctext">CentOS</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Things_we_should_or_have_installed"><span class="tocnumber">1.2</span> <span class="toctext">Things we should or have installed</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Apache_setup.2C_modules.2C_etc."><span class="tocnumber">1.2.1</span> <span class="toctext">Apache setup, modules, etc.</span></a>
+<ul>
+<li class="toclevel-4 tocsection-5"><a href="#files_from_.2Fetc.2Fhttd.2F_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated"><span class="tocnumber">1.2.1.1</span> <span class="toctext">files from /etc/httd/ whose differences between wwp and wwp-test need to be investigated</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-6"><a href="#other_things_to_be_moved_over"><span class="tocnumber">1.2.2</span> <span class="toctext">other things to be moved over</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="#things_to_be_moved_only_to_wwp-test"><span class="tocnumber">1.2.2.1</span> <span class="toctext">things to be moved only to wwp-test</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#things_we_need_help_with"><span class="tocnumber">1.2.2.2</span> <span class="toctext">things we need help with</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Version_control_plan"><span class="tocnumber">1.3</span> <span class="toctext">Version control plan</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#eXist-DB"><span class="tocnumber">1.4</span> <span class="toctext">eXist-DB</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Jetty_settings"><span class="tocnumber">1.4.1</span> <span class="toctext">Jetty settings</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Webapp_settings"><span class="tocnumber">1.4.2</span> <span class="toctext">Webapp settings</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Database_configuration"><span class="tocnumber">1.4.3</span> <span class="toctext">Database configuration</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Install_eXist_as_a_service"><span class="tocnumber">1.4.4</span> <span class="toctext">Install eXist as a service</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Progress_Notes"><span class="tocnumber">2</span> <span class="toctext">Progress Notes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#November_2019"><span class="tocnumber">2.1</span> <span class="toctext">November 2019</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#2021-02-03"><span class="tocnumber">2.2</span> <span class="toctext">2021-02-03</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#2021-02-08"><span class="tocnumber">2.3</span> <span class="toctext">2021-02-08</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#2021-02-09"><span class="tocnumber">2.4</span> <span class="toctext">2021-02-09</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#2021-02-23"><span class="tocnumber">2.5</span> <span class="toctext">2021-02-23</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#2021-02-26"><span class="tocnumber">2.6</span> <span class="toctext">2021-02-26</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#2021-03-02"><span class="tocnumber">2.7</span> <span class="toctext">2021-03-02</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#2021-03-09"><span class="tocnumber">2.8</span> <span class="toctext">2021-03-09</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#2021-03-16T10.2F11"><span class="tocnumber">2.9</span> <span class="toctext">2021-03-16T10/11</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#2021-03-16T14.2F15"><span class="tocnumber">2.10</span> <span class="toctext">2021-03-16T14/15</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#2021-03-18"><span class="tocnumber">2.11</span> <span class="toctext">2021-03-18</span></a>
+<ul>
+<li class="toclevel-3 tocsection-27"><a href="#Tomcat"><span class="tocnumber">2.11.1</span> <span class="toctext">Tomcat</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-28"><a href="#2021-03-23"><span class="tocnumber">2.12</span> <span class="toctext">2021-03-23</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#2021-03-29"><span class="tocnumber">2.13</span> <span class="toctext">2021-03-29</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#2021-03-30"><span class="tocnumber">2.14</span> <span class="toctext">2021-03-30</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#2021-04-05"><span class="tocnumber">2.15</span> <span class="toctext">2021-04-05</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#2021-04-06"><span class="tocnumber">2.16</span> <span class="toctext">2021-04-06</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#2021-04-23"><span class="tocnumber">2.17</span> <span class="toctext">2021-04-23</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#2021-04-27"><span class="tocnumber">2.18</span> <span class="toctext">2021-04-27</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#2021-05-02"><span class="tocnumber">2.19</span> <span class="toctext">2021-05-02</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="#Setting_up_a_new_RHEL_8_server"><span class="tocnumber">3</span> <span class="toctext">Setting up a new RHEL 8 server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-37"><a href="#Step-by-step"><span class="tocnumber">3.1</span> <span class="toctext">Step-by-step</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#eXist-DB_set-up"><span class="tocnumber">3.2</span> <span class="toctext">eXist-DB set-up</span></a>
+<ul>
+<li class="toclevel-3 tocsection-39"><a href="#Installation"><span class="tocnumber">3.2.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#Transfer_data"><span class="tocnumber">3.2.2</span> <span class="toctext">Transfer data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-41"><a href="#Tomcat_2"><span class="tocnumber">3.3</span> <span class="toctext">Tomcat</span></a>
+<ul>
+<li class="toclevel-3 tocsection-42"><a href="#2021-08-13"><span class="tocnumber">3.3.1</span> <span class="toctext">2021-08-13</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#2021-08-16"><span class="tocnumber">3.3.2</span> <span class="toctext">2021-08-16</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="#2021-08-19.2F20"><span class="tocnumber">3.3.3</span> <span class="toctext">2021-08-19/20</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1>Installing CentOS and WWO onto playground</h1>
+<p>This page is notes for re-creating the WWO environment from RH 6.10 (wwp.neu.edu) to CentOS 8.2 (playground). It will serve as a guide to start, and then hopefully a useful description for future similar upgrades.
+</p>
+<h2 class="mw-headline" id="CentOS">CentOS</h2>
+<p>Installing CentOS was essentially trivial. We used the CentOS-8.2.2004-x86_64-boot.iso.
+</p><p>It appears that <code>yum</code> has been superceded by <code>dnf</code>.
+</p>
+<h2 class="mw-headline" id="Things_we_should_or_have_installed">Things we should or have installed</h2>
+<ul><li>Emacs — installed 2020-11-30 with <code>sudo yum install emacs-nox.x86_64</code></li>
+<li>Emacs/nxml — was automagically installed by above (and has nice colors! :-)</li>
+<li>make — installed 2020-11-30 with <code>sudo yum install make.x86_64</code></li>
+<li>Subversion — installed 2020-11-30 with <code>sudo yum install subversion.x86_64</code></li>
+<li>libxml2/xmllint — libxml2-2.9.7-7.el8.x86_64 is already installed</li>
+<li>libxslt/xsltproc — installed 2020-11-30 with <code>sudo yum install libxslt.x86_64</code></li>
+<li>ant — intsalled 2020-11-30 with <code>sudo yum install ant.noarch</code></li>
+<li>screen — nope, Red Hat <a rel="nofollow" class="external text" href="https://access.redhat.com/solutions/4136481">recommends tmux</a> instead — installed 2020-11-30 with <code>sudo yum install tmux.x86_64</code></li>
+<li>Tomcat — no yum package found
+<ul><li>downloaded the “Core” tarball off of <a rel="nofollow" class="external free" href="https://tomcat.apache.org/download-90.cgi">https://tomcat.apache.org/download-90.cgi</a></li>
+<li>stored it in /usr/local/src/</li>
+<li>following instructions in RUNNING.txt ...</li>
+<li>unarchived it to /usr/local/share/</li>
+<li>created ./bin/setenv.sh in the resulting apache-tomcat-9.0.40/</li>
+<li>created symlinks for work/ temp/ and logs/ (just copying what we have on current production system)</li>
+<li>following instructions at <a rel="nofollow" class="external free" href="https://tomcat.apache.org/tomcat-9.0-doc/setup.html">https://tomcat.apache.org/tomcat-9.0-doc/setup.html</a> ...</li></ul></li>
+<li>git — installed 2020-11-30 with <code>sudo yum install git.x86_64</code> (installed 46 dependencies, mostly Perl packages)</li>
+<li>eXist — no yum package found, so see detailed description below</li>
+<li>MariaDB (<b>maybe</b>? maybe not)</li>
+<li>CouchDB (<b>maybe</b>? maybe not)</li>
+<li>lessc (pkg = node-less) — no yum package found
+<ul><li>Ash checked, they recommend installing via npm</li>
+<li>npm — installed 2020-12-02 with <code>sudo dnf install npm.x86_64</code></li>
+<li>installed lessc with <code>sudo npm install less -g</code></li></ul></li>
+<li>Perl — v 5.26.3 already installed
+<ul><li>HOWEVER, does not have DBI package, so …</li>
+<li><code># dnf --enablerepo=PowerTools install perl-Digest-SHA1</code></li>
+<li><code># dnf install perl-Apache-DBI</code></li>
+<li><code># dnf install perl-DBD-mysql</code></li></ul></li>
+<li>PHP — installed 2020-11-30 with <code>sudo yum install php.x86_64</code></li>
+<li>Python — I do not know if we want version 3.6 or 3.8 (or 2.7, which I doubt); see <a rel="nofollow" class="external text" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-python3_configuring-basic-system-settings">the RHEL8 doc</a></li>
+<li>Awstats —<b>not found</b></li>
+<li>locate — already installed, but need to generate and cronify udpatedb; done 2020-11-30, I think. Ran <code>sudo /usr/bin/updatedb</code> and now <code>locate</code> seems to work. Symlinked /usr/bin/updatedb to /etc/cron.daily/updatedb. Hope that works. I think we check by loooking at timestamp of /var/lib/mlocate/mlocate.db.</li>
+<li>gcc — installed 2020-12-02 with <code>sudo dnf install gcc.x86_64</code></li>
+<li>apxs — installed 2021-02-23 with <code>sudo dnf install httpd-devel</code></li>
+<li>libtool — installed 2021-02-23 with <code>sudo dnf install libtool</code></li></ul>
+<h3 class="mw-headline" id="Apache_setup.2C_modules.2C_etc."><span id="Apache_setup,_modules,_etc."></span>Apache setup, modules, etc.</h3>
+<p>We (Syd &amp; Ash) worked on configuring the web server for awhile, but were still having problems. Ernesto (user=nestochan) gave us a hand, performed some firewall magic, and now it is working. Need to find out what he did.
+</p>
+<ul><li>server side includes</li>
+<li>whatever we need for security and textbaseIP stuff
+<ul><li>mod_jk</li>
+<li>✓ <code>/etc/httpd/passwd/</code></li></ul></li>
+<li>redirection stuff (mostly part of configuration)</li>
+<li>probably want to check several files in wwp-test:/etc/httpd/ into version control; consider:
+<ul><li>conf.d/webalizer.conf</li>
+<li>conf.d/limitipconn.conf</li>
+<li>conf.d/reqtimeout.conf</li>
+<li>conf.d/wwp-blog.conf</li>
+<li>conf.d/wwp.conf-ssl.conf</li>
+<li>conf.d/mod_security.conf</li>
+<li>conf.d/dsc-wiki.conf</li>
+<li>conf.d/dsg-wiki.conf</li>
+<li>modsecurity.d</li></ul></li></ul>
+<h4 class="mw-headline" id="files_from_.2Fetc.2Fhttd.2F_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated"><span id="files_from_/etc/httd/_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated"></span>files from /etc/httd/ whose differences between wwp and wwp-test need to be investigated</h4>
+<ul><li>Files wwp-test/httpd/conf/httpd.conf and wwp/httpd/conf/httpd.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/awstats.conf and wwp/httpd/conf.d/awstats.conf differ</li>
+<li>Only in wwp-test/httpd/conf.d: dsc-wiki.conf</li>
+<li>Only in wwp-test/httpd/conf.d: dsg-wiki.conf</li>
+<li>Files wwp-test/httpd/conf.d/limitipconn.conf and wwp/httpd/conf.d/limitipconn.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/mod_security.conf and wwp/httpd/conf.d/mod_security.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/redirects.conf and wwp/httpd/conf.d/redirects.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/ssl.conf and wwp/httpd/conf.d/ssl.conf differ</li>
+<li>Only in wwp-test/httpd/conf.d: useless</li>
+<li>Files wwp-test/httpd/conf.d/wwp-blog.conf and wwp/httpd/conf.d/wwp-blog.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwp.conf and wwp/httpd/conf.d/wwp.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwp.conf-ssl.conf and wwp/httpd/conf.d/wwp.conf-ssl.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwprd.conf and wwp/httpd/conf.d/wwprd.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwprewrite.conf and wwp/httpd/conf.d/wwprewrite.conf differ</li></ul>
+<h3 class="mw-headline" id="other_things_to_be_moved_over">other things to be moved over</h3>
+<ul><li>WWO</li>
+<li>WWP website
+<ul><li>including configuration files</li>
+<li>include git repos per /var/www/html/WWP/lab/README-WWP</li></ul></li>
+<li>eXist applications (see <a href="/mediawik/index.php/WWP_eXist-DB_applications" title="WWP eXist-DB applications">WWP_eXist-DB_applications</a>)</li>
+<li>either Awstats or something better
+<ul><li>remember, /usr/local/bin/rgxg is used by Awstats — installed 2021-04-07 by downloading the <a rel="nofollow" class="external text" href="https://github.com/rgxg/rgxg/releases/latest">0.1.2 release tarball</a>, ./configure, make, make install.</li></ul></li>
+<li>WordPress</li>
+<li>/usr/local/bin/wwpwwwup.bash</li></ul>
+<h4 class="mw-headline" id="things_to_be_moved_only_to_wwp-test">things to be moved only to <code>wwp-test</code></h4>
+<ul><li>MediaWiki</li>
+<li>CouchDB and the data produced for Cultures of Reception</li></ul>
+<h4 class="mw-headline" id="things_we_need_help_with">things we need help with</h4>
+<ul><li>MediaWiki (Karl)</li>
+<li>WordPress (Karl)</li>
+<li><code>https:</code> access part of Apache config (Ernesto)</li>
+<li>documenting what was done to firewall (Ernesto)</li>
+<li>mod_jk?</li></ul>
+<h2 class="mw-headline" id="Version_control_plan">Version control plan</h2>
+<p>Our plan is to keep all the Apache2 configuration stuff (<code>/etc/httpd/</code>) under Subversion on playground, wwp-test, local machines, etc.; BUT not on production (wwp) itself. To update that machine you will have to copy files over by hand. This is in part to help reduce chance of messing things up with an <code>svn up</code> and in part as an acknowledgement that a) karl &amp; Ernesto work in this dir, too, and b) some of the files actually have to be different (due to name of host being different, i.e. <code>wwp</code> vs <code>wwp-test</code> vs <code>129.10.107.233</code>). 
+</p>
+<h2 class="mw-headline" id="eXist-DB">eXist-DB</h2>
+<p><code>wget</code> the installation JAR from <a rel="nofollow" class="external text" href="https://github.com/eXist-db/exist/releases">GitHub</a>. WWP is currently using eXist v5.2.0. In v5.x, the configurations below are mostly the same, except most of the files are now stored in $EXIST_HOME/etc.
+</p>
+<pre>useradd --home-dir /opt/local/eXistDB --create-home --system existdb
+chmod 0775 /usr/local/eXistDB
+sudo su - existdb
+</pre>
+<p>Add environmental variables to .bash_profile:
+</p>
+<pre>export EXIST_HOME=/opt/local/eXistDB/eXist-current
+export RUN_AS_USER=existdb
+</pre>
+<p>Then, in the terminal: 
+</p>
+<pre>source ~/.bash_profile
+chmod a+x /tmp/exist-installer-5.2.0.jar
+sudo su - existdb
+java -jar /tmp/exist-installer-5.2.0.jar -console
+</pre>
+<p>As part of the install process, you'll need to do some configuration of the database. Use these:
+</p>
+<ul><li>Install path: /opt/local/eXistDB/eXist-VERSION</li>
+<li>Data directory: default is okay</li>
+<li>Administrator password: <b>set it</b> rather than leaving it blank!</li>
+<li>Applications: default is okay</li>
+<li>Do not create any shortcuts</li></ul>
+<p>Create a symlink so that eXist-current (<code>$EXIST_HOME</code>) points to the latest version of eXist: <code>ln -s eXist-VERSION eXist-current</code>.
+</p><p>Navigate into <code>$EXIST_HOME</code>.
+</p>
+<h4 class="mw-headline" id="Jetty_settings">Jetty settings</h4>
+<p>Change the eXist port number, since 8080 is already in use on the WWP servers.
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/jetty/jetty-http.xml.</li>
+<li>Change the HTTP port from 8080 to 8088.</li></ul>
+<p>Increase the maximum file size accepted for upload. (The default is 200,000.)
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/jetty/webapps/exist-webapp-context.xml</li>
+<li>Add a new property as a child of <code>&lt;Configure&gt;</code>:</li></ul>
+<pre>&lt;Set name="maxFormContentSize"&gt;400000&lt;/Set&gt;
+</pre>
+<h4 class="mw-headline" id="Webapp_settings">Webapp settings</h4>
+<p>Keep guest users from executing arbitrary XQueries. See Mathias Göbel's 2017-03-11 post on Exist-open, "get parameter _query = open proxy".
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/webapp/WEB-INF/web.xml.</li>
+<li>Set <code>//init-param[param-name = ('xquery-submission', 'xupdate-submission')]</code> to "authenticated".</li></ul>
+<h4 class="mw-headline" id="Database_configuration">Database configuration</h4>
+<ul><li>Create a backup of $EXIST_HOME/etc/conf.xml</li>
+<li>Set <code>//indexer/@preserve-whitespace-mixed-content</code> to "yes".</li>
+<li>Set <code>//serializer/@indent</code> to "no".</li>
+<li>Disable execution of arbitrary XQueries: set <code>//builtin-modules/module[@uri eq '<a rel="nofollow" class="external free" href="http://exist-db.org/xquery/util'">http://exist-db.org/xquery/util'</a>]/parameter[@name eq 'evalDisabled']/@value</code> to "true".</li>
+<li>Add Saxon settings to <code>//transformer[@class eq 'net.sf.saxon.TransformerFactoryImpl']</code>:</li></ul>
+<pre>&lt;attribute name="http://saxon.sf.net/feature/recoveryPolicyName"
+           value="recoverWithWarnings"
+           type="string"/&gt;
+&lt;attribute name="http://saxon.sf.net/feature/strip-whitespace"
+           value="none"
+           type="string"/&gt;
+</pre>
+<p>At this point, if you can log into the eXist-DB Dashboard from the web, install the <a href="/mediawik/index.php/WWP_eXist-DB_applications" title="WWP eXist-DB applications">eXist-DB webapps</a>. When the persistent scheduler has been installed, return to conf.xml and add this job to <code>//scheduler</code>:
+</p>
+<pre>        &lt;!-- Reschedule XQuery jobs after a restart. --&gt;
+        &lt;job type="user" name="persistent-scheduler" 
+             xquery="/db/apps/persistent-scheduler/rescheduler.xq"
+             period="5000" repeat="0" /&gt;
+</pre>
+<p>The next time eXist starts up, the changes made in all these files will be applied.
+</p>
+<h3 class="mw-headline" id="Install_eXist_as_a_service">Install eXist as a service</h3>
+<p>eXist v5.x doesn't require a wrapper at all. Use the instructions in the <a rel="nofollow" class="external text" href="http://exist-db.org/exist/apps/doc/advanced-installation#linux">eXist documentation</a> to set up a service that will run the database on reboot. Once done, you will be able to start and stop eXist using <code>systemctl</code>.
+</p>
+<h1>Progress Notes</h1>
+<h2 class="mw-headline" id="November_2019">November 2019</h2>
+<p>“playground” is the name Ashley &amp; Syd give to the box they are using for experimentations. (Currently for web stat packages.) This page describes a procedure for installing a CentOS (i.e., RedHat clone) OS on it quickly.
+</p>
+<ul><li>Remember to back up iptables and restore it</li>
+<li>We re-set the clock with instructions from <a rel="nofollow" class="external text" href="https://serverfault.com/questions/558354/correcting-centos-system-clock">a website</a> we found.</li></ul>
+
+<h2 class="mw-headline" id="2021-02-03">2021-02-03</h2>
+<p>We have the apache2 web server up and running; loading <a rel="nofollow" class="external free" href="http://129.10.107.233/WWP/">http://129.10.107.233/WWP/</a> works in that data is loaded. However SSIs are not working. (Tomcat and mod_jk are not working yet either, but we did not expect them to.)
+</p><p><b>Next step</b>: Figure out how to configure locally so that SSIs work. We tried moving in the old /etc/httpd/conf/httpd.conf file into the new environment and the entire web server failed to start up.
+</p>
+<h2 class="mw-headline" id="2021-02-08">2021-02-08</h2>
+<p>We copied the Apache2 configuration files from the SVN trunk (read: following WWP Test configuration). Restarting the server failed due to missing modules in /etc/httpd/modules. That path is a symlink to ../../usr/lib64/httpd/modules, and the contents differ between Playground and Test.
+</p><p>We will need to figure out how to install some of the missing modules:
+</p>
+<ul><li>mod_limitipconn or its equivalent in Apache 2.4</li>
+<li>mod_perl</li></ul>
+<p>We may need mod_fcgid (FastCGI). We don’t think we need mod_auth_mysql, mod_autoindex, or mod_wsgi (Python).
+</p>
+<h2 class="mw-headline" id="2021-02-09">2021-02-09</h2>
+<p>We discovered that Playground had a date of 2018-07, and reset it to the correct date with sudo date --set. That also allowed us to install mod_limitipconn and mod_perl, since those failed due to a problem.
+</p><p>Continuing with our Apache configuration test, we found that we need an SSL certificate in order to fully test the server setup (for this wiki, for example).
+</p><p>Ernesto installed the SSL certificate from WWPDev, so we can continue working on Apache configuration with apachectl configtest.
+</p><p>We also created a symlink from /var/lib/tomcat9 (correct?) to the /usr/local/share/apache-tomcat.../webapps directory. Tomcat still needs to be set up as a service to run on server restart.
+</p>
+<h2 class="mw-headline" id="2021-02-23">2021-02-23</h2>
+<p>We’ve installed the Apache module mod_jk from source (mod_jk connects the server to Tomcat). We found and followed instructions <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">here</a>, though we couldn’t start httpd in step one. The JkMount directives now seem to work with the new mod_jk.so file installed at /etc/httpd/local-modules.
+</p><p>We fixed the paths to the SSL certificate provided by Ernesto.
+</p><p>There are some warnings remaining, and expected paths and/or permissions that are missing in our setup.
+</p>
+<h2 class="mw-headline" id="2021-02-26">2021-02-26</h2>
+<p>We continued debugging our Apache2 configuration. We discovered that our newly-compiled mod_jk.so module had to have the same SELinux policy as httpd. We used the chcon command, with the "reference" argument to copy the policy from httpd to the module.
+</p><p>We also created the /var/log/apache2 directory, and added READMEs in that directory and /var/log/httpd, explaining what should be stored in each.
+</p><p>After these changes, the Apache configuration syntax came back OK.
+</p><p>The httpd service still fails to start, however, and there don’t seem to be clues in the command line output of [?].
+</p><p>We checked the /var/log/apache2/error_log, discovered debugging and info messages about the security certificate. We updated the VirtualHost names to match playground’s, which resulted in a warning in the error log: the server name does not match the names in the security certificate. We expected this, and it really shouldn’t affect the server starting up.
+</p><p>Next step is to discover why Apache still won’t run.
+</p>
+<h2 class="mw-headline" id="2021-03-02">2021-03-02</h2>
+<p>On the thought that the reason the webserver will not start <em>might</em> be because of the attempt to load modules multiple times, we removed all duplicate <code>LoadModule</code> calls. To see what it was before we removed these, check out 42719 or later, but before 42805.
+</p><p>The good news is we managed to remove all the duplicate module warning messages. The bad news is that (kinda as expected) it did not change the fact that the webserver will not start, nor the (kinda useless) error messages in the log file.
+</p>
+<h2 class="mw-headline" id="2021-03-09">2021-03-09</h2>
+<p>We were able to fix the SSL server certificate warnings by changing wwp.conf-ssl.conf to use wwp-test server names instead of playground's.
+</p><p>Still no luck on getting Apache to run. The terminal output just says that the startup process failed, and /var/log/apache2/error_log now only has info and debug messages. We asked Ernesto for help.
+</p>
+<h2 class="mw-headline" id="2021-03-16T10.2F11"><span id="2021-03-16T10/11"></span>2021-03-16T10/11</h2>
+<p>Trying to get PHP (in particular PHP7) to work with the Apache2 install. Follwed some instructions on <a rel="nofollow" class="external text" href="https://tecadmin.net/install-lamp-centos-8/">this website</a>, to wit (mostly requiring <code>sudo</code>):
+</p>
+<ol><li>dnf install dnf-utils <a rel="nofollow" class="external free" href="http://rpms.remirepo.net/enterprise/remi-release-8.rpm">http://rpms.remirepo.net/enterprise/remi-release-8.rpm</a></li>
+<li>dnf module reset php</li>
+<li>dnf module enable php:remi-7.4</li>
+<li>dnf install php</li>
+<li>restarted apache w/o error</li>
+<li>PHP still did not work</li>
+<li>commented out the <code>&lt;IfModule&gt;</code> in php.conf</li>
+<li>... and it did not work. We got an error message on restarting webserver: <code>Apache is running a threaded MPM, but your PHP Module is not compiled to be threadsafe.  You need to recompile PHP</code>, which leads us to believe that either we need to install <code>prefork.c</code> (whatever that is), or we need to recompile PHP (however one does that).</li></ol>
+
+<h2 class="mw-headline" id="2021-03-16T14.2F15"><span id="2021-03-16T14/15"></span>2021-03-16T14/15</h2>
+<p>Tried lotsa stuff, but eventually found that replacing what we had as /etc/httpd/conf.d/php.conf with what we has as /etc/httpd/conf.d/php.conf.rpmnew worked, in that the web server starts and loads our front page with the “Upcoming Events” looking correct, not like an excerpt of raw PHP code.
+</p>
+<h2 class="mw-headline" id="2021-03-18">2021-03-18</h2>
+<p>Removed FastCGI Apache module loader and config files, since our PHP fix doesn't require it.
+</p>
+<h3 class="mw-headline" id="Tomcat">Tomcat</h3>
+<p>Looks like we never finished installing &amp; configuring Tomcat, as it is not talking to Apache. There are instructions at both <a rel="nofollow" class="external text" href="https://tomcat.apache.org/tomcat-9.0-doc/setup.html">the Tomcat doc</a> and at a lovely <a rel="nofollow" class="external text" href="https://gist.github.com/drmalex07/e6e99dad070a78d5dab24ff3ae032ed1">gist page</a> Ash found. So far we have created a <code>tomcat</code> user with <code>sudo useradd --home-dir /usr/local/share/apache-tomcat-9.0.40 --system tomcat</code>.
+</p>
+<h2 class="mw-headline" id="2021-03-23">2021-03-23</h2>
+<p>We finished setting up the Tomcat 9 systemd daemon, using the gist page linked above as a starting point. The working script is available in /etc/systemd/system/tomcat9.service.
+</p><p>To get systemd to start Tomcat, we needed to go into the Tomcat directory (/usr/local/share/apache-tomcat-9.0.40/) and give ownership of everything to the Tomcat user and group. To get Tomcat to successfully <em>run</em>, we needed to additionally change permissions on the directories symlinked in the Tomcat home directory.
+</p><p>To test that Tomcat is running, we used the command <code>sudo systemctl status tomcat9.service</code>, and also a <code>wget localhost:8080</code> to make sure Tomcat was serving out webpages. However, Tomcat’s port is not available outside Playground; our next step is to go back to Apache2 and make sure it’s configured to allow access to Tomcat, or at least the XTF servlet.
+</p>
+<h2 class="mw-headline" id="2021-03-29">2021-03-29</h2>
+<p>We finally found what we think was stopping Apache2 from talking to Tomcat9 — in file <code>/usr/local/share/apache-tomcat-9.0.40/conf/server.xml</code> we found the bit defining port 8009 as the ajp13 contact point was commented out, and uncommented it. Still doesn’t work.
+</p><p>Start next time by looking to see what is going on with the redirect. Is <code>129.10.107.233/WWO</code> getting forwarded to right place?
+</p>
+<h2 class="mw-headline" id="2021-03-30">2021-03-30</h2>
+<p>We figured out that we had adjusted the URLs for our two Virtual Hosts in /etc/httpd/conf.d/wwp.conf, but skipped the same definitions in the SSL configuration file. (<b>Side note</b>: do we still need the full plain-HTTP configuration file? Ask Ernesto.) We adjusted the values in the SSL configuration to match the regular one. This didn’t help us with being able to view Tomcat.
+</p><p>We weren’t sure whether we had the server names and aliases right for the Apache2 virtual hosts, especially for Tomcat (WWO). To see if we could access Tomcat from the web at all, we set the WWP virtual host to a port that doesn’t exist, leaving the WWO host as the only one configured. However, we still couldn’t access Tomcat in a browser. We would be prompted for authentication, but the connection to [playground.wwp.northeastern.edu/WWO <code>/WWO</code>] hung indefinitely. The Tomcat logs had not been touched; Apache did not connect to it.
+</p><p>we found a Perl error in /var/log/apache2/error_log: <code>Can't locate object method "remote_ip" via package "Apache2::Connection" at /etc/httpd/Apache2/IPAccess.pm line 277.</code>. We found that <code>remote_ip</code> had been removed in Apache 2.4, and the <a rel="nofollow" class="external text" href="http://httpd.apache.org/docs/2.4/developer/new_api_2_4.html">API changelog</a> suggested we replace it with either <code>request_rec-&gt;useragent_ip</code> or <code>conn_rec-&gt;client_ip</code>. We chose the former. The new line: <code>my $remote_addr = $r-&gt;request_rec-&gt;useragent_ip ();</code>.
+</p>
+<h2 class="mw-headline" id="2021-04-05">2021-04-05</h2>
+<p>After restarting Apache2, we got a new error at the same line: <code>[perl:error] [pid 1217232:tid 139646902204160] [client 10.15.249.129:57712] Can't locate object method "request_rec" via package "Apache2::RequestRec" at /etc/httpd/Apache2/IPAccess.pm line 277.\n</code>. Ash found <a rel="nofollow" class="external text" href="https://ci.apache.org/projects/httpd/trunk/doxygen/structrequest__rec.html">an explanation of the <code>request_rec</code> object</a>, which suggests that a number of different Apache2 modules contribute to <code>request_rec</code>. Figuring it was extraneous, Ash deleted <code>request_rec-&gt;</code> in favor of <code>$r-&gt;useragent_ip ();</code>. 
+</p><p>IP address checking now appears to work. There are a number of Perl warnings and one error, but these have to do with the contents of /etc/httpd/passwd/textbase_ipaddrs. IPAccess.pm seems to be able to recover from this. There is also a Perl warning from Apache2::IPAccessLog1 that an expected MySQL table is not accessible.
+</p><p>Still no access to WWO. These warnings aren’t likely to be causing our problems with the Apache2 virtual hosts. Probably best to move on, maybe look at the configured redirects.
+</p>
+<h2 class="mw-headline" id="2021-04-06">2021-04-06</h2>
+<p>After bumbling around for an hour, Ash figured out we had not followed <em>all</em> of the <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">instructions for setting up mod_jk</a>. Once we finished configuring Tomcat, we got a better message in the log file. Following that, we found we had to set the <code>secretRequired</code> parameter on the <code>&lt;Connector&gt;</code> for AJP/1.3 in <code>/usr/local/share/apache-tomcat-9.0.40/conf/server.xml</code>.
+</p>
+<h2 class="mw-headline" id="2021-04-23">2021-04-23</h2>
+<p>Ash had discovered that eXist died because the system had erased a file in /tmp/. We played with /usr/lib/tmpfiles.d/tmp.conf to try to get it to stop, but were unsuccesful in that on reboot /tmp/ did not exist.
+</p>
+<h2 class="mw-headline" id="2021-04-27">2021-04-27</h2>
+<p>Found that `chronyd` was not running on boot (and system clock was set to 2018-06-22). Ash enabled it with <code>systemctl enable chronyd.service</code>, and that seems to have worked.
+</p><p>Then we tweaked /usr/lib/tmpfiles.d/tmp.conf some more, and we think we have the /tmp/ erasure problem licked. Will test on 2021-05-08 or 09.
+</p>
+<h2 class="mw-headline" id="2021-05-02">2021-05-02</h2>
+<p>Installed awstats 7.8 (using awstats-7.8-1.noarch.rpm via dnf). Re-created config dirs by creating then checking out Subversion repository <a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/">https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/</a>. Made the new /usr/local/awstats/ dir group writable by group wheel. Changed all /usr/share/awstats/ to /usr/local/awstats/ both in this new dir and in web config files. Made symlink in /etc/cron.daily/ to the run-em-all pgm. Created new /mnt/WWPplayground-Data/ and told that pgm to use it. Note that SiteDomain= is not being set correctly (but it isn’t on wwp-test, either). Current problem is that web config doesn’t seem to know about usage/stats pages.
+</p>
+<h1>Setting up a new RHEL 8 server</h1>
+<p>Starting on nb9565, 2021-06-10.
+</p>
+<h2 class="mw-headline" id="Step-by-step">Step-by-step</h2>
+<code><pre>dzdo su - root
+dnf install tmux
+dnf install emacs
+# Syd switched to emacs here
+dnf install make subversion ant git npm php gcc httpd-devel libtool
+# libxml (xmllint) and libxslt (xsltproc) already installed
+subscription-manager repos --enable "codeready-builder-for-rhel-8-$(arch)-rpms"
+dnf install perl-Digest-SHA1
+# perl-DBD-mysql already installed
+wget https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/e/epel-release-8-10.el8.noarch.rpm
+rpm -Uvh epel-release*rpm
+dnf install perl-Apache-DBI
+npm install less -g
+</pre></code>
+<p>Now install our Apache2 configuration:
+</p>
+<code><pre>systemctl stop httpd
+cd /etc
+mv httpd httpd_orig &amp;&amp; svn checkout https://liblab.neu.edu/svn/DSG/wwp/apache2/branches/RHEL8 httpd
+mkdir /var/log/apache2
+# get our clever README files:
+cd /var/log/apache2/
+ln -s /etc/httpd/WWP_docs/var_log_apache2_INFO.txt ./README.txt
+cd /etc/httpd/logs/
+ln -s /etc/httpd/WWP_docs/etc_httpd_logs_INFO.txt  ./README.txt
+</pre></code>
+<p>Install missing Apache2 modules, including <a rel="nofollow" class="external text" href="https://pkgs.org/download/mod_perl">mod_perl</a>, <a rel="nofollow" class="external text" href="https://pkgs.org/download/mod_limitipconn">mod_limitipconn</a>:
+</p>
+<code><pre># apachectl configtest
+dnf install mod_perl mod_limitipconn mod_qos mod_security mod_ssl
+</pre></code>
+<p>Install <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">mod_jk</a> from source:
+</p>
+<code><pre>cd /usr/local/src
+wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz
+tar -xvf tomcat-connectors-1.2.48-src.tar.gz
+cd tomcat-connectors-1.2.48-src/native
+./configure -with-apxs=/usr/bin/apxs
+make
+cp apache-2.0/mod_jk.so /etc/httpd/local-modules
+</pre></code>
+<p>Get <code>locate</code> to work properly (just duplicating what we did on playground, above):
+</p>
+<code><pre># time /usr/bin/updatedb
+# cd /etc/cron.daily/
+# ln -s /usr/bin/updatedb updatedb
+</pre></code>
+<p>Install <code>rgxg</code> by following cmds above, and then also <code>sudo chmod a+w /usr/local/src/rgxg-0.1.2/libs</code>.
+Install and configure Awstats:
+</p>
+<code><pre>dnf install awstats
+mv /usr/share/awstats /usr/local/
+cd /usr/local/awstats
+mv tools tools-orig
+svn checkout https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/ tools
+chgrp -R wheel .
+chmod -R g+w .
+rm -R /etc/awstats/*
+cd /etc/awstats
+sudo ln -s /usr/local/awstats/tools/awstats.ALL.conf awstats.conf
+</pre></code>
+<p>Note that we updated the code in /usr/local/awstats/tools/generateAndRunAllConfFiles.bash (on Subversion’s RHEL8 branch) to generate the needed symlink to index.php.
+Then we copied over the website (from wwp-test.neu.edu):
+</p>
+<code><pre>time tar czpf - WWP | (ssh nb9565.neu.edu "cd /var/www/html/; tar xzpf -")</pre></code>
+<p>Hope that works.
+</p><p>In fact, it worked too well, and /var threatened to crash the server. Ernesto deleted /var/www/html and mounted an NFS directory in its place — the same NFS storage used on WWP Test. This gives us the WWP website as it appears on WWP Test for free. We had to create a “wwp” group at the GID used on Test. The nb9565 SVN version (1.10) can’t make any changes to the website directory, due to an incompatible SVN repository format.
+</p><p>For now, we plan to make updates to that working copy on Test only, and run <code>svn upgrade</code> after throwing the switch.
+</p><p>Ernesto and Karl installed the SSL certificate that Apache requested. Apache still wouldn’t start, as it could not bind to Playground’s IP address. Updated references to the server IP and server name in Apache configs:
+</p>
+<ul><li><b>/etc/httpd/conf/httpd.conf</b>: "Listen", "ServerName"</li>
+<li><b>conf.d/wwp.conf</b>: "VirtualHost", "ServerName", "ServerAlias", "ServerAdmin", "Redirect"</li>
+<li><b>conf.d/wwp.conf-ssl.conf</b>: "VirtualHost", "ServerName", "ServerAlias", "ServerAdmin"</li>
+<li><b>conf.d/wwprewrite.conf</b>: RewriteRules "^/WWO/php/wAll\.php", "^/WWP/WWO", "^texts/"</li></ul>
+<p>With these changes, Apache syntax is OK, and Apache starts up, but the website is inaccessible outside of nb9565. Some of this is firewall-related. There are also indications that the security certificate and the Apache config aren’t meshing well (<code>curl</code> complains when calling nb9565 from itself). We consulted Ernesto and Karl.
+</p><p>In the meantime, we started installing Tomcat from source. We downloaded <a rel="nofollow" class="external text" href="https://tomcat.apache.org/download-90.cgi">a tarball for version 9.0.50</a> to /usr/local/src, and extracted the directory to /usr/local/share.
+</p><p>It turned out that the firewall problem was due to an ITS backlog. Ernesto contacted them and got them to fix it. The firewalls on the two new servers now match the settings of the older servers. With the new firewall rules in place, nb9565 now works in the browser!
+</p>
+<h2 class="mw-headline" id="eXist-DB_set-up">eXist-DB set-up</h2>
+<p>Done after the firewall was updated. The <a href="#eXist-DB">#eXist-DB</a> section above has more details on hows and whys.
+</p>
+<h3 class="mw-headline" id="Installation">Installation</h3>
+<code><pre>cd /tmp
+wget https://github.com/eXist-db/exist/releases/download/eXist-5.3.0/exist-installer-5.3.0.jar
+# user root
+dzdo su - root
+mkdir /opt/local
+useradd --home-dir /opt/local/eXistDB --create-home --system existdb
+chmod 0775 /opt/local/eXistDB
+chmod a+x /tmp/exist-installer-5.3.0.jar 
+# user existdb
+su - existdb
+vi .bash_profile
+# Add:
+#   export EXIST_HOME=/opt/local/eXistDB/current
+#   export RUN_AS_USER=existdb
+source .bash_profile
+java -jar /tmp/exist-installer-5.3.0.jar -console
+</pre></code>
+<p>Use the installation notes <a href="#eXist-DB">above</a>.
+</p>
+<code><pre>ln -s eXist-5.3.0 current
+cd $EXIST_HOME/etc
+cp jetty/jetty-http.xml jetty/jetty-http.xml.orig
+vi jetty/jetty-http.xml
+# Change port 8080 to 8088
+cp jetty/webapps/exist-webapp-context.xml jetty/webapps/exist-webapp-context.xml.orig
+vi jetty/webapps/exist-webapp-context.xml
+</pre></code>
+<p><a href="#Jetty_settings">Add property to increase max upload size</a>
+</p>
+<code><pre>cp webapp/WEB-INF/web.xml webapp/WEB-INF/web.xml.orig
+vi webapp/WEB-INF/web.xml.orig
+</pre></code>
+<p><a href="#Webapp_settings">Make sure XQueries can only be executed by authenticated users.</a>
+</p>
+<code><pre>cp conf.xml conf.xml.orig
+vi conf.xml
+</pre></code>
+<p><a href="#Database_configuration">Fill in listed conf.xml settings.</a>
+</p>
+<code><pre>exit
+# user root
+vi /etc/systemd/system/exist-db.service
+</pre></code>
+<p>Used the <a rel="nofollow" class="external text" href="http://exist-db.org/exist/apps/doc/advanced-installation#linux">sample service file in the eXist documentation</a> as a starting point.
+</p>
+<code><pre>chown existdb /etc/systemd/system/exist-db.service &amp;&amp; chgrp existdb /etc/systemd/system/exist-db.service
+systemctl start exist-db
+rm /tmp/exist-installer-5.3.0.jar
+</pre></code>
+<h3 class="mw-headline" id="Transfer_data">Transfer data</h3>
+<p>eXist v5.2.0 (on WWP Test) is <a rel="nofollow" class="external text" href="http://localhost:8080/exist/apps/doc/upgrading#binary-compatible-upgrades">binary-compatible</a> with v5.3.0 (on nb9565). Because of this, transferring eXist data to the new server was fairly simple:
+</p>
+<ol><li>On WWP Test, assume the existdb user identity (you -&gt; root -&gt; existdb)</li>
+<li>Zip up the eXist-db data directory and put it somewhere other users can see it.</li>
+<li><code>scp</code> the directory to nb9565, /tmp</li>
+<li>On nb9565, shut down the eXist daemon (if necessary).</li>
+<li>Assume the existdb user identity.</li>
+<li>Rename the existing data directory.</li>
+<li><code>unzip /tmp/DATADIR.zip -d eXist-5.3.0</code></li>
+<li>As root, start the eXist daemon again.</li></ol>
+<p>eXist’s documentation suggests that these steps alone should be sufficient, but in fact, the web Dashboard was blank, though I could log in.
+</p><p><b>This may not have done anything to help, but it didn’t hurt anything.</b> In <a rel="nofollow" class="external text" href="https://nb9565.neu.edu/exist/apps/eXide/index.html">eXide</a>, <a rel="nofollow" class="external text" href="http://localhost:8080/exist/apps/doc/backup#repair">repair the package repository</a> by executing this script:
+</p>
+<code><pre>xquery version "3.1";
+
+import module namespace repair="http://exist-db.org/xquery/repo/repair" 
+at "resource:org/exist/xquery/modules/expathrepo/repair.xql";
+
+repair:clean-all(),
+repair:repair()
+</pre></code>
+<p>The <a rel="nofollow" class="external text" href="https://exist-db.org/exist/apps/wiki/blogs/eXist/eXistdb530">release notes for eXist v5.3.0</a> say that, when upgrading from v5.2.0 or earlier, the eXist Dashboard must be reinstalled at a higher version. In eXide, execute this script:
+</p>
+<code><pre>xquery version "3.1";
+
+repo:remove("http://exist-db.org/apps/existdb-packageservice"),
+repo:install-and-deploy("http://exist-db.org/apps/existdb-packageservice", 
+    "http://exist-db.org/exist/apps/public-repo/find")
+</pre></code>
+<p>The eXist Dashboard is now fully functional.
+</p><p>The <em>Women Writers in Review</em> app has been upgraded to v1.8.3, which gets around <a rel="nofollow" class="external text" href="https://github.com/eXist-db/exist/issues/3989">a bug in xml-to-json()</a>.
+</p>
+<h2 class="mw-headline" id="Tomcat_2">Tomcat</h2>
+<p>Previously we had downloaded Tomcat and put it /usr/local/share/.
+</p><p>Created a tomcat user with <code>sudo useradd --home-dir /usr/local/share/apache-tomcat-9.0.50 --system tomcat</code>.
+</p><p>Installed WWO into /usr/local/share/apache-tomcate-9.0.50/webapps/ (just an <code>svn co</code>).
+</p><p>Copied the daemon file <code>playground:/etc/systemd/system/tomcat9.service</code> into the same directory on new system. Also changed the path in that file from “.40” to “.50”.
+</p><p>Also made same “.40” to “.50” change to <code>/etc/httpd/misc/workers.properties</code> file.
+</p><p>And uncommented the <code>&lt;Connector</code> statement for AJP/1.3 on line ~119 of <code>/usr/local/share/apache-tomcat-9.0.50/conf/server.xml</code>
+</p><p><b>Note:</b> We find that there is both an error and two warnings from the <code>apachectl configtest</code> command. Here is the pin to fix the warnings sometime later:
+</p>
+<code><pre>[Thu Aug 12 10:22:30.939891 2021] [so:warn] [pid 3280953:tid 139889576147264] AH01574: module limitipconn_module is already loaded, skipping
+[Thu Aug 12 10:22:30.946045 2021] [so:warn] [pid 3280953:tid 139889576147264] AH01574: module ssl_module is already loaded, skipping
+</pre></code>
+<p>We also need to deal with the error, which is line 39 of <code>/etc/httpd/conf.d/mod_security.conf</code> not being able to write its file out.
+</p><p>We made the symlinks to logs, temp, and work from the tomcat-9.0.50/ directory.
+</p><p>Started Tomcat. No errors! Might even be working, we can’t tell yet due to redirect problems.
+</p><p>NEXT: Fix redirects. Probably in /etc/httpd/conf.d/wwprewrite.conf.
+</p>
+<h3 class="mw-headline" id="2021-08-13">2021-08-13</h3>
+<p>We tried a few things, to no avail.
+</p>
+<ul><li>Added entries in our own local /etc/hosts/ for nb9565 (and wwo.nb9565)</li>
+<li>Tweaked wwprewrite.conf</li>
+<li>Made changes to all files in /etc/httpd/conf.d/ with <code>sudo perl -p -i -e 's,\bwwp-test?\.(neu|northeastern),nb9565.neu,g;' *</code></li></ul>
+<p>So far we are unable to figure out why website works, but redirecting to Tomcat does not seem to. (And certainly Tomcat is not serving up our stuff.)
+</p>
+<h3 class="mw-headline" id="2021-08-16">2021-08-16</h3>
+<p>Index WWO texts in XTF.
+</p><p>In /etc/httpd/conf.d/wwprewrite.conf, all redirects to WWO had to be prefixed with the base server address (<a rel="nofollow" class="external free" href="https://wwo.nb9565.neu.edu">https://wwo.nb9565.neu.edu</a>, which isn't actually available through DNS; modify your /etc/hosts).
+</p><p>Add <code>secretRequired="false"</code> to the AJP &lt;Connector&gt; in TOMCAT/conf/server.xml.
+</p><p>Restart Tomcat aaaaand <em>got it.</em>
+</p>
+<h3 class="mw-headline" id="2021-08-19.2F20"><span id="2021-08-19/20"></span>2021-08-19/20</h3>
+<p>1. Note-to-selves (which is a bit weird, this whole page is notes-to-selves): we should go through <code>/mnt/WWPdev-Data/backups_of_excerpts_from_RHEL6_wwp-test_system/usr_local.tgz</code> and <code>var_lib.tgz</code> someday and weed out a lot of it, as much of it is not needed even as a backup.
+</p><p>2. Left for tomorrow: backup or selectively backup /var/lib/, /var/svn/, /var/log/; selectively backup /var/www/ — turns out there is nothing interesting in /var/www/ except html/, and that is already a shared volume, no reason to backup.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131618
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.098 seconds
+Real time usage: 0.099 seconds
+Preprocessor visited node count: 248/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4608/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:538-0!canonical and timestamp 20241110131618 and revision id 3828
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Recreating_Playground&amp;oldid=3828">https://liblab.neu.edu/mediawik/index.php?title=Recreating_Playground&amp;oldid=3828</a>"</div>
+		
+	</div>
+</main>

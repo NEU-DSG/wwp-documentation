@@ -1,0 +1,135 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"Subversion - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">Subversion</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Using_our_Subversion_server"><span class="tocnumber">1</span> <span class="toctext">Using our Subversion server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Via_SyncRO_SVN_Client_.28i.e..2C_oXygen.29"><span class="tocnumber">1.1</span> <span class="toctext">Via SyncRO SVN Client (i.e., oXygen)</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Via_Commandline"><span class="tocnumber">1.2</span> <span class="toctext">Via Commandline</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Checking_out"><span class="tocnumber">1.2.1</span> <span class="toctext">Checking out</span></a>
+<ul>
+<li class="toclevel-4 tocsection-5"><a href="#check_out_a_series_of_revisions_of_a_particular_directory_to_.2Ftmp.2F"><span class="tocnumber">1.2.1.1</span> <span class="toctext">check out a series of revisions of a particular directory to /tmp/</span></a></li>
+<li class="toclevel-4 tocsection-6"><a href="#Remote_updating_.28old.29"><span class="tocnumber">1.2.1.2</span> <span class="toctext">Remote updating <span>(old)</span></span></a>
+<ul>
+<li class="toclevel-5 tocsection-7"><a href="#What_it_does"><span class="tocnumber">1.2.1.2.1</span> <span class="toctext">What it does</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1>Using our Subversion server</h1>
+<p>Repositories:
+(Encoders — the bold one is the one you are probably interested in.)
+</p>
+<ul><li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/tapas/trunk/">https://liblab.neu.edu/svn/DSG/tapas/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/apache2/trunk/">https://liblab.neu.edu/svn/DSG/wwp/apache2/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/dev/trunk/">https://liblab.neu.edu/svn/DSG/wwp/dev/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/redirect/trunk/">https://liblab.neu.edu/svn/DSG/wwp/redirect/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/sandbox/">https://liblab.neu.edu/svn/DSG/wwp/sandbox/</a></li>
+<li><b><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/textbase/trunk/">https://liblab.neu.edu/svn/DSG/wwp/textbase/trunk/</a></b></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/usr/local/">https://liblab.neu.edu/svn/DSG/wwp/usr/local/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk/">https://liblab.neu.edu/svn/DSG/wwp/website/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/webstats/trunk/">https://liblab.neu.edu/svn/DSG/wwp/webstats/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/xtf/trunk/">https://liblab.neu.edu/svn/DSG/wwp/xtf/trunk/</a></li></ul>
+<h2 class="mw-headline" id="Via_SyncRO_SVN_Client_.28i.e..2C_oXygen.29"><span id="Via_SyncRO_SVN_Client_(i.e.,_oXygen)"></span>Via SyncRO SVN Client (i.e., oXygen)</h2>
+<p>First, don’t be too stressed at the fact that the SVN Client is deprecated. The SyncRO guys have assured us that what that means is not that they plan to remove the SVN Client, but rather that the do not plan to make any improvements to it. If and when Subversion itself becomes incompatible with their SVN Client, they may be forced to drop it. But until then, they expect to include SVN Client in upcoming releases of oXygen.  
+</p>
+<dl><dt>Create local folder</dt>
+<dd>Create a folder on your computer where you want the working copy to go. Your <code>Documents/</code> folder is recommended. Give it a name like “WWPtextbase” or “WWP_tb” and put it where you want it to stay, as it is annoying to move. Probably a bad idea to put it in <code>Desktop/</code> or a cloud-based folder (like <code>Dropbox/</code>), definitely a bad idea to put it in a temporary folder (like <code>/tmp/</code>).</dd>
+<dt>Launch oXygen <span style="font-weight:normal;">(if not already running)</span></dt>
+<dt>Open the SVN Client main window</dt>
+<dd>Select the <code>Tools &gt; SVN Client</code> menu item</dd>
+<dt>Request a new repository</dt>
+<dd>Select the “Repositories” tab</dd>
+<dd>Select the <code>Repository &gt; New Repository Location…</code> menu item (CTL-ALT-N, the tiny can with blue circled plus sign icon or, if it is visible, the “Add a new repository” button)</dd>
+<dd>Paste repository URL (which you can copy from list <a href="/mediawik/index.php/Subversion#Using_our_Subversion_server" title="Subversion">above</a>—you want the bolded URL) to the “Repository URL” field and hit “Add”</dd>
+<dt>Authenticate</dt>
+<dd>You will probably be prompted for a username and password. For encoders the common username is “<code>dsg</code>”; if you do not know the password, ask a staff member face-to-face, by telophone or televideo, or by text message (i.e., not by e-mail). If you have the option to store the password locally (“Store authentication data”), feel free to do so; however, if your computer is stolen or otherwise compromised let us know so we can change the password.</dd>
+<dt>Check out</dt>
+<dd>Select <code>Repository &gt; Check out…</code> (CTL-ALT-O, or the can with the blue down arrow)</dd>
+<dd>In the resulting “Check out” dialog box everything should be filled in for except the “Check out to:” field, which should be set to the directory you created, above.</dd>
+<dd>Note that if you use the “Browse…” button to find the directory (highly recommended), the software may eagerly tack the last component of the URL (e.g. “/trunk”) onto the end of the filepath. You should delete it.</dd>
+<dd>Click “Check out”</dd>
+<dd>For the textbase repository (~2.7 GiB) or other large repositories downloading may take a long time, depending on your network connection.</dd></dl>
+<h2 class="mw-headline" id="Via_Commandline">Via Commandline</h2>
+<h3 class="mw-headline" id="Checking_out">Checking out</h3>
+<p><code>svn co [<em>URL</em>] <em>Directory/</em></code>
+</p><p>Where <em>Directory/</em> is the target directory on your local machine. E.g., to get a local temporary copy of the XML source files to the <em>Guide</em>, you might issue <code>svn co <a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk/encoding/guide/xml/">https://liblab.neu.edu/svn/DSG/wwp/website/trunk/encoding/guide/xml/</a> /tmp/GuideSource/</code>. If you want the new directory plopped into your current directory with the same name as it has in Subversion, leave <em>Directory/</em> out.
+</p><p><a href="/mediawik/index.php/Subversion_Hotsheet" title="Subversion Hotsheet">Using Subversion for the WWP website hotsheet</a>
+</p>
+<h4 class="mw-headline" id="check_out_a_series_of_revisions_of_a_particular_directory_to_.2Ftmp.2F"><span id="check_out_a_series_of_revisions_of_a_particular_directory_to_/tmp/"></span>check out a series of revisions of a particular directory to <code>/tmp/</code></h4>
+<pre>cd /tmp/
+for n in $(svn log URL | egrep '^r[0-9]' | awk '{ print $1 }' | perl -pe 's/^r//;' ); do
+   echo "---------$n:";
+   mkdir thing$n;
+   svn co -r $n URL ./thing$n;
+   done
+</pre>
+<p>where URL is the URL of the repository directory you want to check out, and “thing” should probably be something a little more intelligent. :-)
+</p>
+<h4 class="mw-headline" id="Remote_updating_.28old.29"><span id="Remote_updating_(old)"></span>Remote updating <span style="color:red;">(old)</span></h4>
+<p>If you have the <code>svnrup.bash</code> command installed on your local system, you can use it to perform an <code>svn update</code> on golf or papa without actually bothering to log in on the remote machine (i.e., golf or papa).
+</p><p>The <code>svnrup.bash</code> command is attached to this page. It only works with a machine that has its sister program, <code>svn_update_via_URL.bash</code> installed, which is currently only golf and papa. To install it onto a Mac OS X or GNU/Linux system:
+</p>
+<ol><li>download it</li>
+<li>put it where you want it (typically <code>/usr/local/bin/</code> or <code>~/bin/</code>)</li>
+<li>make sure it is executable, e.g. <code>chmod a+x /usr/local/bin/svnrup.bash</code></li>
+<li>OPTIONAL: in order to avoid needing to invoke it by its full path, make sure that the path to it is in your <code>$PATH</code> environment variable. Ask Syd if you want a hand with this.</li></ol>
+<p>To use it, navigate in your shell to the directory you want to update on golf or papa. You will often already be in that directory, having just issued a <code>svn ci -m "<em>msg</em>"<code> command.
+</code></code></p><p><code><code>Then issue <code>svnrup.bash</code>. Switches are: <code>-g</code> = update on golf, <code>-p</code> = update on papa, <code>-h</code> or <code>-?</code> = print commandline syntax. You can issue both golf and papa switches: <code>-gp</code>.
+</code></code></p><code><code><h5 class="mw-headline" id="What_it_does">What it does</h5></code></code><code><code><p>The <code>svnrup.bash</code> command looks up the URL of the Subversion repository that corresponds to your current working directory, and sends that off to the <code>svn_update_via_URL.bash</code> command on golf, papa, or both. (It will even send it to papa twice if you specify <code>-p -p</code>, which is silly.) Note that the "send" command is <code>ssh</code>, which will prompt you for your password on the remote machine. The way it knows which user name to use for you on the remote machine is pretty simple: <code>svnrup.bash</code> just looks at your local user name and looks up the remote user name from that. Nothing clever.
+</p><p>Anyway, <code>svn_update_via_URL.bash</code> then determines the target directory by looking at the URL it was passed. It is done in a way that is a little more complicated than a simple lookup, but the result is the same. I.e., it has to know where we keep our repositories on golf and papa. Right now it only knows about three of them ? thus you can start at any point within the following trees:
+</p></code></code><code><code><ul><li><code><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/stg/wwp/website/trunk">https://svn.brown.edu/svn/stg/wwp/website/trunk</a> ? /var/www/htdocs/WWP</code></li>
+<li><code><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/stg/wwp/sandbox">https://svn.brown.edu/svn/stg/wwp/sandbox</a> ? /var/www/htdocs/sandbox</code></li>
+<li><code><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/repository-test">https://svn.brown.edu/svn/repository-test</a> ? /tmp/repository-test</code>, which, of course, may not be there</li></ul></code></code><code><code><p>We can add more if we need to. We just need to remember to update the command on both golf and papa :-)
+</p><p>Once it knows the correct directory, <code>svn_update_via_URL.bash</code> goes to it and checks to see if there is a potential conflict. If there is a potential conflict, it issues an error message and quits. If not, it does the update and then changes the mode of all files in the directory to group-writable, recursively.
+</p><p>That's it!
+</p></code></code>
+<!-- 
+NewPP limit report
+Cached time: 20241110131725
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 29/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 191/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:79-0!canonical and timestamp 20241110131725 and revision id 3693
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Subversion&amp;oldid=3693">https://liblab.neu.edu/mediawik/index.php?title=Subversion&amp;oldid=3693</a>"</div>
+		
+	</div>
+</main>

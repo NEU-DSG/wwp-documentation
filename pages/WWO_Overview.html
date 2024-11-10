@@ -1,0 +1,80 @@
+<?eleventy json
+{"layout":"..\/..\/_includes\/page-base.njk","title":"WWO Overview - WikiBase"}
+?>
+<main xmlns="http://www.w3.org/1999/xhtml" id="content" class="mw-body">
+	<a id="top"></a>
+	
+	
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWO Overview</h1>
+	<div id="bodyContent" class="mw-body-content">
+		
+		
+		
+		
+		
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#FFFEDB; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Important:</b>  This is an old general overview of the WWO
+</p>
+</div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Main_WWO_components"><span class="tocnumber">2</span> <span class="toctext">Main WWO components</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Browseable_texts"><span class="tocnumber">2.1</span> <span class="toctext">Browseable texts</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Search_functionality"><span class="tocnumber">2.2</span> <span class="toctext">Search functionality</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Processing_of_WWP_texts_to_get_them_into_WWO"><span class="tocnumber">2.3</span> <span class="toctext">Processing of WWP texts to get them into WWO</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 class="mw-headline" id="Introduction">Introduction</h2>
+<p>Women Writers Online is a website where licensed users can browse and search the WWP texts that are ready for the world. The majority of license holders are academic institutions or large public libraries, but there are individual scholars with personal licenses, too. The resource includes Renaissance Women Online, which is a subset of about 100 WWP texts from the early modern period. Under a Mellon Foundation grant a set of supplementary materials was created around this subset of texts and that is why they are presented separately as RWO in addition to being part of the complete WWO set.
+</p>
+<h2 class="mw-headline" id="Main_WWO_components">Main WWO components</h2>
+<h3 class="mw-headline" id="Browseable_texts">Browseable texts</h3>
+<p>The texts for browsing are static XHTML files stored in sub-directories under /WWO/html/. These XHTML files are created by running finished WWP XML files (ie. those in /tb/distribution/ through a processing sequence (more below). There are two types of XHTML file:
+</p>
+<ul><li>the actual content of the text</li>
+<li>some metadata from the &lt;teiHeader&gt;</li></ul>
+<p>The actual display that users see onscreen is controlled by a PHP page. That is, when the user clicks on a title in the list of available texts, what they get from the server is actually a PHP page that constructs the link areas at the top and left of the screen and also grabs the appropriate contents XHTML file and includes it in the display.
+</p>
+<h3 class="mw-headline" id="Search_functionality">Search functionality</h3>
+<p>WWO uses the open-source Philologic search engine. WWP finished files are processed (more below) and copies of the resulting XML files are then _ingested_ by Philologic engine which creates detailed and complex indices of words, elements, etc. A PHP-based interface allows users to query strings of texts and also element structures.
+</p>
+<h3 class="mw-headline" id="Processing_of_WWP_texts_to_get_them_into_WWO">Processing of WWP texts to get them into WWO</h3>
+<p>Texts are copied over from /tb/distribution/ and processed by a series of Perl scripts and XSLT stylesheets to optimize them for transformation to HTML. They then have three separate stylesheets applied to them to produce three separate HTML files. These:
+</p>
+<ul><li>extract some metadata</li>
+<li>transform the XML into XHTML</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110131420
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.015 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 287/2097152 bytes
+Template argument size: 52/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.467      1 Template:Note
+100.00%    1.467      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:45-0!canonical and timestamp 20241110131420 and revision id 171
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWO_Overview&amp;oldid=171">https://liblab.neu.edu/mediawik/index.php?title=WWO_Overview&amp;oldid=171</a>"</div>
+		
+	</div>
+</main>
