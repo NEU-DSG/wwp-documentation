@@ -22,9 +22,18 @@
  <!--
       PARAMETERS
    -->
+  
+  
  <!--
       GLOBAL VARIABLES
    -->
+  
+  <xsl:variable name="front-matter" as="map(*)">
+    <xsl:map>
+      <xsl:map-entry key="'layout'" select="'../../_includes/page-base.njk'"/>
+      <xsl:map-entry key="'title'" select="/html/head/title/normalize-space()"/>
+    </xsl:map>
+  </xsl:variable>
   
   
  <!--
@@ -50,18 +59,14 @@
    -->
   
   <xsl:template match="/">
-    <xsl:processing-instruction name="eleventy">
-      <xsl:text>title="</xsl:text>
-      <xsl:value-of select="/html/head/title"/>
-      <xsl:text>"</xsl:text>
-    </xsl:processing-instruction>
-    <xsl:text>&#10;</xsl:text>
+    <xsl:call-template name="set-front-matter"/>
     <xsl:apply-templates select="/html/body/div[@id eq 'content']"/>
   </xsl:template>
   
   <xsl:template match="div[@role eq 'main']">
     <main>
-      <xsl:apply-templates select="@* | node()"/>
+      <xsl:apply-templates select="@* except @role"/>
+      <xsl:apply-templates select="node()"/>
     </main>
   </xsl:template>
   
@@ -97,6 +102,21 @@
  <!--
       NAMED TEMPLATES
    -->
+  
+  <xsl:template name="set-front-matter">
+    <xsl:variable name="jsonOptions" as="node()">
+      <output:serialization-parameters xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
+        <output:method value="json"/>
+      </output:serialization-parameters>
+    </xsl:variable>
+    <xsl:processing-instruction name="eleventy">
+      <xsl:text>json&#10;</xsl:text>
+      <xsl:value-of select="serialize($front-matter, $jsonOptions)"/>
+      <xsl:text>&#10;</xsl:text>
+    </xsl:processing-instruction>
+    <xsl:text>&#10;</xsl:text>
+  </xsl:template>
+  
   
  <!--
       FUNCTIONS
