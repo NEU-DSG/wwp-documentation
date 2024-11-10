@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Recreating Playground - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCyR4EK4MIAAMo2fyQAAAAK","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Recreating_Playground","wgTitle":"Recreating Playground","wgCurRevisionId":3828,"wgRevisionId":3828,"wgArticleId":538,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Recreating_Playground","wgRelevantArticleId":538,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":
+!0};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Recreating_Playground rootpage-Recreating_Playground skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Recreating Playground</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Installing_CentOS_and_WWO_onto_playground"><span class="tocnumber">1</span> <span class="toctext">Installing CentOS and WWO onto playground</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#CentOS"><span class="tocnumber">1.1</span> <span class="toctext">CentOS</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Things_we_should_or_have_installed"><span class="tocnumber">1.2</span> <span class="toctext">Things we should or have installed</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Apache_setup.2C_modules.2C_etc."><span class="tocnumber">1.2.1</span> <span class="toctext">Apache setup, modules, etc.</span></a>
+<ul>
+<li class="toclevel-4 tocsection-5"><a href="#files_from_.2Fetc.2Fhttd.2F_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated"><span class="tocnumber">1.2.1.1</span> <span class="toctext">files from /etc/httd/ whose differences between wwp and wwp-test need to be investigated</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-6"><a href="#other_things_to_be_moved_over"><span class="tocnumber">1.2.2</span> <span class="toctext">other things to be moved over</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="#things_to_be_moved_only_to_wwp-test"><span class="tocnumber">1.2.2.1</span> <span class="toctext">things to be moved only to wwp-test</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#things_we_need_help_with"><span class="tocnumber">1.2.2.2</span> <span class="toctext">things we need help with</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Version_control_plan"><span class="tocnumber">1.3</span> <span class="toctext">Version control plan</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#eXist-DB"><span class="tocnumber">1.4</span> <span class="toctext">eXist-DB</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Jetty_settings"><span class="tocnumber">1.4.1</span> <span class="toctext">Jetty settings</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Webapp_settings"><span class="tocnumber">1.4.2</span> <span class="toctext">Webapp settings</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Database_configuration"><span class="tocnumber">1.4.3</span> <span class="toctext">Database configuration</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Install_eXist_as_a_service"><span class="tocnumber">1.4.4</span> <span class="toctext">Install eXist as a service</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Progress_Notes"><span class="tocnumber">2</span> <span class="toctext">Progress Notes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#November_2019"><span class="tocnumber">2.1</span> <span class="toctext">November 2019</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#2021-02-03"><span class="tocnumber">2.2</span> <span class="toctext">2021-02-03</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#2021-02-08"><span class="tocnumber">2.3</span> <span class="toctext">2021-02-08</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#2021-02-09"><span class="tocnumber">2.4</span> <span class="toctext">2021-02-09</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#2021-02-23"><span class="tocnumber">2.5</span> <span class="toctext">2021-02-23</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#2021-02-26"><span class="tocnumber">2.6</span> <span class="toctext">2021-02-26</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#2021-03-02"><span class="tocnumber">2.7</span> <span class="toctext">2021-03-02</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#2021-03-09"><span class="tocnumber">2.8</span> <span class="toctext">2021-03-09</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#2021-03-16T10.2F11"><span class="tocnumber">2.9</span> <span class="toctext">2021-03-16T10/11</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#2021-03-16T14.2F15"><span class="tocnumber">2.10</span> <span class="toctext">2021-03-16T14/15</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#2021-03-18"><span class="tocnumber">2.11</span> <span class="toctext">2021-03-18</span></a>
+<ul>
+<li class="toclevel-3 tocsection-27"><a href="#Tomcat"><span class="tocnumber">2.11.1</span> <span class="toctext">Tomcat</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-28"><a href="#2021-03-23"><span class="tocnumber">2.12</span> <span class="toctext">2021-03-23</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#2021-03-29"><span class="tocnumber">2.13</span> <span class="toctext">2021-03-29</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#2021-03-30"><span class="tocnumber">2.14</span> <span class="toctext">2021-03-30</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#2021-04-05"><span class="tocnumber">2.15</span> <span class="toctext">2021-04-05</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#2021-04-06"><span class="tocnumber">2.16</span> <span class="toctext">2021-04-06</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#2021-04-23"><span class="tocnumber">2.17</span> <span class="toctext">2021-04-23</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#2021-04-27"><span class="tocnumber">2.18</span> <span class="toctext">2021-04-27</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#2021-05-02"><span class="tocnumber">2.19</span> <span class="toctext">2021-05-02</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="#Setting_up_a_new_RHEL_8_server"><span class="tocnumber">3</span> <span class="toctext">Setting up a new RHEL 8 server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-37"><a href="#Step-by-step"><span class="tocnumber">3.1</span> <span class="toctext">Step-by-step</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#eXist-DB_set-up"><span class="tocnumber">3.2</span> <span class="toctext">eXist-DB set-up</span></a>
+<ul>
+<li class="toclevel-3 tocsection-39"><a href="#Installation"><span class="tocnumber">3.2.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#Transfer_data"><span class="tocnumber">3.2.2</span> <span class="toctext">Transfer data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-41"><a href="#Tomcat_2"><span class="tocnumber">3.3</span> <span class="toctext">Tomcat</span></a>
+<ul>
+<li class="toclevel-3 tocsection-42"><a href="#2021-08-13"><span class="tocnumber">3.3.1</span> <span class="toctext">2021-08-13</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#2021-08-16"><span class="tocnumber">3.3.2</span> <span class="toctext">2021-08-16</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="#2021-08-19.2F20"><span class="tocnumber">3.3.3</span> <span class="toctext">2021-08-19/20</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Installing_CentOS_and_WWO_onto_playground">Installing CentOS and WWO onto playground</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=1" title="Edit section: Installing CentOS and WWO onto playground">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>This page is notes for re-creating the WWO environment from RH 6.10 (wwp.neu.edu) to CentOS 8.2 (playground). It will serve as a guide to start, and then hopefully a useful description for future similar upgrades.
+</p>
+<h2><span class="mw-headline" id="CentOS">CentOS</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=2" title="Edit section: CentOS">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Installing CentOS was essentially trivial. We used the CentOS-8.2.2004-x86_64-boot.iso.
+</p><p>It appears that <tt>yum</tt> has been superceded by <tt>dnf</tt>.
+</p>
+<h2><span class="mw-headline" id="Things_we_should_or_have_installed">Things we should or have installed</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=3" title="Edit section: Things we should or have installed">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Emacs — installed 2020-11-30 with <tt>sudo yum install emacs-nox.x86_64</tt></li>
+<li>Emacs/nxml — was automagically installed by above (and has nice colors!&#160;:-)</li>
+<li>make — installed 2020-11-30 with <tt>sudo yum install make.x86_64</tt></li>
+<li>Subversion — installed 2020-11-30 with <tt>sudo yum install subversion.x86_64</tt></li>
+<li>libxml2/xmllint — libxml2-2.9.7-7.el8.x86_64 is already installed</li>
+<li>libxslt/xsltproc — installed 2020-11-30 with <tt>sudo yum install libxslt.x86_64</tt></li>
+<li>ant — intsalled 2020-11-30 with <tt>sudo yum install ant.noarch</tt></li>
+<li>screen — nope, Red Hat <a rel="nofollow" class="external text" href="https://access.redhat.com/solutions/4136481">recommends tmux</a> instead — installed 2020-11-30 with <tt>sudo yum install tmux.x86_64</tt></li>
+<li>Tomcat — no yum package found
+<ul><li>downloaded the “Core” tarball off of <a rel="nofollow" class="external free" href="https://tomcat.apache.org/download-90.cgi">https://tomcat.apache.org/download-90.cgi</a></li>
+<li>stored it in /usr/local/src/</li>
+<li>following instructions in RUNNING.txt ...</li>
+<li>unarchived it to /usr/local/share/</li>
+<li>created ./bin/setenv.sh in the resulting apache-tomcat-9.0.40/</li>
+<li>created symlinks for work/ temp/ and logs/ (just copying what we have on current production system)</li>
+<li>following instructions at <a rel="nofollow" class="external free" href="https://tomcat.apache.org/tomcat-9.0-doc/setup.html">https://tomcat.apache.org/tomcat-9.0-doc/setup.html</a> ...</li></ul></li>
+<li>git — installed 2020-11-30 with <tt>sudo yum install git.x86_64</tt> (installed 46 dependencies, mostly Perl packages)</li>
+<li>eXist — no yum package found, so see detailed description below</li>
+<li>MariaDB (<b>maybe</b>? maybe not)</li>
+<li>CouchDB (<b>maybe</b>? maybe not)</li>
+<li>lessc (pkg = node-less) — no yum package found
+<ul><li>Ash checked, they recommend installing via npm</li>
+<li>npm — installed 2020-12-02 with <tt>sudo dnf install npm.x86_64</tt></li>
+<li>installed lessc with <tt>sudo npm install less -g</tt></li></ul></li>
+<li>Perl — v 5.26.3 already installed
+<ul><li>HOWEVER, does not have DBI package, so …</li>
+<li><tt># dnf --enablerepo=PowerTools install perl-Digest-SHA1</tt></li>
+<li><tt># dnf install perl-Apache-DBI</tt></li>
+<li><tt># dnf install perl-DBD-mysql</tt></li></ul></li>
+<li>PHP — installed 2020-11-30 with <tt>sudo yum install php.x86_64</tt></li>
+<li>Python — I do not know if we want version 3.6 or 3.8 (or 2.7, which I doubt); see <a rel="nofollow" class="external text" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-python3_configuring-basic-system-settings">the RHEL8 doc</a></li>
+<li>Awstats —<b>not found</b></li>
+<li>locate — already installed, but need to generate and cronify udpatedb; done 2020-11-30, I think. Ran <tt>sudo /usr/bin/updatedb</tt> and now <tt>locate</tt> seems to work. Symlinked /usr/bin/updatedb to /etc/cron.daily/updatedb. Hope that works. I think we check by loooking at timestamp of /var/lib/mlocate/mlocate.db.</li>
+<li>gcc — installed 2020-12-02 with <tt>sudo dnf install gcc.x86_64</tt></li>
+<li>apxs — installed 2021-02-23 with <tt>sudo dnf install httpd-devel</tt></li>
+<li>libtool — installed 2021-02-23 with <tt>sudo dnf install libtool</tt></li></ul>
+<h3><span id="Apache_setup,_modules,_etc."></span><span class="mw-headline" id="Apache_setup.2C_modules.2C_etc.">Apache setup, modules, etc.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=4" title="Edit section: Apache setup, modules, etc.">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We (Syd &amp; Ash) worked on configuring the web server for awhile, but were still having problems. Ernesto (user=nestochan) gave us a hand, performed some firewall magic, and now it is working. Need to find out what he did.
+</p>
+<ul><li>server side includes</li>
+<li>whatever we need for security and textbaseIP stuff
+<ul><li>mod_jk</li>
+<li>✓ <tt>/etc/httpd/passwd/</tt></li></ul></li>
+<li>redirection stuff (mostly part of configuration)</li>
+<li>probably want to check several files in wwp-test:/etc/httpd/ into version control; consider:
+<ul><li>conf.d/webalizer.conf</li>
+<li>conf.d/limitipconn.conf</li>
+<li>conf.d/reqtimeout.conf</li>
+<li>conf.d/wwp-blog.conf</li>
+<li>conf.d/wwp.conf-ssl.conf</li>
+<li>conf.d/mod_security.conf</li>
+<li>conf.d/dsc-wiki.conf</li>
+<li>conf.d/dsg-wiki.conf</li>
+<li>modsecurity.d</li></ul></li></ul>
+<h4><span id="files_from_/etc/httd/_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated"></span><span class="mw-headline" id="files_from_.2Fetc.2Fhttd.2F_whose_differences_between_wwp_and_wwp-test_need_to_be_investigated">files from /etc/httd/ whose differences between wwp and wwp-test need to be investigated</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=5" title="Edit section: files from /etc/httd/ whose differences between wwp and wwp-test need to be investigated">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<ul><li>Files wwp-test/httpd/conf/httpd.conf and wwp/httpd/conf/httpd.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/awstats.conf and wwp/httpd/conf.d/awstats.conf differ</li>
+<li>Only in wwp-test/httpd/conf.d: dsc-wiki.conf</li>
+<li>Only in wwp-test/httpd/conf.d: dsg-wiki.conf</li>
+<li>Files wwp-test/httpd/conf.d/limitipconn.conf and wwp/httpd/conf.d/limitipconn.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/mod_security.conf and wwp/httpd/conf.d/mod_security.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/redirects.conf and wwp/httpd/conf.d/redirects.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/ssl.conf and wwp/httpd/conf.d/ssl.conf differ</li>
+<li>Only in wwp-test/httpd/conf.d: useless</li>
+<li>Files wwp-test/httpd/conf.d/wwp-blog.conf and wwp/httpd/conf.d/wwp-blog.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwp.conf and wwp/httpd/conf.d/wwp.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwp.conf-ssl.conf and wwp/httpd/conf.d/wwp.conf-ssl.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwprd.conf and wwp/httpd/conf.d/wwprd.conf differ</li>
+<li>Files wwp-test/httpd/conf.d/wwprewrite.conf and wwp/httpd/conf.d/wwprewrite.conf differ</li></ul>
+<h3><span class="mw-headline" id="other_things_to_be_moved_over">other things to be moved over</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=6" title="Edit section: other things to be moved over">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li>WWO</li>
+<li>WWP website
+<ul><li>including configuration files</li>
+<li>include git repos per /var/www/html/WWP/lab/README-WWP</li></ul></li>
+<li>eXist applications (see <a href="/mediawik/index.php/WWP_eXist-DB_applications" title="WWP eXist-DB applications">WWP_eXist-DB_applications</a>)</li>
+<li>either Awstats or something better
+<ul><li>remember, /usr/local/bin/rgxg is used by Awstats — installed 2021-04-07 by downloading the <a rel="nofollow" class="external text" href="https://github.com/rgxg/rgxg/releases/latest">0.1.2 release tarball</a>, ./configure, make, make install.</li></ul></li>
+<li>WordPress</li>
+<li>/usr/local/bin/wwpwwwup.bash</li></ul>
+<h4><span class="mw-headline" id="things_to_be_moved_only_to_wwp-test">things to be moved only to <tt>wwp-test</tt></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=7" title="Edit section: things to be moved only to wwp-test">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<ul><li>MediaWiki</li>
+<li>CouchDB and the data produced for Cultures of Reception</li></ul>
+<h4><span class="mw-headline" id="things_we_need_help_with">things we need help with</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=8" title="Edit section: things we need help with">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<ul><li>MediaWiki (Karl)</li>
+<li>WordPress (Karl)</li>
+<li><tt>https:</tt> access part of Apache config (Ernesto)</li>
+<li>documenting what was done to firewall (Ernesto)</li>
+<li>mod_jk?</li></ul>
+<h2><span class="mw-headline" id="Version_control_plan">Version control plan</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=9" title="Edit section: Version control plan">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Our plan is to keep all the Apache2 configuration stuff (<tt>/etc/httpd/</tt>) under Subversion on playground, wwp-test, local machines, etc.; BUT not on production (wwp) itself. To update that machine you will have to copy files over by hand. This is in part to help reduce chance of messing things up with an <tt>svn up</tt> and in part as an acknowledgement that a) karl &amp; Ernesto work in this dir, too, and b) some of the files actually have to be different (due to name of host being different, i.e. <tt>wwp</tt> vs <tt>wwp-test</tt> vs <tt>129.10.107.233</tt>). 
+</p>
+<h2><span class="mw-headline" id="eXist-DB">eXist-DB</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=10" title="Edit section: eXist-DB">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><code>wget</code> the installation JAR from <a rel="nofollow" class="external text" href="https://github.com/eXist-db/exist/releases">GitHub</a>. WWP is currently using eXist v5.2.0. In v5.x, the configurations below are mostly the same, except most of the files are now stored in $EXIST_HOME/etc.
+</p>
+<pre>useradd --home-dir /opt/local/eXistDB --create-home --system existdb
+chmod 0775 /usr/local/eXistDB
+sudo su - existdb
+</pre>
+<p>Add environmental variables to .bash_profile:
+</p>
+<pre>export EXIST_HOME=/opt/local/eXistDB/eXist-current
+export RUN_AS_USER=existdb
+</pre>
+<p>Then, in the terminal: 
+</p>
+<pre>source ~/.bash_profile
+chmod a+x /tmp/exist-installer-5.2.0.jar
+sudo su - existdb
+java -jar /tmp/exist-installer-5.2.0.jar -console
+</pre>
+<p>As part of the install process, you'll need to do some configuration of the database. Use these:
+</p>
+<ul><li>Install path: /opt/local/eXistDB/eXist-VERSION</li>
+<li>Data directory: default is okay</li>
+<li>Administrator password: <b>set it</b> rather than leaving it blank!</li>
+<li>Applications: default is okay</li>
+<li>Do not create any shortcuts</li></ul>
+<p>Create a symlink so that eXist-current (<code>$EXIST_HOME</code>) points to the latest version of eXist: <code>ln -s eXist-VERSION eXist-current</code>.
+</p><p>Navigate into <code>$EXIST_HOME</code>.
+</p>
+<h4><span class="mw-headline" id="Jetty_settings">Jetty settings</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=11" title="Edit section: Jetty settings">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Change the eXist port number, since 8080 is already in use on the WWP servers.
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/jetty/jetty-http.xml.</li>
+<li>Change the HTTP port from 8080 to 8088.</li></ul>
+<p>Increase the maximum file size accepted for upload. (The default is 200,000.)
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/jetty/webapps/exist-webapp-context.xml</li>
+<li>Add a new property as a child of <code>&lt;Configure&gt;</code>:</li></ul>
+<pre>&lt;Set name="maxFormContentSize"&gt;400000&lt;/Set&gt;
+</pre>
+<h4><span class="mw-headline" id="Webapp_settings">Webapp settings</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=12" title="Edit section: Webapp settings">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Keep guest users from executing arbitrary XQueries. See Mathias Göbel's 2017-03-11 post on Exist-open, "get parameter _query = open proxy".
+</p>
+<ul><li>Create a backup of $EXIST_HOME/etc/webapp/WEB-INF/web.xml.</li>
+<li>Set <code>//init-param[param-name = ('xquery-submission', 'xupdate-submission')]</code> to "authenticated".</li></ul>
+<h4><span class="mw-headline" id="Database_configuration">Database configuration</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=13" title="Edit section: Database configuration">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<ul><li>Create a backup of $EXIST_HOME/etc/conf.xml</li>
+<li>Set <code>//indexer/@preserve-whitespace-mixed-content</code> to "yes".</li>
+<li>Set <code>//serializer/@indent</code> to "no".</li>
+<li>Disable execution of arbitrary XQueries: set <code>//builtin-modules/module[@uri eq '<a rel="nofollow" class="external free" href="http://exist-db.org/xquery/util&#39;">http://exist-db.org/xquery/util'</a>]/parameter[@name eq 'evalDisabled']/@value</code> to "true".</li>
+<li>Add Saxon settings to <code>//transformer[@class eq 'net.sf.saxon.TransformerFactoryImpl']</code>:</li></ul>
+<pre>&lt;attribute name="http://saxon.sf.net/feature/recoveryPolicyName"
+           value="recoverWithWarnings"
+           type="string"/&gt;
+&lt;attribute name="http://saxon.sf.net/feature/strip-whitespace"
+           value="none"
+           type="string"/&gt;
+</pre>
+<p>At this point, if you can log into the eXist-DB Dashboard from the web, install the <a href="/mediawik/index.php/WWP_eXist-DB_applications" title="WWP eXist-DB applications">eXist-DB webapps</a>. When the persistent scheduler has been installed, return to conf.xml and add this job to <code>//scheduler</code>:
+</p>
+<pre>        &lt;!-- Reschedule XQuery jobs after a restart. --&gt;
+        &lt;job type="user" name="persistent-scheduler" 
+             xquery="/db/apps/persistent-scheduler/rescheduler.xq"
+             period="5000" repeat="0" /&gt;
+</pre>
+<p>The next time eXist starts up, the changes made in all these files will be applied.
+</p>
+<h3><span class="mw-headline" id="Install_eXist_as_a_service">Install eXist as a service</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=14" title="Edit section: Install eXist as a service">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>eXist v5.x doesn't require a wrapper at all. Use the instructions in the <a rel="nofollow" class="external text" href="http://exist-db.org/exist/apps/doc/advanced-installation#linux">eXist documentation</a> to set up a service that will run the database on reboot. Once done, you will be able to start and stop eXist using <code>systemctl</code>.
+</p>
+<h1><span class="mw-headline" id="Progress_Notes">Progress Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=15" title="Edit section: Progress Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="November_2019">November 2019</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=16" title="Edit section: November 2019">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>“playground” is the name Ashley &amp; Syd give to the box they are using for experimentations. (Currently for web stat packages.) This page describes a procedure for installing a CentOS (i.e., RedHat clone) OS on it quickly.
+</p>
+<ul><li>Remember to back up iptables and restore it</li>
+<li>We re-set the clock with instructions from <a rel="nofollow" class="external text" href="https://serverfault.com/questions/558354/correcting-centos-system-clock">a website</a> we found.</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="2021-02-03">2021-02-03</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=17" title="Edit section: 2021-02-03">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We have the apache2 web server up and running; loading <a rel="nofollow" class="external free" href="http://129.10.107.233/WWP/">http://129.10.107.233/WWP/</a> works in that data is loaded. However SSIs are not working. (Tomcat and mod_jk are not working yet either, but we did not expect them to.)
+</p><p><b>Next step</b>: Figure out how to configure locally so that SSIs work. We tried moving in the old /etc/httpd/conf/httpd.conf file into the new environment and the entire web server failed to start up.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-02-08">2021-02-08</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=18" title="Edit section: 2021-02-08">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We copied the Apache2 configuration files from the SVN trunk (read: following WWP Test configuration). Restarting the server failed due to missing modules in /etc/httpd/modules. That path is a symlink to ../../usr/lib64/httpd/modules, and the contents differ between Playground and Test.
+</p><p>We will need to figure out how to install some of the missing modules:
+</p>
+<ul><li>mod_limitipconn or its equivalent in Apache 2.4</li>
+<li>mod_perl</li></ul>
+<p>We may need mod_fcgid (FastCGI). We don’t think we need mod_auth_mysql, mod_autoindex, or mod_wsgi (Python).
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-02-09">2021-02-09</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=19" title="Edit section: 2021-02-09">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We discovered that Playground had a date of 2018-07, and reset it to the correct date with sudo date --set. That also allowed us to install mod_limitipconn and mod_perl, since those failed due to a problem.
+</p><p>Continuing with our Apache configuration test, we found that we need an SSL certificate in order to fully test the server setup (for this wiki, for example).
+</p><p>Ernesto installed the SSL certificate from WWPDev, so we can continue working on Apache configuration with apachectl configtest.
+</p><p>We also created a symlink from /var/lib/tomcat9 (correct?) to the /usr/local/share/apache-tomcat.../webapps directory. Tomcat still needs to be set up as a service to run on server restart.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-02-23">2021-02-23</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=20" title="Edit section: 2021-02-23">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We’ve installed the Apache module mod_jk from source (mod_jk connects the server to Tomcat). We found and followed instructions <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">here</a>, though we couldn’t start httpd in step one. The JkMount directives now seem to work with the new mod_jk.so file installed at /etc/httpd/local-modules.
+</p><p>We fixed the paths to the SSL certificate provided by Ernesto.
+</p><p>There are some warnings remaining, and expected paths and/or permissions that are missing in our setup.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-02-26">2021-02-26</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=21" title="Edit section: 2021-02-26">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We continued debugging our Apache2 configuration. We discovered that our newly-compiled mod_jk.so module had to have the same SELinux policy as httpd. We used the chcon command, with the "reference" argument to copy the policy from httpd to the module.
+</p><p>We also created the /var/log/apache2 directory, and added READMEs in that directory and /var/log/httpd, explaining what should be stored in each.
+</p><p>After these changes, the Apache configuration syntax came back OK.
+</p><p>The httpd service still fails to start, however, and there don’t seem to be clues in the command line output of [?].
+</p><p>We checked the /var/log/apache2/error_log, discovered debugging and info messages about the security certificate. We updated the VirtualHost names to match playground’s, which resulted in a warning in the error log: the server name does not match the names in the security certificate. We expected this, and it really shouldn’t affect the server starting up.
+</p><p>Next step is to discover why Apache still won’t run.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-02">2021-03-02</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=22" title="Edit section: 2021-03-02">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>On the thought that the reason the webserver will not start <i>might</i> be because of the attempt to load modules multiple times, we removed all duplicate <tt>LoadModule</tt> calls. To see what it was before we removed these, check out 42719 or later, but before 42805.
+</p><p>The good news is we managed to remove all the duplicate module warning messages. The bad news is that (kinda as expected) it did not change the fact that the webserver will not start, nor the (kinda useless) error messages in the log file.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-09">2021-03-09</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=23" title="Edit section: 2021-03-09">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We were able to fix the SSL server certificate warnings by changing wwp.conf-ssl.conf to use wwp-test server names instead of playground's.
+</p><p>Still no luck on getting Apache to run. The terminal output just says that the startup process failed, and /var/log/apache2/error_log now only has info and debug messages. We asked Ernesto for help.
+</p>
+<h2><span id="2021-03-16T10/11"></span><span class="mw-headline" id="2021-03-16T10.2F11">2021-03-16T10/11</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=24" title="Edit section: 2021-03-16T10/11">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Trying to get PHP (in particular PHP7) to work with the Apache2 install. Follwed some instructions on <a rel="nofollow" class="external text" href="https://tecadmin.net/install-lamp-centos-8/">this website</a>, to wit (mostly requiring <tt>sudo</tt>):
+</p>
+<ol><li>dnf install dnf-utils <a rel="nofollow" class="external free" href="http://rpms.remirepo.net/enterprise/remi-release-8.rpm">http://rpms.remirepo.net/enterprise/remi-release-8.rpm</a></li>
+<li>dnf module reset php</li>
+<li>dnf module enable php:remi-7.4</li>
+<li>dnf install php</li>
+<li>restarted apache w/o error</li>
+<li>PHP still did not work</li>
+<li>commented out the <tt>&lt;IfModule&gt;</tt> in php.conf</li>
+<li>... and it did not work. We got an error message on restarting webserver: <tt>Apache is running a threaded MPM, but your PHP Module is not compiled to be threadsafe.  You need to recompile PHP</tt>, which leads us to believe that either we need to install <tt>prefork.c</tt> (whatever that is), or we need to recompile PHP (however one does that).</li></ol>
+<p><br />
+</p>
+<h2><span id="2021-03-16T14/15"></span><span class="mw-headline" id="2021-03-16T14.2F15">2021-03-16T14/15</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=25" title="Edit section: 2021-03-16T14/15">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Tried lotsa stuff, but eventually found that replacing what we had as /etc/httpd/conf.d/php.conf with what we has as /etc/httpd/conf.d/php.conf.rpmnew worked, in that the web server starts and loads our front page with the “Upcoming Events” looking correct, not like an excerpt of raw PHP code.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-18">2021-03-18</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=26" title="Edit section: 2021-03-18">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Removed FastCGI Apache module loader and config files, since our PHP fix doesn't require it.
+</p>
+<h3><span class="mw-headline" id="Tomcat">Tomcat</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=27" title="Edit section: Tomcat">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Looks like we never finished installing &amp; configuring Tomcat, as it is not talking to Apache. There are instructions at both <a rel="nofollow" class="external text" href="https://tomcat.apache.org/tomcat-9.0-doc/setup.html">the Tomcat doc</a> and at a lovely <a rel="nofollow" class="external text" href="https://gist.github.com/drmalex07/e6e99dad070a78d5dab24ff3ae032ed1">gist page</a> Ash found. So far we have created a <tt>tomcat</tt> user with <tt>sudo useradd --home-dir /usr/local/share/apache-tomcat-9.0.40 --system tomcat</tt>.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-23">2021-03-23</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=28" title="Edit section: 2021-03-23">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We finished setting up the Tomcat 9 systemd daemon, using the gist page linked above as a starting point. The working script is available in /etc/systemd/system/tomcat9.service.
+</p><p>To get systemd to start Tomcat, we needed to go into the Tomcat directory (/usr/local/share/apache-tomcat-9.0.40/) and give ownership of everything to the Tomcat user and group. To get Tomcat to successfully <i>run</i>, we needed to additionally change permissions on the directories symlinked in the Tomcat home directory.
+</p><p>To test that Tomcat is running, we used the command <tt>sudo systemctl status tomcat9.service</tt>, and also a <tt>wget localhost:8080</tt> to make sure Tomcat was serving out webpages. However, Tomcat’s port is not available outside Playground; our next step is to go back to Apache2 and make sure it’s configured to allow access to Tomcat, or at least the XTF servlet.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-29">2021-03-29</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=29" title="Edit section: 2021-03-29">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We finally found what we think was stopping Apache2 from talking to Tomcat9 — in file <tt>/usr/local/share/apache-tomcat-9.0.40/conf/server.xml</tt> we found the bit defining port 8009 as the ajp13 contact point was commented out, and uncommented it. Still doesn’t work.
+</p><p>Start next time by looking to see what is going on with the redirect. Is <tt>129.10.107.233/WWO</tt> getting forwarded to right place?
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-03-30">2021-03-30</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=30" title="Edit section: 2021-03-30">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>We figured out that we had adjusted the URLs for our two Virtual Hosts in /etc/httpd/conf.d/wwp.conf, but skipped the same definitions in the SSL configuration file. (<b>Side note</b>: do we still need the full plain-HTTP configuration file? Ask Ernesto.) We adjusted the values in the SSL configuration to match the regular one. This didn’t help us with being able to view Tomcat.
+</p><p>We weren’t sure whether we had the server names and aliases right for the Apache2 virtual hosts, especially for Tomcat (WWO). To see if we could access Tomcat from the web at all, we set the WWP virtual host to a port that doesn’t exist, leaving the WWO host as the only one configured. However, we still couldn’t access Tomcat in a browser. We would be prompted for authentication, but the connection to [playground.wwp.northeastern.edu/WWO <tt>/WWO</tt>] hung indefinitely. The Tomcat logs had not been touched; Apache did not connect to it.
+</p><p>we found a Perl error in /var/log/apache2/error_log: <tt>Can't locate object method "remote_ip" via package "Apache2::Connection" at /etc/httpd/Apache2/IPAccess.pm line 277.</tt>. We found that <tt>remote_ip</tt> had been removed in Apache 2.4, and the <a rel="nofollow" class="external text" href="http://httpd.apache.org/docs/2.4/developer/new_api_2_4.html">API changelog</a> suggested we replace it with either <tt>request_rec-&gt;useragent_ip</tt> or <tt>conn_rec-&gt;client_ip</tt>. We chose the former. The new line: <tt>my $remote_addr = $r-&gt;request_rec-&gt;useragent_ip ();</tt>.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="2021-04-05">2021-04-05</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=31" title="Edit section: 2021-04-05">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>After restarting Apache2, we got a new error at the same line: <tt>[perl:error] [pid 1217232:tid 139646902204160] [client 10.15.249.129:57712] Can't locate object method "request_rec" via package "Apache2::RequestRec" at /etc/httpd/Apache2/IPAccess.pm line 277.\n</tt>. Ash found <a rel="nofollow" class="external text" href="https://ci.apache.org/projects/httpd/trunk/doxygen/structrequest__rec.html">an explanation of the <tt>request_rec</tt> object</a>, which suggests that a number of different Apache2 modules contribute to <tt>request_rec</tt>. Figuring it was extraneous, Ash deleted <tt>request_rec-&gt;</tt> in favor of <tt>$r-&gt;useragent_ip ();</tt>. 
+</p><p>IP address checking now appears to work. There are a number of Perl warnings and one error, but these have to do with the contents of /etc/httpd/passwd/textbase_ipaddrs. IPAccess.pm seems to be able to recover from this. There is also a Perl warning from Apache2::IPAccessLog1 that an expected MySQL table is not accessible.
+</p><p>Still no access to WWO. These warnings aren’t likely to be causing our problems with the Apache2 virtual hosts. Probably best to move on, maybe look at the configured redirects.
+</p>
+<h2><span class="mw-headline" id="2021-04-06">2021-04-06</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=32" title="Edit section: 2021-04-06">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>After bumbling around for an hour, Ash figured out we had not followed <i>all</i> of the <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">instructions for setting up mod_jk</a>. Once we finished configuring Tomcat, we got a better message in the log file. Following that, we found we had to set the <tt>secretRequired</tt> parameter on the <tt>&lt;Connector&gt;</tt> for AJP/1.3 in <tt>/usr/local/share/apache-tomcat-9.0.40/conf/server.xml</tt>.
+</p>
+<h2><span class="mw-headline" id="2021-04-23">2021-04-23</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=33" title="Edit section: 2021-04-23">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Ash had discovered that eXist died because the system had erased a file in /tmp/. We played with /usr/lib/tmpfiles.d/tmp.conf to try to get it to stop, but were unsuccesful in that on reboot /tmp/ did not exist.
+</p>
+<h2><span class="mw-headline" id="2021-04-27">2021-04-27</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=34" title="Edit section: 2021-04-27">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Found that `chronyd` was not running on boot (and system clock was set to 2018-06-22). Ash enabled it with <tt>systemctl enable chronyd.service</tt>, and that seems to have worked.
+</p><p>Then we tweaked /usr/lib/tmpfiles.d/tmp.conf some more, and we think we have the /tmp/ erasure problem licked. Will test on 2021-05-08 or 09.
+</p>
+<h2><span class="mw-headline" id="2021-05-02">2021-05-02</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=35" title="Edit section: 2021-05-02">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Installed awstats 7.8 (using awstats-7.8-1.noarch.rpm via dnf). Re-created config dirs by creating then checking out Subversion repository <a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/">https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/</a>. Made the new /usr/local/awstats/ dir group writable by group wheel. Changed all /usr/share/awstats/ to /usr/local/awstats/ both in this new dir and in web config files. Made symlink in /etc/cron.daily/ to the run-em-all pgm. Created new /mnt/WWPplayground-Data/ and told that pgm to use it. Note that SiteDomain= is not being set correctly (but it isn’t on wwp-test, either). Current problem is that web config doesn’t seem to know about usage/stats pages.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Setting_up_a_new_RHEL_8_server">Setting up a new RHEL 8 server</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=36" title="Edit section: Setting up a new RHEL 8 server">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Starting on nb9565, 2021-06-10.
+</p>
+<h2><span class="mw-headline" id="Step-by-step">Step-by-step</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=37" title="Edit section: Step-by-step">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<code><pre>dzdo su - root
+dnf install tmux
+dnf install emacs
+# Syd switched to emacs here
+dnf install make subversion ant git npm php gcc httpd-devel libtool
+# libxml (xmllint) and libxslt (xsltproc) already installed
+subscription-manager repos --enable "codeready-builder-for-rhel-8-$(arch)-rpms"
+dnf install perl-Digest-SHA1
+# perl-DBD-mysql already installed
+wget https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/e/epel-release-8-10.el8.noarch.rpm
+rpm -Uvh epel-release*rpm
+dnf install perl-Apache-DBI
+npm install less -g
+</pre></code>
+<p>Now install our Apache2 configuration:
+</p>
+<code><pre>systemctl stop httpd
+cd /etc
+mv httpd httpd_orig &amp;&amp; svn checkout https://liblab.neu.edu/svn/DSG/wwp/apache2/branches/RHEL8 httpd
+mkdir /var/log/apache2
+# get our clever README files:
+cd /var/log/apache2/
+ln -s /etc/httpd/WWP_docs/var_log_apache2_INFO.txt ./README.txt
+cd /etc/httpd/logs/
+ln -s /etc/httpd/WWP_docs/etc_httpd_logs_INFO.txt  ./README.txt
+</pre></code>
+<p>Install missing Apache2 modules, including <a rel="nofollow" class="external text" href="https://pkgs.org/download/mod_perl">mod_perl</a>, <a rel="nofollow" class="external text" href="https://pkgs.org/download/mod_limitipconn">mod_limitipconn</a>:
+</p>
+<code><pre># apachectl configtest
+dnf install mod_perl mod_limitipconn mod_qos mod_security mod_ssl
+</pre></code>
+<p>Install <a rel="nofollow" class="external text" href="https://www.middlewareinventory.com/blog/tomcat-modjk-configuration-installation/">mod_jk</a> from source:
+</p>
+<code><pre>cd /usr/local/src
+wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz
+tar -xvf tomcat-connectors-1.2.48-src.tar.gz
+cd tomcat-connectors-1.2.48-src/native
+./configure -with-apxs=/usr/bin/apxs
+make
+cp apache-2.0/mod_jk.so /etc/httpd/local-modules
+</pre></code>
+<p>Get <tt>locate</tt> to work properly (just duplicating what we did on playground, above):
+</p>
+<code><pre># time /usr/bin/updatedb
+# cd /etc/cron.daily/
+# ln -s /usr/bin/updatedb updatedb
+</pre></code>
+<p>Install <tt>rgxg</tt> by following cmds above, and then also <tt>sudo chmod a+w /usr/local/src/rgxg-0.1.2/libs</tt>.
+Install and configure Awstats:
+</p>
+<code><pre>dnf install awstats
+mv /usr/share/awstats /usr/local/
+cd /usr/local/awstats
+mv tools tools-orig
+svn checkout https://liblab.neu.edu/svn/DSG/wwp/webstats/branches/RHEL8/ tools
+chgrp -R wheel .
+chmod -R g+w .
+rm -R /etc/awstats/*
+cd /etc/awstats
+sudo ln -s /usr/local/awstats/tools/awstats.ALL.conf awstats.conf
+</pre></code>
+<p>Note that we updated the code in /usr/local/awstats/tools/generateAndRunAllConfFiles.bash (on Subversion’s RHEL8 branch) to generate the needed symlink to index.php.
+Then we copied over the website (from wwp-test.neu.edu):
+</p>
+<code><pre>time tar czpf - WWP | (ssh nb9565.neu.edu "cd /var/www/html/; tar xzpf -")</pre></code>
+<p>Hope that works.
+</p><p>In fact, it worked too well, and /var threatened to crash the server. Ernesto deleted /var/www/html and mounted an NFS directory in its place — the same NFS storage used on WWP Test. This gives us the WWP website as it appears on WWP Test for free. We had to create a “wwp” group at the GID used on Test. The nb9565 SVN version (1.10) can’t make any changes to the website directory, due to an incompatible SVN repository format.
+</p><p>For now, we plan to make updates to that working copy on Test only, and run <code>svn upgrade</code> after throwing the switch.
+</p><p>Ernesto and Karl installed the SSL certificate that Apache requested. Apache still wouldn’t start, as it could not bind to Playground’s IP address. Updated references to the server IP and server name in Apache configs:
+</p>
+<ul><li><b>/etc/httpd/conf/httpd.conf</b>: "Listen", "ServerName"</li>
+<li><b>conf.d/wwp.conf</b>: "VirtualHost", "ServerName", "ServerAlias", "ServerAdmin", "Redirect"</li>
+<li><b>conf.d/wwp.conf-ssl.conf</b>: "VirtualHost", "ServerName", "ServerAlias", "ServerAdmin"</li>
+<li><b>conf.d/wwprewrite.conf</b>: RewriteRules "^/WWO/php/wAll\.php", "^/WWP/WWO", "^texts/"</li></ul>
+<p>With these changes, Apache syntax is OK, and Apache starts up, but the website is inaccessible outside of nb9565. Some of this is firewall-related. There are also indications that the security certificate and the Apache config aren’t meshing well (<code>curl</code> complains when calling nb9565 from itself). We consulted Ernesto and Karl.
+</p><p>In the meantime, we started installing Tomcat from source. We downloaded <a rel="nofollow" class="external text" href="https://tomcat.apache.org/download-90.cgi">a tarball for version 9.0.50</a> to /usr/local/src, and extracted the directory to /usr/local/share.
+</p><p>It turned out that the firewall problem was due to an ITS backlog. Ernesto contacted them and got them to fix it. The firewalls on the two new servers now match the settings of the older servers. With the new firewall rules in place, nb9565 now works in the browser!
+</p>
+<h2><span class="mw-headline" id="eXist-DB_set-up">eXist-DB set-up</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=38" title="Edit section: eXist-DB set-up">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Done after the firewall was updated. The <a href="#eXist-DB">#eXist-DB</a> section above has more details on hows and whys.
+</p>
+<h3><span class="mw-headline" id="Installation">Installation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=39" title="Edit section: Installation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<code><pre>cd /tmp
+wget https://github.com/eXist-db/exist/releases/download/eXist-5.3.0/exist-installer-5.3.0.jar
+# user root
+dzdo su - root
+mkdir /opt/local
+useradd --home-dir /opt/local/eXistDB --create-home --system existdb
+chmod 0775 /opt/local/eXistDB
+chmod a+x /tmp/exist-installer-5.3.0.jar 
+# user existdb
+su - existdb
+vi .bash_profile
+# Add:
+#   export EXIST_HOME=/opt/local/eXistDB/current
+#   export RUN_AS_USER=existdb
+source .bash_profile
+java -jar /tmp/exist-installer-5.3.0.jar -console
+</pre></code>
+<p>Use the installation notes <a href="#eXist-DB">above</a>.
+</p>
+<code><pre>ln -s eXist-5.3.0 current
+cd $EXIST_HOME/etc
+cp jetty/jetty-http.xml jetty/jetty-http.xml.orig
+vi jetty/jetty-http.xml
+# Change port 8080 to 8088
+cp jetty/webapps/exist-webapp-context.xml jetty/webapps/exist-webapp-context.xml.orig
+vi jetty/webapps/exist-webapp-context.xml
+</pre></code>
+<p><a href="#Jetty_settings">Add property to increase max upload size</a>
+</p>
+<code><pre>cp webapp/WEB-INF/web.xml webapp/WEB-INF/web.xml.orig
+vi webapp/WEB-INF/web.xml.orig
+</pre></code>
+<p><a href="#Webapp_settings">Make sure XQueries can only be executed by authenticated users.</a>
+</p>
+<code><pre>cp conf.xml conf.xml.orig
+vi conf.xml
+</pre></code>
+<p><a href="#Database_configuration">Fill in listed conf.xml settings.</a>
+</p>
+<code><pre>exit
+# user root
+vi /etc/systemd/system/exist-db.service
+</pre></code>
+<p>Used the <a rel="nofollow" class="external text" href="http://exist-db.org/exist/apps/doc/advanced-installation#linux">sample service file in the eXist documentation</a> as a starting point.
+</p>
+<code><pre>chown existdb /etc/systemd/system/exist-db.service &amp;&amp; chgrp existdb /etc/systemd/system/exist-db.service
+systemctl start exist-db
+rm /tmp/exist-installer-5.3.0.jar
+</pre></code>
+<h3><span class="mw-headline" id="Transfer_data">Transfer data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=40" title="Edit section: Transfer data">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>eXist v5.2.0 (on WWP Test) is <a rel="nofollow" class="external text" href="http://localhost:8080/exist/apps/doc/upgrading#binary-compatible-upgrades">binary-compatible</a> with v5.3.0 (on nb9565). Because of this, transferring eXist data to the new server was fairly simple:
+</p>
+<ol><li>On WWP Test, assume the existdb user identity (you -&gt; root -&gt; existdb)</li>
+<li>Zip up the eXist-db data directory and put it somewhere other users can see it.</li>
+<li><code>scp</code> the directory to nb9565, /tmp</li>
+<li>On nb9565, shut down the eXist daemon (if necessary).</li>
+<li>Assume the existdb user identity.</li>
+<li>Rename the existing data directory.</li>
+<li><code>unzip /tmp/DATADIR.zip -d eXist-5.3.0</code></li>
+<li>As root, start the eXist daemon again.</li></ol>
+<p>eXist’s documentation suggests that these steps alone should be sufficient, but in fact, the web Dashboard was blank, though I could log in.
+</p><p><b>This may not have done anything to help, but it didn’t hurt anything.</b> In <a rel="nofollow" class="external text" href="https://nb9565.neu.edu/exist/apps/eXide/index.html">eXide</a>, <a rel="nofollow" class="external text" href="http://localhost:8080/exist/apps/doc/backup#repair">repair the package repository</a> by executing this script:
+</p>
+<code><pre>xquery version "3.1";
+
+import module namespace repair="http://exist-db.org/xquery/repo/repair" 
+at "resource:org/exist/xquery/modules/expathrepo/repair.xql";
+
+repair:clean-all(),
+repair:repair()
+</pre></code>
+<p>The <a rel="nofollow" class="external text" href="https://exist-db.org/exist/apps/wiki/blogs/eXist/eXistdb530">release notes for eXist v5.3.0</a> say that, when upgrading from v5.2.0 or earlier, the eXist Dashboard must be reinstalled at a higher version. In eXide, execute this script:
+</p>
+<code><pre>xquery version "3.1";
+
+repo:remove("http://exist-db.org/apps/existdb-packageservice"),
+repo:install-and-deploy("http://exist-db.org/apps/existdb-packageservice", 
+    "http://exist-db.org/exist/apps/public-repo/find")
+</pre></code>
+<p>The eXist Dashboard is now fully functional.
+</p><p>The <i>Women Writers in Review</i> app has been upgraded to v1.8.3, which gets around <a rel="nofollow" class="external text" href="https://github.com/eXist-db/exist/issues/3989">a bug in xml-to-json()</a>.
+</p>
+<h2><span class="mw-headline" id="Tomcat_2">Tomcat</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=41" title="Edit section: Tomcat">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Previously we had downloaded Tomcat and put it /usr/local/share/.
+</p><p>Created a tomcat user with <code>sudo useradd --home-dir /usr/local/share/apache-tomcat-9.0.50 --system tomcat</code>.
+</p><p>Installed WWO into /usr/local/share/apache-tomcate-9.0.50/webapps/ (just an <code>svn co</code>).
+</p><p>Copied the daemon file <code>playground:/etc/systemd/system/tomcat9.service</code> into the same directory on new system. Also changed the path in that file from “.40” to “.50”.
+</p><p>Also made same “.40” to “.50” change to <code>/etc/httpd/misc/workers.properties</code> file.
+</p><p>And uncommented the <code>&lt;Connector</code> statement for AJP/1.3 on line ~119 of <code>/usr/local/share/apache-tomcat-9.0.50/conf/server.xml</code>
+</p><p><b>Note:</b> We find that there is both an error and two warnings from the <code>apachectl configtest</code> command. Here is the pin to fix the warnings sometime later:
+</p>
+<code><pre>[Thu Aug 12 10:22:30.939891 2021] [so:warn] [pid 3280953:tid 139889576147264] AH01574: module limitipconn_module is already loaded, skipping
+[Thu Aug 12 10:22:30.946045 2021] [so:warn] [pid 3280953:tid 139889576147264] AH01574: module ssl_module is already loaded, skipping
+</pre></code>
+<p>We also need to deal with the error, which is line 39 of <code>/etc/httpd/conf.d/mod_security.conf</code> not being able to write its file out.
+</p><p>We made the symlinks to logs, temp, and work from the tomcat-9.0.50/ directory.
+</p><p>Started Tomcat. No errors! Might even be working, we can’t tell yet due to redirect problems.
+</p><p>NEXT: Fix redirects. Probably in /etc/httpd/conf.d/wwprewrite.conf.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="2021-08-13">2021-08-13</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=42" title="Edit section: 2021-08-13">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We tried a few things, to no avail.
+</p>
+<ul><li>Added entries in our own local /etc/hosts/ for nb9565 (and wwo.nb9565)</li>
+<li>Tweaked wwprewrite.conf</li>
+<li>Made changes to all files in /etc/httpd/conf.d/ with <code>sudo perl -p -i -e 's,\bwwp-test?\.(neu|northeastern),nb9565.neu,g;' *</code></li></ul>
+<p>So far we are unable to figure out why website works, but redirecting to Tomcat does not seem to. (And certainly Tomcat is not serving up our stuff.)
+</p>
+<h3><span class="mw-headline" id="2021-08-16">2021-08-16</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=43" title="Edit section: 2021-08-16">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Index WWO texts in XTF.
+</p><p>In /etc/httpd/conf.d/wwprewrite.conf, all redirects to WWO had to be prefixed with the base server address (<a rel="nofollow" class="external free" href="https://wwo.nb9565.neu.edu">https://wwo.nb9565.neu.edu</a>, which isn't actually available through DNS; modify your /etc/hosts).
+</p><p>Add <code>secretRequired="false"</code> to the AJP &lt;Connector&gt; in TOMCAT/conf/server.xml.
+</p><p>Restart Tomcat aaaaand <i>got it.</i>
+</p>
+<h3><span id="2021-08-19/20"></span><span class="mw-headline" id="2021-08-19.2F20">2021-08-19/20</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit&amp;section=44" title="Edit section: 2021-08-19/20">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>1. Note-to-selves (which is a bit weird, this whole page is notes-to-selves): we should go through <code>/mnt/WWPdev-Data/backups_of_excerpts_from_RHEL6_wwp-test_system/usr_local.tgz</code> and <code>var_lib.tgz</code> someday and weed out a lot of it, as much of it is not needed even as a backup.
+</p><p>2. Left for tomorrow: backup or selectively backup /var/lib/, /var/svn/, /var/log/; selectively backup /var/www/ — turns out there is nothing interesting in /var/www/ except html/, and that is already a shared volume, no reason to backup.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131618
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.098 seconds
+Real time usage: 0.099 seconds
+Preprocessor visited node count: 248/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4608/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:538-0!canonical and timestamp 20241110131618 and revision id 3828
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Recreating_Playground&amp;oldid=3828">https://liblab.neu.edu/mediawik/index.php?title=Recreating_Playground&amp;oldid=3828</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=Recreating+Playground" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=Recreating+Playground" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/Recreating_Playground" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:Recreating_Playground&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/Recreating_Playground">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/Recreating_Playground" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/Recreating_Playground" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=Recreating_Playground&amp;oldid=3828" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=Recreating_Playground&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 August 2021, at 13:45.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.098","walltime":"0.099","ppvisitednodes":{"value":248,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4608,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20241110131618","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":88});});</script></body></html>

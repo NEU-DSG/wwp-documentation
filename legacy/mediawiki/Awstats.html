@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Awstats - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCypYEK4MIAAMo2fz0AAAAK","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Awstats","wgTitle":"Awstats","wgCurRevisionId":3793,"wgRevisionId":3793,"wgArticleId":539,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Awstats","wgRelevantArticleId":539,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=Awstats&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=Awstats&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Awstats rootpage-Awstats skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Awstats</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>[Note: this page is about our conversion from the <i>old</i> awstats system (6.5) to the  <i>new</i> awstats system (7.7) that Syd &amp; Ash are working on as I write this, i.e. summer 2020. We are primarily interested in documenting the new, but want some breadcrumbs or comparisons to the old sometimes, too.]
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#cron_job"><span class="tocnumber">1</span> <span class="toctext">cron job</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#new_paths"><span class="tocnumber">2</span> <span class="toctext">new paths</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#old_paths"><span class="tocnumber">3</span> <span class="toctext">old paths</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Missing_AWStats_data"><span class="tocnumber">4</span> <span class="toctext">Missing AWStats data</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="cron_job">cron job</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Awstats&amp;action=edit&amp;section=1" title="Edit section: cron job">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Currently (on production), user root runs a cron job once every 42 hours that executes <tt>/var/www/cgi-bin/awstats/awstatsRunAll.sh</tt>. We are likely to change that to 24 for the <i>new</i> system.
+</p>
+<h2><span class="mw-headline" id="new_paths">new paths</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Awstats&amp;action=edit&amp;section=2" title="Edit section: new paths">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>“In Unix, 90% of all errors are either paths or permissions.” — Paul Caton, circa 2007.
+</p><p>Herein is just a list of the pertinent places as they currently exist on <tt>wwp-test</tt>, and supposedly will exist on <tt>wwp</tt> soon.
+</p>
+<dl><dt><code>/var/log/apache2/</code></dt>
+<dd>The log files that are to be analyzed are stored here (and in particular in the <tt>HOLD/</tt> subdirectory (which used to be called <tt>OLD/</tt>, but that caused some problems.:-)).</dd>
+<dt><code>/usr/share/awstats/</code></dt>
+<dd>The installation of awstats itself, as used in our RHEL 6 servers. The main Perl script that powers awstats is in the <tt>wwwroot/cgi-bin/</tt> subdirectory. The mainstay of local mods have been made in the <tt>tools/</tt> subdirectory, which is under <a rel="nofollow" class="external text" href="http://liblab.neu.edu/svn/DSG/wwp/webstats/trunk">version control</a>. Note that when <tt>generateAndRunAllConfFiles.bash</tt> is run by anacron (via the <tt>/etc/cron.daily/generateAndRunAllConfFiles.bash</tt> symlink) it puts the debugging messages generated by <tt>echo</tt> into <tt>/var/mail/root</tt>.</dd>
+<dt><code>/usr/local/awstats</code></dt>
+<dd>The installation of awstats itself, created by the awstats v7.8 installer on RHEL 8. The main Perl script that powers awstats is in the <tt>wwwroot/cgi-bin/</tt> subdirectory. The mainstay of local mods have been made in the <tt>tools/</tt> subdirectory, which is under <a rel="nofollow" class="external text" href="http://liblab.neu.edu/svn/DSG/wwp/webstats/trunk">version control</a>. Note that when <tt>generateAndRunAllConfFiles.bash</tt> is run by anacron (via the <tt>/etc/cron.daily/generateAndRunAllConfFiles.bash</tt> symlink) it puts the debugging messages generated by <tt>echo</tt> into <tt>/var/mail/root</tt>.</dd>
+<dt><code>/var/lib/awstats/</code></dt>
+<dd>A directory awstats uses by default, but we do not use it. It may exist, but don’t bother poking around in there for our stuff.</dd>
+<dt><code>/var/www/html/usage/awstats/</code></dt>
+<dd>The output of the actual awstats command (<tt>/usr/share/awstats/wwwroot/cgi-bin/awstats.pl</tt>) goes here. It is launched by <tt>/usr/share/awstats/tools/runStats.bash</tt>, reads in the config file provided as a parameter (which is typically in <tt>/etc/awstats/</tt>), and writes out these puppies. Note also that we need a copy of index.php here, which we currently handle by symlinking so we can keep it in a directory that is under version control.</dd>
+<dt><code>/etc/awstats/</code></dt>
+<dd>The configuration files generated by <tt>makeConfFiles.pl</tt> are stored here. (It, BTW, is run from <tt>/usr/share/awstats/tools/generateAndRunAllConfFiles.bash</tt>.) If you want to make a change to the configuration files, either change that program or the template file it reads (which is <tt>/usr/share/awstats/tools/awstats.wwp.template.conf</tt>).</dd></dl>
+<h2><span class="mw-headline" id="old_paths">old paths</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Awstats&amp;action=edit&amp;section=3" title="Edit section: old paths">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><tt>/var/www/cgi-bin/awstats/</tt></li>
+<li><tt>/var/www/cgi-bin/awstats_priv/</tt></li>
+<li><tt>/var/www/awstats/</tt> (We’re not 100% about this one.)</li>
+<li><tt>/etc/awstats/</tt></li>
+<li><tt>/var/www/html/usage/awstatsMain/</tt></li>
+<li><tt>/var/www/html/usage/awstats/</tt>
+<ul><li>Is symlinked to <tt>/var/www/usage/awstats</tt>, we don’t know why</li>
+<li>has subdir <tt>/var/www/html/usage/awstats/cronReports/</tt></li></ul></li>
+<li><tt>/var/log/apache2/</tt> (used OLD/ instead of HOLD/ child dir)</li></ul>
+<h2><span class="mw-headline" id="Missing_AWStats_data">Missing AWStats data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Awstats&amp;action=edit&amp;section=4" title="Edit section: Missing AWStats data">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>On 2020-09-08, we copied all awstats<i>MOYEAR</i>.txt files from the backup data files (<tt>/mnt/WWPprod-Data/backup_awstats_6.5_stuff_pre-install_7.7_2020-09/2020-09-04T11:04:16/usage/awstats/</tt>), to the new institution data folders, AS LONG AS that filename didn't already exist in the target directory. (We used <tt>cp -n</tt>.) This action gave us AWStats data from before April 2017, augmenting what we already had for April 18, 2017 and onward. This leaves a gap in data from April 1 to 17, 2017.
+</p><p>We found that the missing chunk of data from April 2017 <b>was</b> present in the backup directory, but since the 042017 file already existed (i.e., in both the backup and the target directory), it was not copied over and the 04-01–04-17 data was thus not showing up on the web.
+</p><p>To test our options, we deleted all Northeastern_University_Private_IPs data from 2017-05 onward. We moved the 042017 data file (which has the data for 2017-04-18 to the end of 2017-04) out of the way (by renaming it), and copied the 042017 data file from the backup (which has the 04-01–04-17 data) into its place. We also changed the name of the "dnscache" file so it would be regenerated. Finally, we re-ran the AWStats generation process on the institution, using <tt>/usr/bin/perl /usr/share/awstats/wwwroot/cgi-bin/awstats.pl -config=Northeastern_University_Private_IPs -update</tt> (which we copied from <tt>/usr/share/awstats/tools/runStats.bash</tt>&#160;:-).
+</p><p>As a result, we retained the data from 04-01–04-17, converted from plaintext to XML format (becaues we’re using XML in 7.7; we had used plain text in 6.5). We did not get the data from 04-18+ back. The institution also did not pick up logged data from May 2017.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20241110131825
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 12/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:539-0!canonical and timestamp 20241110131825 and revision id 3793
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Awstats&amp;oldid=3793">https://liblab.neu.edu/mediawik/index.php?title=Awstats&amp;oldid=3793</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=Awstats" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=Awstats" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/Awstats" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:Awstats&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/Awstats">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=Awstats&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=Awstats&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/Awstats" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/Awstats" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=Awstats&amp;oldid=3793" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=Awstats&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 May 2021, at 14:04.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.018","walltime":"0.019","ppvisitednodes":{"value":12,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20241110131825","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":67});});</script></body></html>

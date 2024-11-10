@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>WWP Encoding Howtos - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCxUIEK4MIAAM0EIlAAAAAM","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"WWP_Encoding_Howtos","wgTitle":"WWP Encoding Howtos","wgCurRevisionId":161,"wgRevisionId":161,"wgArticleId":41,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"WWP_Encoding_Howtos","wgRelevantArticleId":41,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0};
+RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-WWP_Encoding_Howtos rootpage-WWP_Encoding_Howtos skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWP Encoding Howtos</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This is a potpourri of information which may be useful to encoders and staff. Generally it has instructions on how to do specific tasks in a particular environment (e.g., how to count the number of <tt>&lt;lb&gt;</tt> elements in a textbase file from the shell). No claim is made that the instructions herein are the <b>best</b> way to do something, only that they work, or at least did at the time of writing.:-) Someday this may be organized and fleshed out into useful documentation.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#How_to_edit_a_textbase_file_in_oXygen_instead_of_Emacs"><span class="tocnumber">1</span> <span class="toctext">How to edit a textbase file in oXygen instead of Emacs</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#How_to_use_your_own_GNU.2FLinux_laptop_to_edit_textbase_files"><span class="tocnumber">2</span> <span class="toctext">How to use your own GNU/Linux laptop to edit textbase files</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_to_use_your_own_Mac_OS_X_laptop_to_edit_textbase_files"><span class="tocnumber">3</span> <span class="toctext">How to use your own Mac OS X laptop to edit textbase files</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#How_to_use_your_own_MS_Windows_laptop_to_edit_textbase_files"><span class="tocnumber">4</span> <span class="toctext">How to use your own MS Windows laptop to edit textbase files</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="How_to_edit_a_textbase_file_in_oXygen_instead_of_Emacs">How to edit a textbase file in oXygen instead of Emacs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit&amp;section=1" title="Edit section: How to edit a textbase file in oXygen instead of Emacs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>First, plan on going to confession --- this is considered a sin by the more fundamental adherents to the religion of Emacs. Furthermore, you need to have a valid oXygen license installed on our account on golf to do this.
+</p><p>So, log into golf using a windowing system (e.g. from a Macintosh use <tt style="color:blue">X11</tt>, not <a href="/mediawik/index.php?title=Template:Terminal&amp;action=edit&amp;redlink=1" class="new" title="Template:Terminal (page does not exist)">Template:Terminal</a>). For the instructions below, we're assuming that the document you want to work on is <i>All Men Are Scum</i> written by "A. Lady", and is currently under construction.
+</p><p>1. Change to the directory where the file lives: <tt style="color:blue">cd ~/tb/under_construction/</tt>
+</p><p>2. If it is not already checked out to you, check the file out from RCS: <tt style="color:blue">co -l -zLT alady.menRscum.xml</tt>. You should get a message like 
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">RCS/alady.menRscum.xml,v --&gt; alady.menRscum.xml
+revision 1.17 (locked)
+done</pre>
+<p>The <tt>-l</tt> switch tells RCS to lock the checked-out file; the <tt>-zLT</tt> tells RCS to use the local time zone when updating the <tt>$Header:$</tt>field in the file.
+</p><p>3. Issue <tt style="color:blue">oxygen alady.menRscum.xml &amp;</tt>. Note that this is exactly analogous to issuing <tt>emacs alady.menRscum.xml &amp;</tt> the way you usually do. The ampersand is not required; it is what allows you to continue to use the shell window, rather than having that window frozen until you quit oXygen.
+</p><p>4. Edit the file.
+</p>
+<ul><li><ul><li>Make no errors.</li>
+<li>Don't rely solely on continuous validation; validate "for real" occasionally by clicking on icon w/ red check mark.</li>
+<li>Save early and often.</li></ul></li></ul>
+<p>5. When you're done editing the file either close its window (if you have more work in oXygen to do) or quit oXygen.
+</p><p>6. Either way, go back to the shell (which should still be available to you because of the "&amp;" you typed at the end of the editor command) and check the file back in:<tt style="color:blue">ci \-zLT alady.menRscum.xml</tt>. You will be prompted to enter an RCS log message, e.g.:
+</p>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">RCS/alady.menRscum.xml,v  &lt;--  alady.menRscum.xml
+new revision: 1.18; previous revision: 1.17
+enter log message, terminated with single '.' or end of file:
+&gt;&gt; Changed all occurences of the letter 'x' to "[censored]"
+&gt;&gt; .
+done
+</pre>
+<p>Instead of a dot, you could enter a <tt>^D</tt> character, which is entered by holding down the CTL key and typing the <tt>d</tt> key.
+</p><p>7. Rejoice.
+</p>
+<h2><span id="How_to_use_your_own_GNU/Linux_laptop_to_edit_textbase_files"></span><span class="mw-headline" id="How_to_use_your_own_GNU.2FLinux_laptop_to_edit_textbase_files">How to use your own GNU/Linux laptop to edit textbase files</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit&amp;section=2" title="Edit section: How to use your own GNU/Linux laptop to edit textbase files">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol><li>Make sure you are behind the Brown firewall (i.e., either on campus or using VPN --- regular wireless works, you don't need Brown Secure)</li>
+<li>from an XTerm issue <tt style="color:blue">ssh <i>shortid</i>@golf.services.brown.edu &amp;</tt></li>
+<li>from the new XTerm window (at which you are logged into golf) issue <tt style="color:blue">emacs &amp;</tt></li></ol>
+<h2><span class="mw-headline" id="How_to_use_your_own_Mac_OS_X_laptop_to_edit_textbase_files">How to use your own Mac OS X laptop to edit textbase files</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit&amp;section=3" title="Edit section: How to use your own Mac OS X laptop to edit textbase files">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol><li>Ensure that X11 is installed. (!) If using 10.5.3 see <a rel="nofollow" class="external free" href="https://wiki.brown.edu/confluence/x/oAETAQ">https://wiki.brown.edu/confluence/x/oAETAQ</a>, first list, #26</li>
+<li>Using your favorite text editor (<tt>Emacs</tt>), create or edit the file <tt>~/.bashrc</tt> (!) It is often hard to open files that start with a dot in "normal" Mac editors</li>
+<li>If creating a new file, start with the line "<tt>#! /bin/bash</tt>"</li>
+<li>Add the line "<tt>alias dev='ssh -Yf -l <i>shortid</i> -c 3des -2 golf.services.brown.edu -p 22'</tt></li>
+<li>Add the line "<tt>alias edev='ssh -Yf -l <i>shortid</i> -c 3des -2 golf.services.brown.edu -p 22 /usr/bin/emacs'</tt></li>
+<li>Save the file, which should look as follows</li></ol>
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">#! /bin/bash
+
+alias dev='ssh -Yf -l shortid -c 3des -2 golf.services.brown.edu -p 22
+alias edev='ssh -Yf -l shortid -c 3des -2 golf.services.brown.edu -p 22 /usr/bin/emacs
+</pre>
+<p>where "shortid" is your Brown shortid, of course.
+</p><p>7. Run X11, create a new XTerm window
+</p><p>8. From behind the Brown firewall (i.e., either on campus or using VPN --- regular wireless works, you don't need Brown Secure) issue <tt style="color:blue">edev</tt>in that new XTerm window.
+</p>
+<h2><span class="mw-headline" id="How_to_use_your_own_MS_Windows_laptop_to_edit_textbase_files">How to use your own MS Windows laptop to edit textbase files</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit&amp;section=4" title="Edit section: How to use your own MS Windows laptop to edit textbase files">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The free Xming client for Windows XP/Vista seems to work well (and it's highly configurable if you're the power user type). It comes with PuTTY/SSH built in.
+</p>
+<ol><li>Download the Xming-portable-PuTTY installer package from <a rel="nofollow" class="external text" href="http://sourceforge.net/projects/xming">here</a>. Run the installer.</li>
+<li>Download the Xming-fonts installer package <a rel="nofollow" class="external text" href="http://sourceforge.net/project/downloading.php?group_id=156984&amp;filename=Xming-fonts-7-3-0-22-setup.exe">here</a>. (You'll need this since emacs doesn't support client-side fonts.) Run the installer. When asked where you want to install the fonts, be sure to select the same folder where Xming is installed (probably called "Xming"). If you don't install the fonts in the same folder, you won't be able to view text in emacs properly.</li>
+<li>Once Xming and its fonts have been installed, go to Start Menu &gt; All Application &gt; Xming and select XLaunch . This is a wizard that allows you to save a configuration file that will launch your X windows session with the right WWP settings.
+<ul><li>On the first configuration screen, select the "Multiple Windows" option. Then click "Next".</li>
+<li>On the next screen, select "Start a program". Then click "Next".</li>
+<li>At the next screen, select "Using PuTTY (Plink.exe)". In the "Connect to computer" field, enter "golf.services.brown.edu". In the "Login as user" field, type your WWP user name. Leave the password field blank. Then click "Next".</li>
+<li>Don't enter anything in the next configuration screen. Click "Next".</li>
+<li>On the final configuration screen, click the button that says "Save configuration." When prompted, save the configuration with whatever name you choose (something like "wwp.xlaunch"). Be sure to add the ".xlaunch" file extension, as Windows seems to have difficulty recognizing the file without it. Click "Finish" at the bottom of the window. That's it\!</li></ul></li>
+<li>Once you've installed Xming and created a configuration file, you can launch a session on the WWP server simply by double-clicking the wwp.xlaunch file (or whatever you named it in the final configuration step). When you launch Xming in this way, you'll find yourself presented a standard terminal window. At the command prompt, simply type <tt style="color:blue">emacs &amp;</tt> to run emacs in a separate window. Note: you'll need to be behind the Brown firewall to connect to WWP resources. This means that if you're off campus you'll need to connect via the Brown VPN.</li></ol>
+<!-- 
+NewPP limit report
+Cached time: 20241110131248
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 22/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 923/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.659      1 Template:Terminal
+100.00%    0.659      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:41-0!canonical and timestamp 20241110131248 and revision id 161
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWP_Encoding_Howtos&amp;oldid=161">https://liblab.neu.edu/mediawik/index.php?title=WWP_Encoding_Howtos&amp;oldid=161</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=WWP+Encoding+Howtos" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=WWP+Encoding+Howtos" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/WWP_Encoding_Howtos" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:WWP_Encoding_Howtos&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/WWP_Encoding_Howtos">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/WWP_Encoding_Howtos" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/WWP_Encoding_Howtos" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;oldid=161" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=WWP_Encoding_Howtos&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 March 2014, at 21:34.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.021","walltime":"0.023","ppvisitednodes":{"value":39,"limit":1000000},"postexpandincludesize":{"value":22,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":923,"limit":5000000},"timingprofile":["100.00%    0.659      1 Template:Terminal","100.00%    0.659      1 -total"]},"cachereport":{"timestamp":"20241110131248","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":104});});</script></body></html>

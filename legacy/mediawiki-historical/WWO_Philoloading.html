@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>WWO Philoloading - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCzP4EK4MIAAMjXJiQAAAAD","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"WWO_Philoloading","wgTitle":"WWO Philoloading","wgCurRevisionId":260,"wgRevisionId":260,"wgArticleId":58,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"WWO_Philoloading","wgRelevantArticleId":58,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0};RLSTATE={
+"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-WWO_Philoloading rootpage-WWO_Philoloading skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">WWO Philoloading</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1><span id="Loading_texts_into_Philologic_(golf/papa)"></span><span class="mw-headline" id="Loading_texts_into_Philologic_.28golf.2Fpapa.29">Loading texts into Philologic (golf/papa)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit&amp;section=1" title="Edit section: Loading texts into Philologic (golf/papa)">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit&amp;section=2" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Philologic works by "ingesting" texts and building several indices (of words, of element objects, etc.) that facilitate efficient lookup and retrieval. It also offers the option (which we use) of storing some metadata in a MySQL database. The process for getting the texts loaded into Philologic is:
+</p>
+<ul><li>cd into the XML texts directory</li>
+<li>issue the load command</li>
+<li>enter your MySQL user password when prompted (should be two times, after "Success" message near end of load sequence)</li>
+<li>add Philologic MySQL password to appropriate file</li></ul>
+<h2><span class="mw-headline" id="Detailed_instructions_-_actual_commands_in_green">Detailed instructions - actual commands in <tt style="color:green">green</tt></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit&amp;section=3" title="Edit section: Detailed instructions - actual commands in green">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<blockquote><p>must be in the directory that contains the texts you want to load</p></blockquote>
+<p><tt style="color:green">cd /var/www/htdocs/WWO/xml/texts/</tt>
+</p>
+<blockquote><p>Issue load command. The image name will usually be "wwo", but might sometimes be different for testing purposes. Note that we include the --delete option to get rid of the previous wwo image.</p></blockquote>
+<p><tt style="color:green">time philoload wwo --image=/var/www/htdocs/philologic/images/wwo/ --mkbibliography=/var/lib/philologic/utils/mkbiblio-twig --delete --loadsql --sqluser=pncaton *.xml</tt>
+</p><p><br />
+</p>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#FFFEDB; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Note:</b> The two prompts for passwords that you receive near the end of the load sequence are for the password of the MySQL user issuing the command, NOT the password that "philologic" uses when it queries the database. In this case that user is <tt>pncaton</tt>, whose password has to do with the 5 patches we applied to MySQL during his tenure. Nb. we really should create an abstract WWO user for doing this, rather than have it be tied to a particular individual.
+</p>
+</div>
+<blockquote><p>After the password has been entered two times all the relevant data has been put into the MySQL database and the load process _per se_ is finished. <b>HOWEVER</b>, because of a bug the MySQL password for the "philologic" user is *not* being automatically entered in <tt>/var/www/htdocs/philologic/images/wwo/lib/philo-db.cfg</tt>, so you  have to do it by hand.
+</p><p>Open the file <tt>/opt/local/etc/philologic/philologic.cfg</tt>, find and copy the password, then insert it as the value of <tt>$PASSWD</tt> in <tt>/var/www/htdocs/philologic/images/wwo/lib/philo-db.cfg</tt>.
+</p><p>
+Note that you <b>MUST</b> do this as soon as the load sequence has finished, because it's easy to forget and if it isn't done the bibliographic criteria search stuff won't work</p></blockquote>
+<div style="white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; background-color:#DBF7FF; padding-left:10px; padding-right:10px; margin:10px;">
+<p><b>Debugging:</b> PROBLEM: load process stops at bibliography phase, message mentions XML::Twig
+CAUSE  : XML::Twig module not in Perl library
+SOLUTION: ask Peter DiCamillo to install XML::Twig module
+</p><p>PROBLEM:
+</p>
+<blockquote><p>Can't call method "text" on an undefined value at /usr/lib/perl5/site_perl/5.8.0/XML/Twig.pm line 5512.
+</p><p>make: *** [bibliography] Error 255
+make: Leaving directory `/var/lib/philologic'
+</p><p>###################### FAILURE ####################
+Load failed, alas.  Look at /var/www/htdocs/philologic/images/wwo//LOADER.LOG for clues
+</p><p>
+then run philoload again.</p></blockquote>
+<p>CAUSE   : philoload was looking for an XPath that wasn't there.
+SOLUTION: Try looking at the LOADER.LOG file, but I found it wasn't there. So I changed <tt>/var/lib/philologic/utils/mkbiblio-twig.plin</tt> to spit out debugging code to STDERR. That gave me the info as to which file and which path were the problem.
+</p>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20241110132103
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.015 seconds
+Preprocessor visited node count: 28/1000000
+Post‐expand include size: 1809/2097152 bytes
+Template argument size: 1339/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 51/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.699      1 -total
+ 54.50%    1.471      1 Template:Note
+ 41.39%    1.117      1 Template:Info
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:58-0!canonical and timestamp 20241110132103 and revision id 260
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=WWO_Philoloading&amp;oldid=260">https://liblab.neu.edu/mediawik/index.php?title=WWO_Philoloading&amp;oldid=260</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=WWO+Philoloading" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=WWO+Philoloading" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/WWO_Philoloading" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:WWO_Philoloading&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/WWO_Philoloading">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/WWO_Philoloading" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/WWO_Philoloading" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=WWO_Philoloading&amp;oldid=260" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=WWO_Philoloading&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 April 2014, at 16:29.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.014","walltime":"0.015","ppvisitednodes":{"value":28,"limit":1000000},"postexpandincludesize":{"value":1809,"limit":2097152},"templateargumentsize":{"value":1339,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":51,"limit":5000000},"timingprofile":["100.00%    2.699      1 -total"," 54.50%    1.471      1 Template:Note"," 41.39%    1.117      1 Template:Info"]},"cachereport":{"timestamp":"20241110132103","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":93});});</script></body></html>

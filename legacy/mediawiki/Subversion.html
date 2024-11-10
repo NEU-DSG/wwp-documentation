@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Subversion - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCyZYEK4MIAAMjZJyIAAAAF","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Subversion","wgTitle":"Subversion","wgCurRevisionId":3693,"wgRevisionId":3693,"wgArticleId":79,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Subversion","wgRelevantArticleId":79,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0};RLSTATE={"site.styles":"ready"
+,"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=Subversion&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=Subversion&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Subversion rootpage-Subversion skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Subversion</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Using_our_Subversion_server"><span class="tocnumber">1</span> <span class="toctext">Using our Subversion server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Via_SyncRO_SVN_Client_.28i.e..2C_oXygen.29"><span class="tocnumber">1.1</span> <span class="toctext">Via SyncRO SVN Client (i.e., oXygen)</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Via_Commandline"><span class="tocnumber">1.2</span> <span class="toctext">Via Commandline</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Checking_out"><span class="tocnumber">1.2.1</span> <span class="toctext">Checking out</span></a>
+<ul>
+<li class="toclevel-4 tocsection-5"><a href="#check_out_a_series_of_revisions_of_a_particular_directory_to_.2Ftmp.2F"><span class="tocnumber">1.2.1.1</span> <span class="toctext">check out a series of revisions of a particular directory to /tmp/</span></a></li>
+<li class="toclevel-4 tocsection-6"><a href="#Remote_updating_.28old.29"><span class="tocnumber">1.2.1.2</span> <span class="toctext">Remote updating <span>(old)</span></span></a>
+<ul>
+<li class="toclevel-5 tocsection-7"><a href="#What_it_does"><span class="tocnumber">1.2.1.2.1</span> <span class="toctext">What it does</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Using_our_Subversion_server">Using our Subversion server</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=1" title="Edit section: Using our Subversion server">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Repositories:
+(Encoders — the bold one is the one you are probably interested in.)
+</p>
+<ul><li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/tapas/trunk/">https://liblab.neu.edu/svn/DSG/tapas/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/apache2/trunk/">https://liblab.neu.edu/svn/DSG/wwp/apache2/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/dev/trunk/">https://liblab.neu.edu/svn/DSG/wwp/dev/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/redirect/trunk/">https://liblab.neu.edu/svn/DSG/wwp/redirect/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/sandbox/">https://liblab.neu.edu/svn/DSG/wwp/sandbox/</a></li>
+<li><b><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/textbase/trunk/">https://liblab.neu.edu/svn/DSG/wwp/textbase/trunk/</a></b></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/usr/local/">https://liblab.neu.edu/svn/DSG/wwp/usr/local/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk/">https://liblab.neu.edu/svn/DSG/wwp/website/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/webstats/trunk/">https://liblab.neu.edu/svn/DSG/wwp/webstats/trunk/</a></li>
+<li><a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/xtf/trunk/">https://liblab.neu.edu/svn/DSG/wwp/xtf/trunk/</a></li></ul>
+<h2><span id="Via_SyncRO_SVN_Client_(i.e.,_oXygen)"></span><span class="mw-headline" id="Via_SyncRO_SVN_Client_.28i.e..2C_oXygen.29">Via SyncRO SVN Client (i.e., oXygen)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=2" title="Edit section: Via SyncRO SVN Client (i.e., oXygen)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>First, don’t be too stressed at the fact that the SVN Client is deprecated. The SyncRO guys have assured us that what that means is not that they plan to remove the SVN Client, but rather that the do not plan to make any improvements to it. If and when Subversion itself becomes incompatible with their SVN Client, they may be forced to drop it. But until then, they expect to include SVN Client in upcoming releases of oXygen.  
+</p>
+<dl><dt>Create local folder</dt>
+<dd>Create a folder on your computer where you want the working copy to go. Your <tt>Documents/</tt> folder is recommended. Give it a name like “WWPtextbase” or “WWP_tb” and put it where you want it to stay, as it is annoying to move. Probably a bad idea to put it in <tt>Desktop/</tt> or a cloud-based folder (like <tt>Dropbox/</tt>), definitely a bad idea to put it in a temporary folder (like <tt>/tmp/</tt>).</dd>
+<dt>Launch oXygen <span style="font-weight:normal;">(if not already running)</span></dt>
+<dt>Open the SVN Client main window</dt>
+<dd>Select the <tt>Tools &gt; SVN Client</tt> menu item</dd>
+<dt>Request a new repository</dt>
+<dd>Select the “Repositories” tab</dd>
+<dd>Select the <tt>Repository &gt; New Repository Location…</tt> menu item (CTL-ALT-N, the tiny can with blue circled plus sign icon or, if it is visible, the “Add a new repository” button)</dd>
+<dd>Paste repository URL (which you can copy from list <a href="/mediawik/index.php/Subversion#Using_our_Subversion_server" title="Subversion">above</a>—you want the bolded URL) to the “Repository URL” field and hit “Add”</dd>
+<dt>Authenticate</dt>
+<dd>You will probably be prompted for a username and password. For encoders the common username is “<tt>dsg</tt>”; if you do not know the password, ask a staff member face-to-face, by telophone or televideo, or by text message (i.e., not by e-mail). If you have the option to store the password locally (“Store authentication data”), feel free to do so; however, if your computer is stolen or otherwise compromised let us know so we can change the password.</dd>
+<dt>Check out</dt>
+<dd>Select <tt>Repository &gt; Check out…</tt> (CTL-ALT-O, or the can with the blue down arrow)</dd>
+<dd>In the resulting “Check out” dialog box everything should be filled in for except the “Check out to:” field, which should be set to the directory you created, above.</dd>
+<dd>Note that if you use the “Browse…” button to find the directory (highly recommended), the software may eagerly tack the last component of the URL (e.g. “/trunk”) onto the end of the filepath. You should delete it.</dd>
+<dd>Click “Check out”</dd>
+<dd>For the textbase repository (~2.7 GiB) or other large repositories downloading may take a long time, depending on your network connection.</dd></dl>
+<h2><span class="mw-headline" id="Via_Commandline">Via Commandline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=3" title="Edit section: Via Commandline">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Checking_out">Checking out</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=4" title="Edit section: Checking out">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><tt>svn co [<i>URL</i>] <i>Directory/</i></tt>
+</p><p>Where <i>Directory/</i> is the target directory on your local machine. E.g., to get a local temporary copy of the XML source files to the <i>Guide</i>, you might issue <tt>svn co <a rel="nofollow" class="external free" href="https://liblab.neu.edu/svn/DSG/wwp/website/trunk/encoding/guide/xml/">https://liblab.neu.edu/svn/DSG/wwp/website/trunk/encoding/guide/xml/</a> /tmp/GuideSource/</tt>. If you want the new directory plopped into your current directory with the same name as it has in Subversion, leave <i>Directory/</i> out.
+</p><p><a href="/mediawik/index.php/Subversion_Hotsheet" title="Subversion Hotsheet">Using Subversion for the WWP website hotsheet</a>
+</p>
+<h4><span id="check_out_a_series_of_revisions_of_a_particular_directory_to_/tmp/"></span><span class="mw-headline" id="check_out_a_series_of_revisions_of_a_particular_directory_to_.2Ftmp.2F">check out a series of revisions of a particular directory to <tt>/tmp/</tt></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=5" title="Edit section: check out a series of revisions of a particular directory to /tmp/">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<pre>cd /tmp/
+for n in $(svn log URL | egrep '^r[0-9]' | awk '{ print $1 }' | perl -pe 's/^r//;' ); do
+   echo "---------$n:";
+   mkdir thing$n;
+   svn co -r $n URL ./thing$n;
+   done
+</pre>
+<p>where URL is the URL of the repository directory you want to check out, and “thing” should probably be something a little more intelligent.&#160;:-)
+</p>
+<h4><span id="Remote_updating_(old)"></span><span class="mw-headline" id="Remote_updating_.28old.29">Remote updating <span style="color:red;">(old)</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=6" title="Edit section: Remote updating (old)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>If you have the <tt>svnrup.bash</tt> command installed on your local system, you can use it to perform an <tt>svn update</tt> on golf or papa without actually bothering to log in on the remote machine (i.e., golf or papa).
+</p><p>The <tt>svnrup.bash</tt> command is attached to this page. It only works with a machine that has its sister program, <tt>svn_update_via_URL.bash</tt> installed, which is currently only golf and papa. To install it onto a Mac OS X or GNU/Linux system:
+</p>
+<ol><li>download it</li>
+<li>put it where you want it (typically <tt>/usr/local/bin/</tt> or <tt>~/bin/</tt>)</li>
+<li>make sure it is executable, e.g. <tt>chmod a+x /usr/local/bin/svnrup.bash</tt></li>
+<li>OPTIONAL: in order to avoid needing to invoke it by its full path, make sure that the path to it is in your <tt>$PATH</tt> environment variable. Ask Syd if you want a hand with this.</li></ol>
+<p>To use it, navigate in your shell to the directory you want to update on golf or papa. You will often already be in that directory, having just issued a <tt>svn ci -m "<i>msg</i>"<tt> command.
+</tt></tt></p><p><tt><tt>Then issue <tt>svnrup.bash</tt>. Switches are: <tt>-g</tt> = update on golf, <tt>-p</tt> = update on papa, <tt>-h</tt> or <tt>-?</tt> = print commandline syntax. You can issue both golf and papa switches: <tt>-gp</tt>.
+</tt></tt></p><tt><tt><h5><span class="mw-headline" id="What_it_does">What it does</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Subversion&amp;action=edit&amp;section=7" title="Edit section: What it does">edit</a><span class="mw-editsection-bracket">]</span></span></h5></tt></tt><tt><tt><p>The <tt>svnrup.bash</tt> command looks up the URL of the Subversion repository that corresponds to your current working directory, and sends that off to the <tt>svn_update_via_URL.bash</tt> command on golf, papa, or both. (It will even send it to papa twice if you specify <tt>-p -p</tt>, which is silly.) Note that the "send" command is <tt>ssh</tt>, which will prompt you for your password on the remote machine. The way it knows which user name to use for you on the remote machine is pretty simple: <tt>svnrup.bash</tt> just looks at your local user name and looks up the remote user name from that. Nothing clever.
+</p><p>Anyway, <tt>svn_update_via_URL.bash</tt> then determines the target directory by looking at the URL it was passed. It is done in a way that is a little more complicated than a simple lookup, but the result is the same. I.e., it has to know where we keep our repositories on golf and papa. Right now it only knows about three of them&#160;? thus you can start at any point within the following trees:
+</p></tt></tt><tt><tt><ul><li><tt><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/stg/wwp/website/trunk">https://svn.brown.edu/svn/stg/wwp/website/trunk</a>&#160;? /var/www/htdocs/WWP</tt></li>
+<li><tt><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/stg/wwp/sandbox">https://svn.brown.edu/svn/stg/wwp/sandbox</a>&#160;? /var/www/htdocs/sandbox</tt></li>
+<li><tt><a rel="nofollow" class="external free" href="https://svn.brown.edu/svn/repository-test">https://svn.brown.edu/svn/repository-test</a>&#160;? /tmp/repository-test</tt>, which, of course, may not be there</li></ul></tt></tt><tt><tt><p>We can add more if we need to. We just need to remember to update the command on both golf and papa&#160;:-)
+</p><p>Once it knows the correct directory, <tt>svn_update_via_URL.bash</tt> goes to it and checks to see if there is a potential conflict. If there is a potential conflict, it issues an error message and quits. If not, it does the update and then changes the mode of all files in the directory to group-writable, recursively.
+</p><p>That's it!
+</p></tt></tt>
+<!-- 
+NewPP limit report
+Cached time: 20241110131725
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 29/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 191/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:79-0!canonical and timestamp 20241110131725 and revision id 3693
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Subversion&amp;oldid=3693">https://liblab.neu.edu/mediawik/index.php?title=Subversion&amp;oldid=3693</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=Subversion" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=Subversion" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/Subversion" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:Subversion&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/Subversion">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=Subversion&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=Subversion&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/Subversion" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/Subversion" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=Subversion&amp;oldid=3693" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=Subversion&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 16 September 2020, at 18:41.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.027","walltime":"0.029","ppvisitednodes":{"value":29,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":191,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20241110131725","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":115});});</script></body></html>
