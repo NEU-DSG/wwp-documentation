@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Finding examples in the WWP textbase - WikiBase</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ZzCo6YEK4MIAAMjZJC4AAAAF","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Finding_examples_in_the_WWP_textbase","wgTitle":"Finding examples in the WWP textbase","wgCurRevisionId":3587,"wgRevisionId":3587,"wgArticleId":431,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Finding_examples_in_the_WWP_textbase","wgRelevantArticleId":431,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/mediawik/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/mediawik/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.35.1"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawik/opensearch_desc.php" title="WikiBase (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://liblab.neu.edu/mediawik/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="WikiBase Atom feed" href="/mediawik/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<!--[if lt IE 9]><script src="/mediawik/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Finding_examples_in_the_WWP_textbase rootpage-Finding_examples_in_the_WWP_textbase skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Finding examples in the WWP textbase</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From WikiBase</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>When you’re not sure how to handle a particular encoding question, it can be helpful to look for previous examples in the textbase. However, when you’re looking through the collection, it’s important to keep a few things in mind: first, some of our encoding practices have shifted over time, so it’s better to look for files that have been published more recently. You can see a list of the recently-published texts <a rel="nofollow" class="external text" href="http://wwp.neu.edu/wwo/texts/new/new.html">here</a>.
+</p><p>And second, despite the herculean efforts of WWP staff, there are sometimes inconsistencies among the encoded texts—or between the encoding and the documentation. So, it’s better to look for overall patterns than individual instances, and if you do encounter any inconsistencies, please bring those up at an encoding meeting. It’s definitely better to flag and discuss any cases where you aren’t sure what to do—and if you find that the documentation isn’t answering your questions, that’s probably a place where we could be adding more content. 
+</p><p>With that long disclaimer—and because prowling around the textbase is fun and educational—here are a few tips for locating examples in the textbase.
+</p><p>Most of the time, either doing a keyword search across the textbase to find previous encodings of specific words/phrases or using XPath to find examples of how particular elements (and, often, their attributes) have been encoded will get you what you're looking for. In some cases, you might want to combine the two kinds of searches. So, if you have a glossary and don't know exactly what encoding is called for, you could start by looking for the term "glossary" in the textbase. That will get you just one result (as of January 2016), a change log entry indicating that the encoding for a text's glossary has been updated. But that's enough to start with, because you can use that one text's encoding to help you set up an XPath for <code>//list[@type="gloss"]</code> and find other examples that way. Sometimes you might have to get creative, but the more often you do this kind of searching the easier it becomes to predict what kinds of searches will be most effective.
+</p><p>If you are just getting started with encoding, keyword searching is easier to leap into than XPath, so you might want to focus on the first section of tips until you feel like you have your feet wet with navigating XML and are ready for more adventurous searches. XPath is extremely useful, and often more powerful and precise, but you can still do a great deal with keyword searches. 
+</p>
+<h2><span class="mw-headline" id="Keyword_Searching">Keyword Searching</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=edit&amp;section=1" title="Edit section: Keyword Searching">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Sometimes a simple keyword search will do the trick. So, for example, if you’re wondering if you should encode “New Testament” with &lt;title&gt;, you can look for previous cases where that phrase came up. A few notes on keyword searching:
+<ul><li>To search across a set of files, go to the “Find” menu in Oxygen, select “Find/Replace in Files” and then go down to “Specified Path” and navigate to the folder you want. It’s usually a better idea to start with the files in distribution, rather than under_construction, since those have been proofed.</li>
+<li>Remember to factor in potential long esses (ſ); if you turn the "Regular Expressions" checkbox on, that will find both "s" and "ſ".</li>
+<li>Remember all of the other helpful options that the Oxygen search gives you. For example, you might want to choose “Enable XML searching options” and then choose to search only in “Element contents”—just remember to check this option back off, or it can be very confusing!</li>
+<li>The same goes for case sensitivity; it can definitely narrow things down in helpful ways, but don’t forget that you have it checked the next time you search.</li>
+<li>Some really simple XPath can be helpful here. So, for example, if I did run a simple search for “New Testament,” I’d find that it’s encoded with &lt;rs&gt; and an @type of “title”. But, what if I had inconsistent results? I might want to see how many cases of New Testament are in &lt;rs&gt; and how many aren’t. So, I’d run another search to see how many of the total cases of “New Testament” are in &lt;rs&gt; by adding <code>//rs</code> to the “Restrict to XPath” box. There are a lot of other useful ways that you might use XPath to narrow down a search: see the <a href="/mediawik/index.php/XPath_for_WWP_encoders" title="XPath for WWP encoders">Xpath searches page</a> for more of these.</li>
+<li>And, if XPath doesn't feel like something you want to try just yet, you can also do a keyword search for start tags (so, for example, type &lt;said into the search box to look for all of the &lt;said&gt; start tags regardless of what attributes they may have). This will often get you more results than you might really want, but it has the advantage of being really easy to do.</li></ul></li></ul>
+<h2><span class="mw-headline" id="Looking_for_Specific_Elements">Looking for Specific Elements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=edit&amp;section=2" title="Edit section: Looking for Specific Elements">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>In other cases, you might know which element you need to use and just want to see a few examples of encoding with that element. XPath is very useful here as well.
+<ul><li>For an initial search, I often just look for all cases of the element I’m interested in, just to get a sense of what the range of uses are. I usually like to cast a wide net at first, especially because there may be aspects of the encoding I haven’t anticipated yet. So, I’ll start by just typing, say <code>//docAuthorization</code> in the XPath search box in Oxygen (using the set of files I’m interested in as my working set—for more on configuring working sets and using the XPath search box see <a href="/mediawik/index.php/XPath_in_oXygen" title="XPath in oXygen">this page</a>).</li>
+<li>Then I might want to get more precise; so, for example, say I have a copyright statement on a title page, so I want to search only for &lt;docAuthorization&gt; when it shows up on a title page. I just tell the XPath search box to look for any &lt;docAuthorization&gt; elements that are anywhere in &lt;titleBlock&gt;s: <code>//titleBlock//docAuthorization</code></li>
+<li>Or, I might want to look at how another element is encoded when it’s in a &lt;docAuthorization&gt;; maybe I have the name of a printer inside of the copyright statement, and I want to see if it gets any encoding to indicate that role. So, I specify that I’m looking for &lt;docRole&gt; inside of &lt;docAuthorization&gt;: <code>//titleBlock//docAuthorization//docRole</code></li>
+<li>Of course, not getting results might just mean that a particular case hasn't come up before. So, if I didn't get results, I'd also want to search for <code>//titleBlock//docAuthorization//persName</code> to see if there actually have been any printers inside of &lt;docAuthorization&gt;s yet</li>
+<li>Sometimes, when you don't get any results, you will want to make sure you’re looking in the right element. For example, you might be working with a copyright statement that is formatted as a letter, with an &lt;opener&gt;, &lt;dateline&gt;, &lt;closer&gt;, etc. If you look for <code>//docAuthorization//closer</code> you won't get any results. But, if you try adding a &lt;closer&gt; inside of a &lt;docAuthorization&gt; you'll get a validity error warning, which is a clue that different encoding is needed here. So, you'd want to see if this has come up in the textbase before. This is where switching to a more general keyword search can help—go to the “Find/Replace in Files” box and search for "docAuthorization" to see if there are other cases of encoding document authorizations you haven’t anticipated. You can use the “Enable XML search options” box to restrict your search to element names, attribute values, and attribute names, so you’re only looking in the markup, not the contents of the texts. Scanning down the results will show you that we also use &lt;div&gt; with an @type of “docAuthorization” for cases exactly like this one.</li>
+<li>It’s worth noting that the search above wouldn’t actually be necessary, since all of this information is already in the internal documentation—and, in fact, if you have to do a search like this one because what you’re looking for isn’t in the documentation, that’s probably a case where the documentation should be improved.</li>
+<li>This kind of searching can also be useful if you know one of the elements that you’ll need to use, but want to see what else you might need to be thinking about. So, for example, you might have a play and want to look through a few cases of encoded drama. There are a lot of ways you might do this, but one of the very simplest ones is simply to look for the &lt;sp&gt; element (or any other element that is common in drama) across the textbase. This will give you a lot of results (and the search will take a while), but it’s a place to start. Or, in a more useful (and likely) case, you might look for <code>//floatingText</code> to see how those are encoded. You could even narrow your search down to look for letters by having: <code>//floatingText[@type="letter"]</code></li>
+<li>As that last example shows, it's often helpful to specify attributes and values as well as elements—so, if you're encoding an index, you can start by looking for: <code>//div[@type="index"]</code></li></ul></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20241110123657
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.016 seconds
+Preprocessor visited node count: 10/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 11/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key dsgwiki:pcache:idhash:431-0!canonical and timestamp 20241110123657 and revision id 3587
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://liblab.neu.edu/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;oldid=3587">https://liblab.neu.edu/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;oldid=3587</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/mediawik/index.php/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/mediawik/index.php/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/mediawik/index.php?title=Special:CreateAccount&amp;returnto=Finding+examples+in+the+WWP+textbase" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawik/index.php?title=Special:UserLogin&amp;returnto=Finding+examples+in+the+WWP+textbase" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/mediawik/index.php/Finding_examples_in_the_WWP_textbase" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="/mediawik/index.php?title=Talk:Finding_examples_in_the_WWP_textbase&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/mediawik/index.php/Finding_examples_in_the_WWP_textbase">Read</a></li><li id="ca-edit" class="collapsible"><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/mediawik/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search WikiBase" title="Search WikiBase [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/mediawik/index.php/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/mediawik/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/mediawik/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/mediawik/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/mediawik/index.php/Special:WhatLinksHere/Finding_examples_in_the_WWP_textbase" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/mediawik/index.php/Special:RecentChangesLinked/Finding_examples_in_the_WWP_textbase" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/mediawik/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;oldid=3587" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawik/index.php?title=Finding_examples_in_the_WWP_textbase&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 23 June 2019, at 14:29.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/mediawik/index.php/WikiBase:Privacy_policy" title="WikiBase:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/mediawik/index.php/WikiBase:About" title="WikiBase:About">About WikiBase</a></li>
+		<li id="footer-places-disclaimer"><a href="/mediawik/index.php/WikiBase:General_disclaimer" title="WikiBase:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/mediawik/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawik/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawik/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.014","walltime":"0.016","ppvisitednodes":{"value":10,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":11,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20241110123657","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":103});});</script></body></html>
